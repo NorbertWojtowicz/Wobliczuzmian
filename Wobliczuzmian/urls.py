@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Wobliczu.views import renderHome, renderInfo, renderKontakt
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', renderHome, name='home'),
+    path('kontakt', renderKontakt, name='kontakt'),
+    path('info', renderInfo, name='info'),
 ]
