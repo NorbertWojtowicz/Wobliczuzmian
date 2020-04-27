@@ -1,0 +1,91 @@
+/* Wartości wspólne */
+
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+html, body, header, div#menu, main, footer, #powered{
+	width: 100%;
+}
+
+header, footer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#menu, footer{
+	background: #161616;
+}
+
+/* Formatowanie stopki */
+
+.wrapper{
+	min-height: 100%;
+	margin-bottom: -30px;
+}
+
+/* Nagłówek */
+
+img#logo{
+	display: block;	
+	width: 300px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div#menu{
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu_button{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+	
+	border: none;
+	outline: none;
+	background: none;
+	color: #d0d0d0;
+	font-size: 20px;
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.menu_button:hover{
+	border-top: 2px #d0d0d0 solid;
+	border-bottom: 2px #d0d0d0 solid;
+}
+
+.menu_button:active{
+	border-top: none;
+	border-bottom: none;
+	border-left: 2px #d0d0d0 solid;
+	border-right: 2px #d0d0d0 solid;
+	margin: 0 18px 0 18px;
+}
+
+/* Stopka */
+
+#powered{
+	height: 12px;
+	padding: 9px 0 9px 0;
+	text-align: center;
+	margin: 0;
+	
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: 600;
+	color: #d0d0d0;
+}
