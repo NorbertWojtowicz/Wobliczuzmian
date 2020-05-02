@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -20,23 +22,7 @@
 		<link rel="stylesheet" href="../static/style_kontakt.css">
 	</head>
 	<body>
-		<div class="wrapper">
-			<header>
-				<img src="logo-miniatura.png" alt="logo" id="logo">
-				<div id="menu">
-					<input type="button" onclick="window.location='../'" value="Artykuły" class="menu_button"/>
-					<input type="button" onclick="window.location='info'" value="O nas" class="menu_button"/>
-					<input type="button" onclick="window.location='kontakt'" value="Kontakt" class="menu_button"/>
-				</div>
-			</header>
-			<main>
-				<div id="kontakt">
-					<a href="https://www.facebook.com/Wobliczu/"><img src="wobliczu.png" alt="fb" class="fb"></a>
-				</div>
-			</main>
-		</div>
-		<footer>
-			<p id="powered">powered by Bartłomiej Pietrzak</p>
-		</footer>
+
 	</body>
 </html>
+{% endblock %}

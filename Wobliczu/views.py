@@ -17,32 +17,35 @@ def renderInfo(request):
     return render(request, 'o_nas.html')
 
 def renderPostCreator(request):
-    ArticleImagesFormSet = modelformset_factory(ArticleImages, form=AddArticleImagesForm, extra=6)
-    if request.method == 'POST':
-        articleForm = AddArticleForm(request.POST, request.FILES)
-        articleImagesFormset = ArticleImagesFormSet(request.POST, request.FILES,
-        queryset=ArticleImages.objects.none())
-        print('chuj')
-        if articleForm.is_valid() and articleImagesFormset.is_valid():
-            print('przeszlo')
-            article_form = articleForm.save(commit=False)
-            articleForm.save()
-            for arForm in articleImagesFormset.cleaned_data:
-                if arForm:
-                    image = arForm['image']
-                    articlePhoto = ArticleImages(article=article_form, image=image)
-                    articlePhoto.save()
-            return HttpResponseRedirect('../')
+    if request.user.is_superuser:
+        ArticleImagesFormSet = modelformset_factory(ArticleImages, form=AddArticleImagesForm, extra=6)
+        if request.method == 'POST':
+            articleForm = AddArticleForm(request.POST, request.FILES)
+            articleImagesFormset = ArticleImagesFormSet(request.POST, request.FILES,
+            queryset=ArticleImages.objects.none())
+            print('chuj')
+            if articleForm.is_valid() and articleImagesFormset.is_valid():
+                print('przeszlo')
+                article_form = articleForm.save(commit=False)
+                articleForm.save()
+                for arForm in articleImagesFormset.cleaned_data:
+                    if arForm:
+                        image = arForm['image']
+                        articlePhoto = ArticleImages(article=article_form, image=image)
+                        articlePhoto.save()
+                return HttpResponseRedirect('../')
+            else:
+                print(articleForm.errors, articleImagesFormset.errors)
         else:
-            print(articleForm.errors, articleImagesFormset.errors)
+            articleForm = AddArticleForm()
+            articleImagesFormset = ArticleImagesFormSet(queryset=ArticleImages.objects.none())
+        context = {
+            'articleForm': articleForm,
+            'articleImagesFormSet': articleImagesFormset
+        }
+        return render(request, 'postCreator.html', context)
     else:
-        articleForm = AddArticleForm()
-        articleImagesFormset = ArticleImagesFormSet(queryset=ArticleImages.objects.none())
-    context = {
-        'articleForm': articleForm,
-        'articleImagesFormSet': articleImagesFormset
-    }
-    return render(request, 'postCreator.html', context)
+        return HttpResponseRedirect('accounts/login/')
 
 def renderBase(request):
     return render(request, 'base.html')

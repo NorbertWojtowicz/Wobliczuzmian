@@ -56,7 +56,10 @@
                 Galeria
             </div>
         <br>
-            {{ articleImagesFormSet }}
+            {{ articleImagesFormSet.management_form }}
+            {% for arIm in articleImagesFormSet %}
+                {{ arIm.image }}
+            {% endfor %}
         </div>
 
 
