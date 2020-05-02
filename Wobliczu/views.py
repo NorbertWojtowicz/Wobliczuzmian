@@ -3,6 +3,7 @@ from .forms import AddArticleForm, AddArticleImagesForm
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
 from .models import ArticleImages, Article
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 
@@ -21,14 +22,17 @@ def renderPostCreator(request):
         articleForm = AddArticleForm(request.POST, request.FILES)
         articleImagesFormset = ArticleImagesFormSet(request.POST, request.FILES,
         queryset=ArticleImages.objects.none())
+        print('chuj')
         if articleForm.is_valid() and articleImagesFormset.is_valid():
+            print('przeszlo')
             article_form = articleForm.save(commit=False)
             articleForm.save()
             for arForm in articleImagesFormset.cleaned_data:
-                image = arForm['image']
-                articlePhoto = ArticleImages(article=article_form, image=image)
-                articlePhoto.save()
-            return HttpResponseRedirect('')
+                if arForm:
+                    image = arForm['image']
+                    articlePhoto = ArticleImages(article=article_form, image=image)
+                    articlePhoto.save()
+            return HttpResponseRedirect('../')
         else:
             print(articleForm.errors, articleImagesFormset.errors)
     else:
