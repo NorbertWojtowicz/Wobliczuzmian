@@ -37,6 +37,23 @@
             </div>
             {{ articleForm.content }}
         </div>
+
+        <div class="field" style="margin-top: 20px; width: 485px; float: left;">
+            <div class="nameField">
+                Główne tagi
+            </div>
+            <br>
+            {{ articleForm.main_tags }}
+        </div>
+        <div class="field" style="margin-top: 20px; width: 500px; float: left; clear: none">
+            <div class="nameField">
+                Tagi tematyczne
+            </div>
+            <br>
+            {{ articleForm.secondary_tags }}
+        </div>
+        <div style="clear: both"></div>
+
         <div class="field" style="margin-top: 20px; width: 500px; clear: both; float: left;">
             <div class="nameField" style="margin-right: 0; margin-left: 0; width: 247px">
                 Miniaturka
@@ -51,6 +68,8 @@
         </div>
         <div style="clear: both"></div>
 
+        <br>
+        <br>
         <div class="field" style="margin-top: 20px">
             <div class="nameField" style="padding-left: 50px">
                 Galeria
@@ -66,7 +85,7 @@
 
         <br/>
         <div class="submit">
-            <button type="submit" value="Opublikuj">
+            <button class="submit_button" type="submit" value="Opublikuj">
                 Opublikuj
             </button>
         </div>

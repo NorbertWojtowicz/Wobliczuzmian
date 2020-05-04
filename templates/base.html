@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../static/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/fontello.css" type="text/css"/>
 </head>
 <body>
-				<img src="../media/logo-miniatura.png" alt="logo" id="logo" style="margin-left: auto; margin-right: auto;">
-				<div id="menu">
-					<input type="button" onclick="window.location=''" value="Artykuły" class="menu_button"/>
-					<input type="button" onclick="window.location='info'" value="O nas" class="menu_button"/>
-					<input type="button" onclick="window.location='kontakt'" value="Kontakt" class="menu_button"/>
+                <div class="banner">
+				    <img src="../media/logo-miniatura.png" onclick="window.location='../'" alt="logo" class="logo" style="margin-left: auto; margin-right: auto;">
+                </div>
+                <div class="menu">
+                    <button onclick="window.location='../'" value="Artykuły" class="menu_button"><p>Artykuły</p></button>
+                    <button onclick="window.location='info'" value="O_nas" class="menu_button"><p>O nas</p></button>
 				</div>
 {% block content %}
 {% endblock %}
-
+<footer class="footer">
+    <img src="../media/logo_footer.png" onclick="window.location='../'" alt="logo" class="logo_footer">
+    <div class="social_media_footer">
+        <i class="icon-facebook-squared" onclick="window.open('https://www.facebook.com/Wobliczu/', '_blank')"></i>
+        <i class="icon-youtube-play" onclick="window.open('https://www.youtube.com/channel/UC7gu-J8DsJKp5H0l_Ve3Wtg', '_blank')"></i>
+    </div>
+    <button class="footer_button" onclick="window.location='kontakt'" value="Kontakt">Kontakt</button>
+</footer>
 </body>
 </html>

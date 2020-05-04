@@ -8,7 +8,10 @@ from django.core.exceptions import ValidationError
 # Create your views here.
 
 def renderHome(request):
-    return render(request, 'main.html')
+    context = {
+        'article': Article.objects.all()
+    }
+    return render(request, 'main.html', context)
 
 def renderKontakt(request):
     return render(request, 'kontakt.html')
@@ -28,6 +31,7 @@ def renderPostCreator(request):
                 print('przeszlo')
                 article_form = articleForm.save(commit=False)
                 articleForm.save()
+                articleForm.save_m2m()
                 for arForm in articleImagesFormset.cleaned_data:
                     if arForm:
                         image = arForm['image']

@@ -23,6 +23,13 @@
 	</head>
 	<body>
 
+    {% for ar in article %}
+        {% for mTag in ar.main_tags.all %}
+            {% if mTag.main_tag == 'Europa' %}
+                JEBAC TOBIASZA PSA
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 
 
 	</body>

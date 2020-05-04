@@ -6,7 +6,7 @@ html, body
 body
 {
     font-family: 'Arial', serif;
-    background: #e7e7e7;
+    background: #fff;
     margin: 0;
 }
 .container
@@ -74,7 +74,7 @@ body
     display: flex;
     justify-content: center;
 }
-button
+.submit_button
 {
     margin-top: 60px;
     width: 200px;
@@ -94,6 +94,7 @@ button
 {
     margin-top: 3px;
     margin-bottom: 3px;
+    outline: none;
 }
 .field br
 {

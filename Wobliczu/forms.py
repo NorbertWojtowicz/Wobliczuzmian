@@ -1,10 +1,24 @@
 from django import forms
 from .models import ArticleImages, Article
 
+ARTICLE_MAIN_TAGS = (
+    ('PL', 'Polska'),
+    ('AM', 'Ameryka'),
+    ('SW', 'Świat'),
+    ('EU', 'Europa'),
+)
+ARTICLE_SECONDARY_TAGS = (
+    ('PLT', 'Polityka'),
+    ('EKO', 'Ekonomia'),
+    ('ZDR', 'Zdrowie'),
+    ('WOJ', 'Wojsko'),
+)
+
+
 class AddArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ('title', 'short_desc', 'header', 'content', 'miniature', 'main_image')
+        fields = ('title', 'short_desc', 'header', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags')
         widgets = {
             'title': forms.Textarea(attrs={'class': 'input'}),
             'short_desc': forms.Textarea(attrs={'class': 'input'}),
@@ -21,3 +35,4 @@ class AddArticleImagesForm(forms.ModelForm):
         widgets = {
             'image': forms.ClearableFileInput(attrs={'class': 'inputImage1'}),
         }
+
