@@ -1,0 +1,38 @@
+{% extends 'base_user.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/userPanelS.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/fontello.css" type="text/css" />
+</head>
+<body>
+<div id="boxesContainer">
+    <h2 style="margin-left: 270px; font-size: 50px; color: black; position: absolute;">Witaj {{ user.user }}</h2>
+    <div class="infoBox" style="background-color: #202020; margin-left: 75px; margin-top: 140px">
+        <i class="icon-doc-text-inv" style="font-size: 80px; position: absolute; margin-top: 20px; float: left; margin-left: 20px"></i>
+        <div class="infoNumber">{{ user.numberOfArticles }}</div>
+        <div class="infoBoxFooter" style="background-color: #0d0d0d"><div style="margin-left: 17px">Ilość artykułów</div></div>
+    </div>
+    <div class="infoBox" style="background-color: #0d0d0d; margin-left: 575px; margin-top: 140px">
+        <i class="icon-calendar" style="font-size: 80px; position: absolute; margin-top: 20px; float: left; margin-left: 10px"></i>
+        <div class="infoNumber" style="font-size: 35px; margin-right: 15px;margin-left: 35px; margin-top: 32px">{{ user.last_pub_date }}</div>
+        <div class="infoBoxFooter" style="background-color: #202020"><div style="margin-left: 17px">Data ostatniego artykułu</div></div>
+    </div>
+    <div class="clear"></div>
+    <div class="infoBox" style="background-color: #0d0d0d; margin-left: 75px; margin-top: 390px">
+        <i class="icon-eye" style="font-size: 80px; position: absolute; margin-top: 20px; float: left; margin-left: 20px"></i>
+        <div class="infoNumber">0</div>
+        <div class="infoBoxFooter" style="background-color: #202020"><div style="margin-left: 17px">Wyświetlenia artykułów</div></div>
+    </div>
+    <div class="infoBox" style="background-color: #202020; margin-left: 575px; margin-top: 390px">
+        <i class="icon-star" style="font-size: 80px; position: absolute; margin-top: 20px; float: left; margin-left: 20px"></i>
+        <div class="infoNumber">0</div>
+        <div class="infoBoxFooter" style="background-color: #0d0d0d"><div style="margin-left: 17px">Średnia ocena</div></div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,5 +1,9 @@
 /* Wartości wspólne */
 
+.icon-doc-text-inv, .icon-search{
+	font-size: 23px;
+}
+
 html,body{
 	margin: 0;
 	padding: 0;
@@ -56,6 +60,14 @@ header, footer{
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	cursor: pointer;
+}
+
 .menu_button{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -65,9 +77,9 @@ header, footer{
 	border: none;
 	outline: none;
 	background: none;
-	color: #fff;
-	font-size: 20px;
+	font-size: 22px;
 	height: 70px;
+	color: #fff;
 
 	padding: 0 1px 0 1px;
 	transition: color 300ms;
@@ -76,16 +88,16 @@ header, footer{
 }
 
 .menu_button:hover{
-	color: #ddd;
 	border-bottom: 2px solid #eee;
 	padding-top: 2px;
 	cursor: pointer;
+	color: #ddd;
 }
 
 .menu_button:active{
 	border-bottom: 2px solid #ddd;
-	color: #ddd;
 	cursor: pointer;
+	color: #ddd;
 }
 
 /* Stopka */
@@ -94,7 +106,7 @@ header, footer{
 	background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
 	margin-left: auto;
 	margin-right: auto;
-	width: 1000px;
+	width: 1250px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -103,7 +115,7 @@ header, footer{
 
 .logo_footer{
 	height: 50px;
-	margin: 20px 0 20px 20px;
+	padding: 20px;
 }
 
 .social_media_footer{
@@ -122,30 +134,27 @@ header, footer{
 	min-height: 50px;
 	min-width: 223.625px;
 	margin: 20px 20px 20px 0;
+	padding: 0;
 	border: none;
 	outline: none;
 	background: none;
 	color: #fff;
 	font-size: 30px;
 	transition: color 300ms;
+	cursor: pointer;
 }
 
 .footer_button:hover{
 	color: #ddd;
-	cursor: pointer;
 }
 
 .footer_button:active{
 	color: #ddd;
-	cursor: pointer;
 }
 
 .icon-facebook-squared, .icon-youtube-play{
 	transition: color 300ms;
-}
-
-.icon-facebook-squared:hover, .icon-youtube-play:hover{
-	cursor: pointer;
+	color: #fff;
 }
 
 .icon-facebook-squared:hover{

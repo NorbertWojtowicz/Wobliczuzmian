@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Wobliczu.views import renderHome, renderInfo, renderKontakt, renderPostCreator, renderBase
+from Wobliczu.views import renderHome, renderInfo, renderKontakt, renderPostCreator, renderBase, renderUserPanel, renderArticles
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -24,9 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
-    path('info', renderInfo, name='info'),
-    path('postCreator', renderPostCreator, name='postCreator'),
+    path('articles/search', renderInfo, name='search'),
+    path('articles', renderArticles, name='articles'),
+    path('journalist/postCreator', renderPostCreator, name='postCreator'),
     path('base', renderBase, name='base'),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('journalist/userPanel', renderUserPanel, name='user-panel')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

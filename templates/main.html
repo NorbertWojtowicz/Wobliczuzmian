@@ -2,7 +2,7 @@
 {% block content %}
 
 <!DOCTYPE HTML>
-<html>
+<html lang="pl">
 	<head>
 		<!-- Meta dane -->
 		<meta charset="utf-8"/>
@@ -19,17 +19,49 @@
 		<meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
 		
 		<title> W obliczu zmian</title>
-		<link rel="stylesheet" href="../static/style.css">
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../static/css/mainS.css" type="text/css">
 	</head>
 	<body>
-
-    {% for ar in article %}
+        <div class="box">
+            <a href="#">
+                <div class="latest" style="margin: 20px 0 0 20px;">
+                    <p>Putin się zesrał, a na kremlu śmierdzi gównem. [NO SCAM]</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px;">
+                    <p>R u ch a ni i e</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 0 20px 0 20px;">
+                    <p>Jebać</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px 0 20px 20px;">
+                    <p>Cipa</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px 0 20px 20px;">
+                    <p>Chuj</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px;">
+                    <p>Sperma</p>
+                </div>
+            </a>
+        </div>
+    <!--{% for ar in article %}
         {% for mTag in ar.main_tags.all %}
             {% if mTag.main_tag == 'Europa' %}
                 JEBAC TOBIASZA PSA
             {% endif %}
         {% endfor %}
-    {% endfor %}
+    {% endfor %}-->
 
 
 	</body>

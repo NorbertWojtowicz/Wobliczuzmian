@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import AddArticleForm, AddArticleImagesForm
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
-from .models import ArticleImages, Article
+from .models import ArticleImages, Article, ArticleUser
 from django.core.exceptions import ValidationError
 
 # Create your views here.
@@ -17,19 +17,32 @@ def renderKontakt(request):
     return render(request, 'kontakt.html')
 
 def renderInfo(request):
-    return render(request, 'o_nas.html')
+    return render(request, 'search.html')
+
+def renderArticles(request):
+    return render(request, 'articles.html')
 
 def renderPostCreator(request):
     if request.user.is_superuser:
         ArticleImagesFormSet = modelformset_factory(ArticleImages, form=AddArticleImagesForm, extra=6)
         if request.method == 'POST':
+            us = request.user
+            ruser_id = us.id
+            ruser = ArticleUser.objects.get(user_id=ruser_id)
             articleForm = AddArticleForm(request.POST, request.FILES)
             articleImagesFormset = ArticleImagesFormSet(request.POST, request.FILES,
             queryset=ArticleImages.objects.none())
-            print('chuj')
             if articleForm.is_valid() and articleImagesFormset.is_valid():
-                print('przeszlo')
                 article_form = articleForm.save(commit=False)
+                us = request.user
+                ruser_id = us.id
+                ruser = ArticleUser.objects.get(user_id=ruser_id)
+                ruser.numberOfArticles += 1
+                ruser.add_latest_pub_date()
+
+                ruser.save()
+                article_form.user = ruser
+                article_form.save()
                 articleForm.save()
                 articleForm.save_m2m()
                 for arForm in articleImagesFormset.cleaned_data:
@@ -47,9 +60,20 @@ def renderPostCreator(request):
             'articleForm': articleForm,
             'articleImagesFormSet': articleImagesFormset
         }
-        return render(request, 'postCreator.html', context)
+        return render(request, 'journalist/postCreator.html', context)
     else:
         return HttpResponseRedirect('accounts/login/')
 
 def renderBase(request):
     return render(request, 'base.html')
+
+def renderUserPanel(request):
+    user = request.user
+    ruser_id = user.id
+    arUser = ArticleUser.objects.get(user_id=ruser_id)
+
+    context = {
+        'user': arUser,
+        'Articles': Article.objects.all()
+    }
+    return render(request, 'journalist/userPanel.html', context)

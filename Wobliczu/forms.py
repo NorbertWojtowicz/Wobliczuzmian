@@ -18,7 +18,7 @@ ARTICLE_SECONDARY_TAGS = (
 class AddArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ('title', 'short_desc', 'header', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags')
+        fields = ('title', 'short_desc', 'header', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags', 'user')
         widgets = {
             'title': forms.Textarea(attrs={'class': 'input'}),
             'short_desc': forms.Textarea(attrs={'class': 'input'}),
