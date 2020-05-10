@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/loginS.css" type="text/css" />
+</head>
+<body>
+<form method="post" id="formL">
+    {% csrf_token %}
+    <div id="formFooter">
+        <h2 style="text-align: center">Logowanie</h2>
+    </div>
+    <div id="chuj">
+        {{ form.as_p }}
+    </div>
+    <button id="btnL" type="submit">Login</button>
+</form>
+</body>
+</html>
