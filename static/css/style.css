@@ -14,7 +14,7 @@ body
 	font-family: 'Arial', serif;
 }
 
-html, body, header, .menu, main, .banner{
+html, body, header, main, .banner, .menu, .footer{
 	width: 100%;
 }
 
@@ -87,8 +87,6 @@ a:hover{
 	height: 70px;
 	color: #fff;
 	margin: 0 20px 0 20px;
-
-	padding: 0 1px 0 1px;
 	transition:
 	color 300ms,
 	border-color 300ms;
@@ -110,13 +108,13 @@ a:hover{
 /* Stopka */
 
 .footer{
-	background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
+	//background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
+	background: #161616;
 	margin-left: auto;
 	margin-right: auto;
-	width: 1250px;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	clear: both;
 }
 
