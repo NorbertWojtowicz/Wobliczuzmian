@@ -5,36 +5,7 @@
     background: #161616;
 }
 
-.latest, .new_article{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    color: #fff;
-}
-
-.latest > p, .new_article > p{
-    text-align: justify;
-    margin: 0;
-    padding: 0 20px 20px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 -30px 20px 10px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 -30px 20px 10px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 -30px 20px 10px rgba(0, 0, 0, 0.3);
-    font-weight: 600;
-}
-
-.latest > p{
-    width: 760px;
-}
-
-.new_article > p{
-    width: 370px;
-}
-
 .latest{
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
-	box-sizing: border-box; /* Opera/IE 8+ */
     background-image: url('../../media/putin.jpg');
     background-size: cover;
     width: 800px;
@@ -44,10 +15,6 @@
 }
 
 .new_article{
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box; /* Firefox, other Gecko */
-	box-sizing: border-box; /* Opera/IE 8+ */
-
     width: 390px;
     height: 240px;
     background-image: url('../../media/putin.jpg');
@@ -55,4 +22,58 @@
     font-size: 22px;
     float: left;
     letter-spacing: 0.6px;
+}
+
+.latest > div, .new_article > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+    transition: background 300ms;
+}
+
+.latest > div{
+    width: 800px;
+    height: 500px;
+}
+.new_article > div{
+    width: 390px;
+    height: 240px;
+}
+
+.latest:hover > div, .new_article:hover > div{
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.latest p, .new_article p{
+    text-align: justify;
+    margin: 0;
+    padding: 0 20px 20px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    transition: color 300ms,
+    -webkit-box-shadow 300ms,
+    -moz-box-shadow 300ms,
+    box-shadow 300ms,
+    background 300ms;
+}
+
+.latest p{
+    width: 760px;
+    -webkit-box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.new_article p{
+    width: 350px;
+    -webkit-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.latest:hover p, .new_article:hover p{
+    -webkit-box-shadow: none;
+    background: none;
+    color: #ddd;
 }

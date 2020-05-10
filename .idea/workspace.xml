@@ -7,28 +7,20 @@
       <change beforePath="$PROJECT_DIR$/Wobliczu/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczu/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wobliczu/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczu/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wobliczu/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczu/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wobliczuzmian/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczuzmian/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wobliczuzmian/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczuzmian/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontello-codes.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontello-codes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontello-embedded.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontello-embedded.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontello-ie7-codes.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontello-ie7-codes.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontello-ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontello-ie7.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/fontello.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontello.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/demo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font/fontello.eot" beforeDir="false" afterPath="$PROJECT_DIR$/static/font/fontello.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font/fontello.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/font/fontello.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font/fontello.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/font/fontello.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font/fontello.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/font/fontello.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/font/fontello.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/font/fontello.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/postCreatorS.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/postCreatorS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/kontakt.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/kontakt.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/mainS.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mainS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/postCreatorS.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/postCreatorS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/userPanelS.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/userPanelS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/journalist/postCreator.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/journalist/postCreator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/journalist/userArticles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/journalist/userArticles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/journalist/userPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/journalist/userPanel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/o_nas.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/postCreator.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/journalist/postCreator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +57,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -168,7 +160,32 @@
       <workItem from="1588612793833" duration="75000" />
       <workItem from="1588612872529" duration="23738000" />
       <workItem from="1588695710509" duration="82000" />
-      <workItem from="1588695795894" duration="17685000" />
+      <workItem from="1588695795894" duration="18382000" />
+      <workItem from="1588724883133" duration="24000" />
+      <workItem from="1588741155715" duration="1756000" />
+      <workItem from="1588791990889" duration="36000" />
+      <workItem from="1588792030157" duration="8526000" />
+      <workItem from="1588840085575" duration="746000" />
+      <workItem from="1588890724697" duration="599000" />
+      <workItem from="1588901179488" duration="43000" />
+      <workItem from="1588901225852" duration="3519000" />
+      <workItem from="1588938359208" duration="4223000" />
+      <workItem from="1588961968200" duration="2300000" />
+      <workItem from="1588965873194" duration="16214000" />
+      <workItem from="1589031702234" duration="740000" />
+      <workItem from="1589046908584" duration="788000" />
+      <workItem from="1589065862823" duration="542000" />
+      <workItem from="1589066409268" duration="220000" />
+      <workItem from="1589066636923" duration="1907000" />
+      <workItem from="1589068549860" duration="228000" />
+      <workItem from="1589068786051" duration="11000" />
+      <workItem from="1589068799970" duration="231000" />
+      <workItem from="1589069087274" duration="4000" />
+      <workItem from="1589069094582" duration="246000" />
+      <workItem from="1589069344481" duration="631000" />
+      <workItem from="1589070659881" duration="59000" />
+      <workItem from="1589070738507" duration="640000" />
+      <workItem from="1589071429384" duration="1291000" />
     </task>
     <servers />
   </component>
@@ -184,30 +201,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="128" key="#Wobliczuzmian/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588024422745" />
-    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1588104525897">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1589071951302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="263" key="FileChooserDialogImpl/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588104525897" />
-    <state width="1877" height="292" key="GridCell.Tab.0.bottom" timestamp="1588712437527">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071951302" />
+    <state x="740" y="263" key="FileChooserDialogImpl" timestamp="1589071896277">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1637" height="282" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588639325507" />
-    <state width="1877" height="292" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588712437527" />
-    <state width="1877" height="292" key="GridCell.Tab.0.center" timestamp="1588712437527">
+    <state x="740" y="263" key="FileChooserDialogImpl/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071896277" />
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1589071427830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1637" height="282" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588639325507" />
-    <state width="1877" height="292" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588712437527" />
-    <state width="1877" height="292" key="GridCell.Tab.0.left" timestamp="1588712437527">
+    <state width="1637" height="292" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071427830" />
+    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1589071427830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1637" height="282" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588639325507" />
-    <state width="1877" height="292" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588712437527" />
-    <state width="1877" height="292" key="GridCell.Tab.0.right" timestamp="1588712437527">
+    <state width="1637" height="292" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
+    <state width="1877" height="288" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071427830" />
+    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1589071427830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1637" height="282" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588639325507" />
-    <state width="1877" height="292" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588712437527" />
+    <state width="1637" height="292" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
+    <state width="1877" height="288" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071427830" />
+    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1589071427830">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1637" height="292" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
+    <state width="1877" height="288" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589071427830" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588545754857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,15 +245,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.right/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588545754857" />
-    <state x="-1277" y="194" key="SettingsEditor" timestamp="1588359713219">
-      <screen x="-1680" y="36" width="1680" height="1010" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1589072728791">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1277" y="194" key="SettingsEditor/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588359713219" />
-    <state x="461" y="163" key="SettingsEditor/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588101633165" />
-    <state x="-1106" y="371" key="com.intellij.ide.util.TipDialog" timestamp="1588695714869">
-      <screen x="-1680" y="36" width="1680" height="1010" />
+    <state x="461" y="163" key="SettingsEditor/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589072728791" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589072747888">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1106" y="371" key="com.intellij.ide.util.TipDialog/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588695714869" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1588563891965" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589072747888" />
   </component>
 </project>

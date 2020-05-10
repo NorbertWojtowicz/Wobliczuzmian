@@ -18,7 +18,7 @@
     </div>
     <div class="infoBox" style="background-color: #0d0d0d; margin-left: 575px; margin-top: 140px">
         <i class="icon-calendar" style="font-size: 80px; position: absolute; margin-top: 20px; float: left; margin-left: 10px"></i>
-        <div class="infoNumber" style="font-size: 35px; margin-right: 15px;margin-left: 35px; margin-top: 32px">{{ user.last_pub_date }}</div>
+        <div class="infoNumber" style="font-size: 35px; margin-right: 15px;margin-left: 35px; margin-top: 32px; width: 290px">{{ user.last_pub_date|date }}<br>{{ user.last_pub_date|time }}</div>
         <div class="infoBoxFooter" style="background-color: #202020"><div style="margin-left: 17px">Data ostatniego artykułu</div></div>
     </div>
     <div class="clear"></div>

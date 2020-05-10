@@ -3,6 +3,7 @@ from .forms import AddArticleForm, AddArticleImagesForm
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
 from .models import ArticleImages, Article, ArticleUser
+from django.db import connection
 from django.core.exceptions import ValidationError
 
 # Create your views here.
@@ -20,7 +21,10 @@ def renderInfo(request):
     return render(request, 'search.html')
 
 def renderArticles(request):
-    return render(request, 'articles.html')
+    context = {
+        'articles': Article.objects.all()
+    }
+    return render(request, 'articles.html',context)
 
 def renderPostCreator(request):
     if request.user.is_superuser:
@@ -39,7 +43,6 @@ def renderPostCreator(request):
                 ruser = ArticleUser.objects.get(user_id=ruser_id)
                 ruser.numberOfArticles += 1
                 ruser.add_latest_pub_date()
-
                 ruser.save()
                 article_form.user = ruser
                 article_form.save()
@@ -77,3 +80,19 @@ def renderUserPanel(request):
         'Articles': Article.objects.all()
     }
     return render(request, 'journalist/userPanel.html', context)
+
+
+def renderUserArticles(request):
+    user_id = request.user.id
+
+    context = {
+        'articles': Article.objects.filter(user_id=user_id)
+    }
+    return render(request, 'journalist/userArticles.html', context)
+
+
+def renderSingleArticle(request, slug):
+    context = {
+        'object': Article.objects.get(slug=slug)
+    }
+    return render(request, 'articles/article.html', context)

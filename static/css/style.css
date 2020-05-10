@@ -51,6 +51,8 @@ header, footer{
 	justify-content: center;
 	align-items: center;
 	background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
+	//position: relative;
+	//z-index: -1;
 	box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048),
