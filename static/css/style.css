@@ -25,6 +25,11 @@ header, footer{
 	align-items: center;
 }
 
+.banner{
+	background: #161616;
+	padding: 20px 0 20px 0;
+}
+
 .logo:hover, .logo_footer:hover{
 	cursor: pointer;
 }
@@ -40,26 +45,25 @@ header, footer{
 
 .logo{
 	display: block;
-	margin: 20px auto 20px auto;
 	height: 100px;
 }
 
 .menu{
+	border-top: 2px solid #fff;
 	height: 70px;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
-	//position: relative;
-	//z-index: -1;
-	box-shadow:
+	////background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
+	background: #161616;
+	/*box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048),
     0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
+    0 100px 80px rgba(0, 0, 0, 0.12);*/
 }
 
 a{
@@ -82,22 +86,23 @@ a:hover{
 	font-size: 22px;
 	height: 70px;
 	color: #fff;
+	margin: 0 20px 0 20px;
 
 	padding: 0 1px 0 1px;
-	transition: color 300ms;
-	margin-left: 20px;
-	margin-right: 20px;
+	transition:
+	color 300ms,
+	border-color 300ms;
 }
 
 .menu_button:hover{
-	border-bottom: 2px solid #eee;
+	border-bottom: 2px solid #fff;
 	padding-top: 2px;
 	cursor: pointer;
 	color: #ddd;
 }
 
 .menu_button:active{
-	border-bottom: 2px solid #ddd;
+	border-color: #ddd;
 	cursor: pointer;
 	color: #ddd;
 }

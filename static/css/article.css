@@ -1,0 +1,52 @@
+.container{
+    width: 1250px;
+    margin: 0 auto 0 auto;
+    padding: 30px 0 30px 0;
+    font-family: 'Arial', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title, .author_date, .short_desc, .mainImg, .content, .titleLine{
+    width: 1000px;
+}
+
+.title, .short_desc, .content{
+    color: #161616;
+}
+
+.title{
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.author_date{
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.titleLine{
+    margin-bottom: 30px;
+}
+
+.short_desc{
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    word-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.mainImg{
+    margin-bottom: 30px;
+}
+
+.content{
+    text-align: left;
+    word-spacing: 2px;
+    font-size: 20px;
+    line-height: 30px;
+}

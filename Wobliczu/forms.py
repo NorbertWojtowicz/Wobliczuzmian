@@ -49,8 +49,8 @@ class AddArticleImagesForm(forms.ModelForm):
 class AddCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('username', 'content')
-        widgets ={
-            'username': forms.Textarea(attrs={'class': ''}),
-            'content': forms.Textarea(attrs={'class': ''}),
+        fields = ('username', 'content', 'article')
+        widgets = {
+            'username': forms.Textarea(attrs={'class': 'commentUsername'}),
+            'content': forms.Textarea(attrs={'class': 'commentContent'}),
         }
