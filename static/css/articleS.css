@@ -50,3 +50,96 @@
     font-size: 20px;
     line-height: 30px;
 }
+#commentContainer
+{
+    width: 1000px;
+    min-height: 40px;
+    //border: 2px solid darkgrey;
+    margin-left: auto;
+    margin-right: auto;
+}
+.commentBox
+{
+    width: 850px;
+    margin-top: 20px;
+    border: 3px solid #eaeaea;
+    margin-left: auto;
+    margin-right: auto;
+    background: #eeeeee;
+    height: 226px;
+    margin-bottom: 50px;
+}
+.commentUsername
+{
+    height: 30px;
+    margin-top: 20px;
+    min-width: 240px;
+    max-width: 240px;
+    margin-left: 25px;
+    float: left;
+    font-size: 24px;
+    border-radius: 4px;
+    overflow-wrap: break-word;
+    border: 2px solid #b2b2b2;
+    resize: none;
+    outline: none;
+    margin-bottom: 20px;
+}
+.commentUsername::-webkit-input-placeholder, .commentContent::-webkit-input-placeholder
+{
+    color: dimgrey;
+}
+.commentContent
+{
+    height: 80px;
+    min-width: 800px;
+    max-width: 800px;
+    border: 2px solid #b2b2b2;
+    border-radius: 4px;
+    margin-left: 25px;
+    font-size: 19px;
+    overflow-wrap: break-word;
+    resize: none;
+    outline: none;
+}
+.btnCom
+{
+    width:100px;
+    height: 40px;
+    background-color: #161616;
+    margin-left: 710px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 6px;
+    border-radius: 5px;
+    border: 4px solid black;
+}
+.comC
+{
+    font-size: 15px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+}
+.comUN
+{
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: 700;
+    float: left;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+.box
+{
+    margin-left: 100px;
+    width: 800px;
+}
+.pubdate
+{
+   float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: darkgrey;
+}

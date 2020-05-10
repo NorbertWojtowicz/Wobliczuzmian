@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
-from .models import ArticleImages, Article, ArticleUser
+from .models import ArticleImages, Article, ArticleUser, Comment
 from django.db import connection
 from django.core.exceptions import ValidationError
 
@@ -94,13 +94,23 @@ def renderUserArticles(request):
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
         commentForm = AddCommentForm(request.POST)
+        print('j')
         if commentForm.is_valid():
-            commentForm.article = Article.objects.get(slug=slug)
+            print('d')
+            comment = commentForm.save(commit=False)
+            comment.article = Article.objects.get(slug=slug)
+            articleCom = comment.article
             commentForm.save()
+            comment.save()
+            print('psa')
+            link = '/articles/' + slug
+            return HttpResponseRedirect(link)
     else:
+        articleCom = Article.objects.get(slug=slug)
         commentForm = AddCommentForm()
     context = {
         'object': Article.objects.get(slug=slug),
-        'commentForm': commentForm
+        'commentForm': commentForm,
+        'comments': Comment.objects.filter(article=Article.objects.get(slug=slug))
     }
     return render(request, 'articles/article.html', context)

@@ -23,37 +23,55 @@
     <div class="content">
         {{ object.content }}
     </div>
-    <div class="addImg">
     {% if object.image_section_two %}
+    <div class="addImg">
         <img src="{{ object.image_section_two.url }}" alt="zdjecie2">
-    {% endif %}
     </div>
-    <div class="addTxt">
+    {% endif %}
     {% if object.text_section_two %}
+    <div class="addTxt">
         {{ object.text_section_two }}
-    {% endif %}
     </div>
-    <div class="addImg">
+    {% endif %}
     {% if object.image_section_three %}
-        <img src="{{ object.image_section_three.url }}" alt="zdjecie2">
-    {% endif %}
-    </div>
-    <div class="addTxt">
-    {% if object.text_section_three %}
-        {{ object.text_section_three }}
-    {% endif %}
-    </div>
     <div class="addImg">
-    {% if object.image_section_four %}
-        <img src="{{ object.image_section_four.url }}" alt="zdjecie2">
-    {% endif %}
+        <img src="{{ object.image_section_three.url }}" alt="zdjecie2">
     </div>
+    {% endif %}
+    {% if object.text_section_three %}
     <div class="addTxt">
-    {% if object.text_section_four %}
-        {{ object.text_section_four }}
-    {% endif %}
+        {{ object.text_section_three }}
     </div>
+    {% endif %}
+    {% if object.image_section_four %}
+    <div class="addImg">
+        <img src="{{ object.image_section_four.url }}" alt="zdjecie2">
+    </div>
+    {% endif %}
+    {% if object.text_section_four %}
+    <div class="addTxt">
+        {{ object.text_section_four }}
+    </div>
+    {% endif %}
 </div>
 </body>
 </html>
+<div id="commentContainer">
+    <form method="post">
+        {% csrf_token %}
+    <div class="commentBox">
+        {{commentForm.username}}
+        {{ commentForm.content }}
+        <button type="submit" class="btnCom">Opublikuj</button>
+    </div>
+    </form>
+    {% for comment in comments %}
+        <div class="box">
+        <div class="comUN">{{ comment.username }}</div><div class="pubdate">{{ comment.pub_date }}</div>
+            <div style="clear: both"></div>
+        <div class="comC">{{ comment.content }}</div>
+        </div>
+        <div class="titleLine"></div>
+    {% endfor %}
+</div>
 {% endblock %}
