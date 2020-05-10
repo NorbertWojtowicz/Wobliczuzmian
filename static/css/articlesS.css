@@ -1,6 +1,4 @@
 .container{
-    //position: relative;
-    //z-index: 1;
     width: 1250px;
     margin: 0 auto 0 auto;
     display: flex;
@@ -32,64 +30,75 @@
     border-color 300ms;
 }
 
-.title, .header, .img{
+.img, .txt, .tag, .title, .short_desc, .txt_bottom, .date{
     float: left;
 }
 
-.title{
-    font-size: 30px;
-    font-weight: 600;
-    width: 1170px;
-    text-align: justify;
-    margin: 20px 20px 0 20px;
-}
-
 .img{
-    width: 360px;
-    height: 240px;
-    margin: 10px 0 20px 20px;
+    width: 550px;
+    height: 400px;
     background-size: cover;
-}
-
-.header{
-    width: 800px;
-    text-align: justify;
-    padding: 0;
-    margin: 10px 20px 20px 10px;
-    height: 240px;
+    margin: 20px 0 20px 20px;
 }
 
 .img > div{
     transition: background 300ms;
-    width: 360px;
-    height: 240px;
+    width: 550px;
+    height: 400px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.img > div > p{
-    height: 70px;
-    margin: 0;
-    padding: 0 10px 10px 10px;
-    width: 340px;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
-    transition: background 300ms,
-    -webkit-box-shadow 300ms,
-    -moz-box-shadow 300ms,
-    box-shadow 300ms;
 }
 
 .link:hover > .img > div{
     background: rgba(0, 0, 0, 0.3);
 }
 
-.link:hover > .img > div > p{
-    background: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+.txt, .tag, .title, .short_desc, .txt_bottom, .date{
+    width: 600px;
+}
+
+.txt, .title, .short_desc, .lineContainer{
+    margin-bottom: 10px;
+}
+
+.txt{
+    height: 330px;
+    margin: 20px;
+}
+
+.tag{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.short_desc{
+    word-spacing: 2px;
+    font-size: 22px;
+    text-align: left;
+    word-break: break-word;
+    white-space:normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 9;  /* Number of lines displayed before it truncate */
+}
+
+.txt_bottom{
+    height: 50px;
+    margin: 0 20px 20px 20px;
+}
+
+.txt_bottom > hr{
+    margin-bottom: 9px;
+}
+
+.date{
+    text-align: right;
+    font-size: 21px;
 }

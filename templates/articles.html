@@ -11,9 +11,16 @@
 <div class="container">
 {% for article in articles %}
         <a href="articles/{{ article.slug }}" class="link">
-            <div class="title">{{ article.title }}</div>
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
-            <div class="header">{{ article.short_desc }}</div>
+            <div class="txt">
+                <div class="tag">Brudas</div>
+                <div class="title">{{ article.title }}</div>
+                <div class="short_desc">{{ article.short_desc }}</div>
+            </div>
+            <div class="txt_bottom">
+                <hr>
+                <div class="date">02.04.2005, 21:37</div>
+            </div>
         </a>
 {% endfor %}
     </div>
