@@ -1,0 +1,26 @@
+{% extends 'base_user.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/userArticlesS.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/articlesS.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    {% for article in articles %}
+        <a href="#" class="link">
+            <div class="title">{{ article.title }}</div>
+            <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div><p></p></div></div>
+            <div class="header">{{ article.header }}</div>
+            {% if article.slug %}
+                <p>{{ article.title }}</p>
+            {% endif %}
+        </a>
+    {% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

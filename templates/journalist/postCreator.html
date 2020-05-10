@@ -1,0 +1,147 @@
+{% extends 'base_user.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/postCreatorS.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center; font-size: 40px; padding: 30px 0 0 0; margin: 0">Nowy Post</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field">
+            <div class="nameField">
+                Tytuł
+            </div>
+            {{ articleForm.title }}
+        </div>
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                Krótki opis
+            </div>
+            {{ articleForm.short_desc }}
+        </div>
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                Nagłówek
+            </div>
+            {{ articleForm.header }}
+        </div>
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                Treść
+            </div>
+            {{ articleForm.content }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 2
+            </div>
+            {{ articleForm.image_section_two }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 2
+            </div>
+            {{ articleForm.text_section_two }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 3
+            </div>
+            {{ articleForm.image_section_three }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 3
+            </div>
+            {{ articleForm.text_section_three }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 4
+            </div>
+            {{ articleForm.image_section_four }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 4
+            </div>
+            {{ articleForm.text_section_four }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="width: 485px; float: left;">
+            <div class="nameField" style="height: 90px; line-height: 90px">
+                Główne tagi
+            </div>
+            <br>
+            {{ articleForm.main_tags }}
+        </div>
+        <div class="field" style="width: 500px; float: left; clear: none">
+            <div class="nameField" style="height: 90px; line-height: 90px">
+                Tagi tematyczne
+            </div>
+            <br>
+            {{ articleForm.secondary_tags }}
+        </div>
+        <div style="clear: both"></div>
+
+        <div class="field" style="margin-top: 20px; width: 500px; clear: both; float: left;">
+            <div class="nameField" style="margin-right: 0; margin-left: 0; width: 247px">
+                Miniaturka
+            </div>
+            {{ articleForm.miniature }}
+        </div>
+        <div class="field" style="margin-top: 20px; width: 500px; float: left; clear: none">
+            <div class="nameField" style="margin-right: 0; margin-left: 0; width: 247px">
+                Główny obraz
+            </div>
+            {{ articleForm.main_image }}
+        </div>
+        <div style="clear: both"></div>
+
+        <br>
+        <br>
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField" style="padding-left: 50px">
+                Galeria
+            </div>
+        <br>
+            {{ articleImagesFormSet.management_form }}
+            {% for arIm in articleImagesFormSet %}
+                {{ arIm.image }}
+            {% endfor %}
+        </div>
+
+
+
+        <br/>
+        <div class="submit">
+            <button class="submit_button" type="submit" value="Opublikuj">
+                Opublikuj
+            </button>
+        </div>
+        <div style="margin-top: 20px; width: 1000px; clear: both; height: 40px;"></div>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

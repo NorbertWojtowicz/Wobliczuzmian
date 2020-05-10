@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/articleS.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        {{ object.title }}
+    </div>
+    <div class="author_date">
+        {{ object.user }} | {{ object.pub_date }}
+    </div>
+    <hr class="titleLine">
+    <div class="short_desc">
+        {{ object.short_desc }}
+    </div>
+    <img src="{{ object.main_image.url }}" alt="Główne zdjęcie" class="mainImg">
+    <div class="content">
+        {{ object.content }}
+    </div>
+    <div class="addImg">
+    {% if object.image_section_two %}
+        <img src="{{ object.image_section_two.url }}" alt="zdjecie2">
+    {% endif %}
+    </div>
+    <div class="addTxt">
+    {% if object.text_section_two %}
+        {{ object.text_section_two }}
+    {% endif %}
+    </div>
+    <div class="addImg">
+    {% if object.image_section_three %}
+        <img src="{{ object.image_section_three.url }}" alt="zdjecie2">
+    {% endif %}
+    </div>
+    <div class="addTxt">
+    {% if object.text_section_three %}
+        {{ object.text_section_three }}
+    {% endif %}
+    </div>
+    <div class="addImg">
+    {% if object.image_section_four %}
+        <img src="{{ object.image_section_four.url }}" alt="zdjecie2">
+    {% endif %}
+    </div>
+    <div class="addTxt">
+    {% if object.text_section_four %}
+        {{ object.text_section_four }}
+    {% endif %}
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
