@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import AddArticleForm, AddArticleImagesForm
+from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect
 from .models import ArticleImages, Article, ArticleUser
@@ -92,7 +92,15 @@ def renderUserArticles(request):
 
 
 def renderSingleArticle(request, slug):
+    if request.method == 'POST':
+        commentForm = AddCommentForm(request.POST)
+        if commentForm.is_valid():
+            commentForm.article = Article.objects.get(slug=slug)
+            commentForm.save()
+    else:
+        commentForm = AddCommentForm()
     context = {
-        'object': Article.objects.get(slug=slug)
+        'object': Article.objects.get(slug=slug),
+        'commentForm': commentForm
     }
     return render(request, 'articles/article.html', context)
