@@ -1,5 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+
 <!DOCTYPE HTML>
-<html>
+<html lang="pl">
 	<head>
 		<!-- Meta dane -->
 		<meta charset="utf-8"/>
@@ -16,24 +19,52 @@
 		<meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
 		
 		<title> W obliczu zmian</title>
-		<link rel="stylesheet" href="../static/style.css">
+		<link rel="stylesheet" href="../static/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../static/css/mainS.css" type="text/css">
 	</head>
 	<body>
-		<div class="wrapper">
-			<header>
-				<img src="logo-miniatura.png" alt="logo" id="logo">
-				<div id="menu">
-					<input type="button" onclick="window.location=''" value="Artykuły" class="menu_button"/>
-					<input type="button" onclick="window.location='info'" value="O nas" class="menu_button"/>
-					<input type="button" onclick="window.location='kontakt'" value="Kontakt" class="menu_button"/>
-				</div>
-			</header>
-			<main>
-				a
-			</main>
-		</div>
-		<footer>
-			<p id="powered">powered by Bartłomiej Pietrzak</p>
-		</footer>
+        <div class="box">
+            <a href="#">
+                <div class="latest" style="margin: 20px 0 0 20px;">
+                    <div><p>Putin się zesrał, a na kremlu śmierdzi gównem. [NO SCAM]</p></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px;">
+                    <div><p>R u ch a ni i e</p></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 0 20px 0 20px;">
+                    <div><p>Jebać</p></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px 0 20px 20px;">
+                    <div><p>Cipa</p></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px 0 20px 20px;">
+                    <div><p>Chuj</p></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="new_article" style="margin: 20px;">
+                    <div><p>Sperma</p></div>
+                </div>
+            </a>
+        </div>
+
+    <!--{% for ar in article %}
+        {% for mTag in ar.main_tags.all %}
+            {% if mTag.main_tag == 'Europa' %}
+                JEBAC TOBIASZA PSA
+            {% endif %}
+        {% endfor %}
+    {% endfor %}-->
+
+
 	</body>
 </html>
+{% endblock %}

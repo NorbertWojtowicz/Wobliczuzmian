@@ -85,7 +85,15 @@ body
     color: #333;
     font-weight: 600;
     font-size: 20px;
+    transition: background 300ms;
 }
+
+.submit_button:hover{
+    cursor: pointer;
+    background: #ddd;
+}
+
+
 .inputImage
 {
     margin-top: 60px;
@@ -102,4 +110,18 @@ body
     padding-top: 30px;
     display: block;
     font-size: 24%;
+}
+.separator
+{
+    width: 80%;
+    border-bottom: 1px solid darkgrey;
+    height: 1px;
+    padding-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.checkboxMltp
+{
+    z-index: 1;
+    position: relative;
 }

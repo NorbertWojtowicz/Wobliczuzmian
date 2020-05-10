@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/fontello.css" type="text/css"/>
 </head>
 <body>
-
+                <div class="banner">
+                <a href="../">
+                    <img src="../media/logo_footer.png" alt="logo" class="logo" style="margin-left: auto; margin-right: auto;">
+                    <!--<img src="../media/logo-miniatura.png" alt="logo" class="logo" style="margin-left: auto; margin-right: auto;">-->
+                </a>
+                </div>
+                <div class="menu">
+                    <a href="../../"><button value="strona_glowna" class="menu_button">
+                    <i class="icon-home" style="font-size: 27px;"></i>&nbsp;Strona główna</button></a>
+                    <a href="../../articles"><button value="artykuly" class="menu_button">
+                    <i class="icon-doc-text-inv"></i>&nbsp;Artykuły</button></a>
+                    <a href="../articles/search"><button value="szukaj" class="menu_button">
+                    <i class="icon-search"></i>&nbsp;Szukaj</button></a>
+				</div>
+{% block content %}
+{% endblock %}
+<footer class="footer">
+    <a href="../"><img src="../media/logo_footer.png" alt="logo" class="logo_footer"></a>
+    <div class="social_media_footer">
+        <a href="https://www.facebook.com/Wobliczu/" target="_blank"><i class="icon-facebook-squared"></i></a>
+        <a href="https://www.youtube.com/channel/UC7gu-J8DsJKp5H0l_Ve3Wtg"  target="_blank"><i class="icon-youtube-play""></i></a>
+    </div>
+    <a href="kontakt"><button class="footer_button" value="kontakt">Kontakt</button></a>
+</footer>
 </body>
 </html>

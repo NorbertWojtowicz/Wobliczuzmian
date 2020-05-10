@@ -14,13 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from Wobliczu.views import renderHome, renderInfo, renderKontakt
+from django.urls import path, include
+from Wobliczu.views import renderHome, renderInfo, renderKontakt, renderPostCreator, renderBase, renderUserPanel, \
+    renderArticles, renderUserArticles, renderSingleArticle
+from django.conf.urls.static import static
+from django.conf import settings
+from Wobliczu.models import Article
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
-    path('info', renderInfo, name='info'),
-]
+    path('articles/search', renderInfo, name='search'),
+    path('articles', renderArticles, name='articles'),
+    path('journalist/postCreator', renderPostCreator, name='postCreator'),
+    path('base', renderBase, name='base'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('journalist/userPanel', renderUserPanel, name='user-panel'),
+    path('journalist/userArticles', renderUserArticles, name='user-articles'),
+    path('articles/<slug:slug>', renderSingleArticle, name='single-article'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

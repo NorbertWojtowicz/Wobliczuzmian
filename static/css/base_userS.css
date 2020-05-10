@@ -1,0 +1,43 @@
+html{
+    font-family: 'Arial', serif;
+}
+.menu{
+    margin: 0 auto 0 auto;
+    width: 1000px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: linear-gradient(to bottom, #161616, rgba(50, 50, 50, 0.99), #161616);
+}
+
+.menu_button{
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box; /* Firefox, other Gecko */
+	box-sizing: border-box; /* Opera/IE 8+ */
+    display: block;
+
+    padding: 0 1px 0 1px;
+	transition: color 300ms;
+	margin-left: 20px;
+	margin-right: 20px;
+
+    background: none;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.menu_button:hover{
+	color: #ddd;
+	border-bottom: 2px solid #eee;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+.menu_button:active{
+	border-bottom: 2px solid #ddd;
+	color: #ddd;
+	cursor: pointer;
+}

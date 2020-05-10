@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../../static/postCreatorS.css" type="text/css" />
+    <link rel="stylesheet" href="../../static/css/postCreatorS.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -38,15 +38,65 @@
             {{ articleForm.content }}
         </div>
 
-        <div class="field" style="margin-top: 20px; width: 485px; float: left;">
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
             <div class="nameField">
+                (opcjonalne) sekcja 2
+            </div>
+            {{ articleForm.image_section_two }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 2
+            </div>
+            {{ articleForm.text_section_two }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 3
+            </div>
+            {{ articleForm.image_section_three }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 3
+            </div>
+            {{ articleForm.text_section_three }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="margin-top: -20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 4
+            </div>
+            {{ articleForm.image_section_four }}
+        </div>
+
+        <div class="field" style="margin-top: 20px">
+            <div class="nameField">
+                (opcjonalne) sekcja 4
+            </div>
+            {{ articleForm.text_section_four }}
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="field" style="width: 485px; float: left;">
+            <div class="nameField" style="height: 90px; line-height: 90px">
                 Główne tagi
             </div>
             <br>
             {{ articleForm.main_tags }}
         </div>
-        <div class="field" style="margin-top: 20px; width: 500px; float: left; clear: none">
-            <div class="nameField">
+        <div class="field" style="width: 500px; float: left; clear: none">
+            <div class="nameField" style="height: 90px; line-height: 90px">
                 Tagi tematyczne
             </div>
             <br>
