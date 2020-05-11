@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d519be0b-de29-4b8a-8f53-577e014d5092" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wobliczu/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczu/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wobliczu/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wobliczu/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/articleS.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/articleS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +56,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -66,7 +78,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="Wobliczuzmian.settings" />
       </envs>
-      <option name="SDK_HOME" value="J:\python381\python.exe" />
+      <option name="SDK_HOME" value="F:\Wobliczuzmian\venv1\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -92,18 +104,6 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -181,11 +181,53 @@
       <workItem from="1589075422411" duration="249000" />
       <workItem from="1589080008631" duration="170000" />
       <workItem from="1589136312187" duration="3052000" />
+      <workItem from="1589145596445" duration="9206000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:F:/Wobliczuzmian/templates" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="179" key="#Notifications" timestamp="1588104576128">
@@ -197,11 +239,11 @@
     </state>
     <state x="679" y="128" key="#Wobliczuzmian/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589079917428" />
     <state x="679" y="128" key="#Wobliczuzmian/0.0.1920.1040@0.0.1920.1040" timestamp="1589076933595" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589136936631">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589146130108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589136936631" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589076946875" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589146130108" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1589071951302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -210,30 +252,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="492" y="325" key="FileChooserDialogImpl/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589077611304" />
-    <state width="1877" height="205" key="GridCell.Tab.0.bottom" timestamp="1589142443854">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1589154702050">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="292" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
     <state width="1877" height="205" key="GridCell.Tab.0.bottom/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589142443854" />
-    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589078714817" />
-    <state width="1877" height="205" key="GridCell.Tab.0.center" timestamp="1589142443854">
+    <state width="938" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589154702050" />
+    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1589154702050">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="292" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
     <state width="1877" height="205" key="GridCell.Tab.0.center/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589142443854" />
-    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589078714817" />
-    <state width="1877" height="205" key="GridCell.Tab.0.left" timestamp="1589142443853">
+    <state width="938" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589154702050" />
+    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1589154702050">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="292" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
     <state width="1877" height="205" key="GridCell.Tab.0.left/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589142443853" />
-    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589078714817" />
-    <state width="1877" height="205" key="GridCell.Tab.0.right" timestamp="1589142443854">
+    <state width="938" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589154702050" />
+    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1589154702050">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1637" height="292" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588984291705" />
     <state width="1877" height="205" key="GridCell.Tab.0.right/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589142443854" />
-    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589078714817" />
+    <state width="938" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589154702050" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588545754857">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -254,12 +296,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="256" key="IDE.errors.dialog/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589076705672" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1589136891656">
+    <state x="461" y="163" key="SettingsEditor" timestamp="1589154697038">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1277" y="194" key="SettingsEditor/-1680.36.1680.1010/0.0.1920.1040@-1680.36.1680.1010" timestamp="1588359713219" />
     <state x="461" y="163" key="SettingsEditor/-1680.36.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1589136891656" />
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589075671677" />
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589154697038" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1589136318467">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
