@@ -46,7 +46,7 @@ class Article(models.Model):
     user = models.ForeignKey(ArticleUser, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=100)
     views = models.IntegerField(default=0)
-    short_desc = models.CharField(max_length=256)
+    short_desc = models.CharField(max_length=650)
     content = models.TextField()
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
@@ -60,6 +60,7 @@ class Article(models.Model):
     image_section_three = models.ImageField(upload_to='media/sect3/', null=True, blank=True)
     text_section_four = models.CharField(max_length=10000, null=True, blank=True)
     image_section_four = models.ImageField(upload_to='media/sect4/', null=True, blank=True)
+    shown_tag = models.ForeignKey(SecondaryTags, on_delete=models.CASCADE, related_name='%(class)s_requests_created', null=True, blank=True)
 
     def delete(self, **kwargs):
         print('Usuwam artykuł id: ', self.ID, ' o tytule: ', self.title)
@@ -97,7 +98,7 @@ class ArticleImages(models.Model):
 
 
 class Comment(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, blank=True)
     username = models.CharField(max_length=35, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
