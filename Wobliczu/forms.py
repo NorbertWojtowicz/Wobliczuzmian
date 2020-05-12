@@ -1,6 +1,7 @@
 from django import forms
 from .models import ArticleImages, Article, Comment
 
+
 ARTICLE_MAIN_TAGS = (
     ('PL', 'Polska'),
     ('AM', 'Ameryka'),
@@ -47,6 +48,8 @@ class AddArticleImagesForm(forms.ModelForm):
 
 
 class AddCommentForm(forms.ModelForm):
+
+
     class Meta:
         model = Comment
         fields = ('username', 'content', 'article')

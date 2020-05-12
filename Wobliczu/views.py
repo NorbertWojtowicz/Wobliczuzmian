@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect
 from .models import ArticleImages, Article, ArticleUser, Comment
 from django.db import connection
 from django.core.exceptions import ValidationError
+from django.conf import settings
+import requests
+import json
 
 # Create your views here.
 
@@ -100,10 +103,21 @@ def renderSingleArticle(request, slug):
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
             articleCom = comment.article
-            commentForm.save()
-            comment.save()
             print('psa')
             link = '/articles/' + slug
+            clientKey = request.POST['g-recaptcha-response']
+            secretKey = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'
+            captchaData = {
+                'secret': secretKey,
+                'response': clientKey
+            }
+            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=captchaData)
+            response = json.loads(r.text)
+            verify = response['success']
+            print('Your success is: ', verify)
+            if verify:
+                commentForm.save()
+                comment.save()
             return HttpResponseRedirect(link)
     else:
         articleCom = Article.objects.get(slug=slug)
@@ -111,6 +125,7 @@ def renderSingleArticle(request, slug):
     context = {
         'object': Article.objects.get(slug=slug),
         'commentForm': commentForm,
-        'comments': Comment.objects.filter(article=Article.objects.get(slug=slug))
+        'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
+        'site_key': settings.RECAPTCHA_PUBLIC_KEY
     }
     return render(request, 'articles/article.html', context)
