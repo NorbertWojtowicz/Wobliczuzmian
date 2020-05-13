@@ -1,22 +1,37 @@
-/* Główna część strony */
-
-main{
-		padding: 30px 0 30px 0;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-}
-
-#kontakt{
-	width: 70%;
-	font-size: 20px;
+.infoBox{
+	margin: 30px auto 30px auto;
+	width: calc(100% - 60px);
 	color: #161616;
-	text-align: center;
+	font-size: 20px;
 }
 
-.fb{
-	width: 50%;
-	border: 4px #161616 solid;
-	border-radius: 10px;
+h1{
+	margin: 0;
+	padding: 0;
+}
+
+hr{
+	margin-top: 20px;
+	border-top: 1px solid #161616;
+}
+
+a{
+	text-decoration: none;
+	color: #161616;
+}
+
+.info{
+	margin: 20px 0 0 0;
+}
+
+.infoBox > a:nth-of-type(1):hover{
+	color: #3578E5;
+}
+
+.infoBox > a:nth-of-type(2):hover{
+	color: #c4302b;
+}
+
+h2, h3{
+	margin: 20px 0 0 0;
 }
