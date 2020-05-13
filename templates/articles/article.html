@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/articleS.css">
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 <div class="container">
@@ -54,14 +55,14 @@
     </div>
     {% endif %}
 </div>
-</body>
-</html>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div id="commentContainer">
     <form method="post">
         {% csrf_token %}
     <div class="commentBox">
         {{commentForm.username}}
         {{ commentForm.content }}
+        <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
         <button type="submit" class="btnCom">Opublikuj</button>
     </div>
     </form>
@@ -74,4 +75,6 @@
         <div class="titleLine"></div>
     {% endfor %}
 </div>
+    </body>
+</html>
 {% endblock %}

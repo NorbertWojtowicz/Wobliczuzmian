@@ -68,7 +68,7 @@
     margin-left: auto;
     margin-right: auto;
     background: #eeeeee;
-    height: 226px;
+    height: 266px;
     margin-bottom: 50px;
 }
 .commentUsername
@@ -109,13 +109,14 @@
     width:100px;
     height: 40px;
     background-color: #161616;
-    margin-left: 710px;
+    margin-left: 18px;
     color: white;
     text-align: center;
     font-weight: 600;
-    margin-top: 6px;
+    margin-top: 26px;
     border-radius: 5px;
     border: 4px solid black;
+    float: left;
 }
 .comC
 {
@@ -144,4 +145,10 @@
     margin-top: 10px;
     font-size: 11px;
     color: darkgrey;
+}
+.g-recaptcha
+{
+    margin-left: 400px;
+    margin-top: 10px;
+    float: left;
 }
