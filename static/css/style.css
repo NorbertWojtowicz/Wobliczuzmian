@@ -7,15 +7,17 @@
 html,body{
 	margin: 0;
 	padding: 0;
-	height: 100vh;
+	min-height: 100vh;
 }
+
 body
 {
 	font-family: 'Arial', serif;
 }
 
-html, body, .banner, .menu, .footer{
-	width: 100vw;
+
+html, body, .banner, .menu, .wrapper, .footer{
+	width: 100%;
 }
 
 footer{
@@ -115,7 +117,6 @@ a:hover{
 	flex-direction: row;
 	justify-content: space-evenly;
 	clear: both;
-	position: fixed;
 }
 
 .logo_footer{
@@ -163,7 +164,7 @@ a:hover{
 }
 
 .icon-facebook-squared:hover{
-	color: #4267B2;
+	color: #3578E5;
 }
 
 .icon-youtube-play:hover{
