@@ -13,7 +13,8 @@ import json
 
 def renderHome(request):
     context = {
-        'article': Article.objects.all()
+        'articles': Article.objects.all().order_by('-pub_date'),
+        'latest_article': Article.objects.last()
     }
     return render(request, 'main.html', context)
 
@@ -25,7 +26,7 @@ def renderInfo(request):
 
 def renderArticles(request):
     context = {
-        'articles': Article.objects.all()
+        'articles': Article.objects.all().order_by('-pub_date')
     }
     return render(request, 'articles.html',context)
 
@@ -89,7 +90,7 @@ def renderUserArticles(request):
     user_id = request.user.id
 
     context = {
-        'articles': Article.objects.filter(user_id=user_id)
+        'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
     }
     return render(request, 'journalist/userArticles.html', context)
 

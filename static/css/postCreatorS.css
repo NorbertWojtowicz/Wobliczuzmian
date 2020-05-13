@@ -125,3 +125,7 @@ body
     z-index: 1;
     position: relative;
 }
+.shownTagCL
+{
+    margin-top: -10px;
+}
