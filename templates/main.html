@@ -24,37 +24,18 @@
 	</head>
 	<body>
         <div class="box">
-            <a href="#">
-                <div class="latest" style="margin: 20px 0 0 20px;">
-                    <div><p>Putin się zesrał, a na kremlu śmierdzi gównem. [NO SCAM]</p></div>
+            <a href="articles/{{ latest_article.slug }}">
+                <div class="latest" style="background-image: url({{ latest_article.main_image.url }})">
+                    <div><p>{{ latest_article.title }}</p></div>
                 </div>
             </a>
-            <a href="#">
-                <div class="new_article" style="margin: 20px;">
-                    <div><p>R u ch a ni i e</p></div>
+            {% for article in articles|slice:"5" %}
+            <a href="articles/{{ article.slug }}">
+                <div class="new_article" style="background-image: url({{ article.main_image.url }})">
+                    <div><p>{{ article.title }}</p></div>
                 </div>
             </a>
-            <a href="#">
-                <div class="new_article" style="margin: 0 20px 0 20px;">
-                    <div><p>Jebać</p></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="new_article" style="margin: 20px 0 20px 20px;">
-                    <div><p>Cipa</p></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="new_article" style="margin: 20px 0 20px 20px;">
-                    <div><p>Chuj</p></div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="new_article" style="margin: 20px;">
-                    <div><p>Sperma</p></div>
-                </div>
-            </a>
-        </div>
+            {% endfor %}
 
     <!--{% for ar in article %}
         {% for mTag in ar.main_tags.all %}
@@ -63,7 +44,6 @@
             {% endif %}
         {% endfor %}
     {% endfor %}-->
-
 
 	</body>
 </html>

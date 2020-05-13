@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Wobliczu',
+    'snowpenguin.django.recaptcha2',
 
 ]
 
@@ -125,5 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL='postCreator'
+
+RECAPTCHA_PUBLIC_KEY = '6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2'
+RECAPTCHA_PRIVATE_KEY = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'
 
 
