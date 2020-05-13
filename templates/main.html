@@ -25,13 +25,13 @@
 	<body>
         <div class="box">
             <a href="articles/{{ latest_article.slug }}">
-                <div class="latest" style="margin: 20px 0 0 20px; background-image: url({{ latest_article.main_image.url }})">
+                <div class="latest" style="background-image: url({{ latest_article.main_image.url }})">
                     <div><p>{{ latest_article.title }}</p></div>
                 </div>
             </a>
             {% for article in articles|slice:"5" %}
             <a href="articles/{{ article.slug }}">
-                <div class="new_article" style="margin: 20px; background-image: url({{ article.main_image.url }})">
+                <div class="new_article" style="background-image: url({{ article.main_image.url }})">
                     <div><p>{{ article.title }}</p></div>
                 </div>
             </a>
