@@ -78,6 +78,11 @@ def renderUserPanel(request):
     user = request.user
     ruser_id = user.id
     arUser = ArticleUser.objects.get(user_id=ruser_id)
+    articles = Article.objects.filter(user_id=ruser_id)
+    total_views = 0
+    for article in articles:
+        total_views += article.views
+    print(len(articles))
 
     context = {
         'user': arUser,
@@ -122,6 +127,8 @@ def renderSingleArticle(request, slug):
             return HttpResponseRedirect(link)
     else:
         articleCom = Article.objects.get(slug=slug)
+        articleCom.views += 1
+        articleCom.save()
         commentForm = AddCommentForm()
     context = {
         'object': Article.objects.get(slug=slug),
