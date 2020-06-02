@@ -1,3 +1,115 @@
+@media only screen and (max-width: 1271px)
+{
+    .link.link
+    {
+        width: 1000px;
+        padding: 8px 0 8px 0;
+    }
+    .container.container
+    {
+        width: 1040px;
+        padding: 8px 0 8px 0;
+    }
+    .img.img
+    {
+        width: 455px;
+        height: 331px;
+        margin: 16px 0 16px 16px;
+    }
+    .img.img > div
+    {
+        width: 455px;
+        height: 331px;
+    }
+    .txt.txt, .tag.tag, .title.title, .short_desc.short_desc, .txt_bottom.txt_bottom, .date.date
+    {
+        width: 496px;
+    }
+    .txt.txt
+    {
+        margin: 16px;
+        height: 273px;
+    }
+    .txt.txt, .title.title, .short_desc.short_desc, .lineContainer.lineContainer
+    {
+        margin-bottom: 8px;
+    }
+    .txt_bottom.txt_bottom
+    {
+        height: 41px;
+        margin: 0 16px 16px 16px;
+    }
+
+    .txt_bottom.txt_bottom > hr{
+        margin-bottom: 7px;
+    }
+    .title.title
+    {
+        margin-bottom: 25px;
+    }
+    .tag.tag
+    {
+        margin-bottom: 16px;
+    }
+
+}
+@media only screen and (max-width: 1057px)
+{
+    .link.link
+    {
+        width: 850px;
+        padding: 7px 0 7px 0;
+    }
+    .container.container
+    {
+        width: 889px;
+        padding: 7px 0 7px 0;
+    }
+    .img.img
+    {
+        width: 389px;
+        height: 283px;
+        margin: 12px 0 12px 12px;
+    }
+    .img.img > div
+    {
+        width: 389px;
+        height: 283px;
+    }
+    .txt.txt, .tag.tag, .title.title, .short_desc.short_desc, .txt_bottom.txt_bottom, .date.date
+    {
+        width: 401px;
+    }
+    .txt.txt
+    {
+        margin: 14px;
+        height: 232px;
+    }
+    .txt.txt, .title.title, .short_desc.short_desc, .lineContainer.lineContainer
+    {
+        margin-bottom: 7px;
+    }
+    .txt_bottom.txt_bottom
+    {
+        height: 35px;
+        margin: 0 14px 14px 14px;
+    }
+
+    .txt_bottom.txt_bottom > hr{
+        margin-bottom: 1px;
+    }
+    .title.title
+    {
+        margin-bottom: 17px;
+    }
+    .tag.tag
+    {
+        margin-bottom: 13px;
+    }
+    .date.date{
+        margin-top: 3px;
+    }
+}
 .container{
     width: 1250px;
     margin: 0 auto 0 auto;
@@ -16,7 +128,15 @@
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
 }
-
+h2
+{
+    font-size: 25px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    font-family: 'Arial', serif;
+    font-weight: 900;
+}
 .link{
     display: block;
     width: 1210px;

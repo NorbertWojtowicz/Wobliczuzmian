@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm
 from django.forms import modelformset_factory
-from django.http import HttpResponseRedirect
-from .models import ArticleImages, Article, ArticleUser, Comment
+from django.http import HttpResponseRedirect, HttpResponse
+from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags
 from django.db import connection
 from django.core.exceptions import ValidationError
 from django.conf import settings
+from django.db.models import Q
 import requests
 import json
+from django.db.models import Count
+from functools import reduce
 
 # Create your views here.
 
@@ -21,8 +24,6 @@ def renderHome(request):
 def renderKontakt(request):
     return render(request, 'kontakt.html')
 
-def renderInfo(request):
-    return render(request, 'search.html')
 
 def renderArticles(request):
     context = {
@@ -137,3 +138,57 @@ def renderSingleArticle(request, slug):
         'site_key': settings.RECAPTCHA_PUBLIC_KEY
     }
     return render(request, 'articles/article.html', context)
+
+def renderSearch(request):
+    if request.method == 'POST':
+        return renderSearchResult(request)
+    context = {
+        'mainTags': MainTags.objects.all(),
+        'secondaryTags': SecondaryTags.objects.all(),
+    }
+    return render(request, "search.html", context)
+
+def renderSearchResult(request):
+    geoTags = []
+    categoryTags = []
+    articles = []
+    queries =[]
+    catTagsId = []
+    titles = []
+    articlesSecondary = []
+    articlesSecondaryWithTab = []
+    jakas = []
+    filter = 'main_tags__contains'
+    for mTag in MainTags.objects.all():
+        if request.POST.get(mTag.main_tag) is not None:
+            geoTags.append(request.POST.get(mTag.main_tag))
+            #print(tab)
+    for sTag in SecondaryTags.objects.all():
+        if request.POST.get(sTag.secondary_tag) is not None:
+            categoryTags.append(request.POST.get(sTag.secondary_tag))
+            #print(tabSecond)
+    geoTagId = MainTags.objects.get(main_tag=geoTags[0])
+    print(geoTagId.id)
+    query = Q(main_tags=geoTagId.id)
+    for categoryTag in categoryTags:
+        catTagsId.append(SecondaryTags.objects.get(secondary_tag=categoryTag))
+    #articles = Article.objects.filter(queries[0] & queries[1])
+    for id in catTagsId:
+        jakas.append(id.id)
+    tytul = 'jd'
+    print(catTagsId)
+    number_of_tags = len(catTagsId)
+    objects_ext = Article.objects.all()
+    for i in catTagsId:
+        objects_ext = objects_ext.filter(secondary_tags=i)
+    for obj in objects_ext:
+        titles = obj.title
+    rest_of_articles = Article.objects.filter(reduce(lambda x, y : x | y,(Q(secondary_tags=idd) for idd in catTagsId))).distinct()
+    #rest_of_articles.exclude(secondary_tags__secondary_tags__in=objects_ext)
+    print(rest_of_articles)
+    context = {
+        'obj': objects_ext,
+        'rest': rest_of_articles
+    }
+
+    return render(request, 'searchResult.html', context)
