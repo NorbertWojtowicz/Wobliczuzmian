@@ -1,5 +1,5 @@
 from django import forms
-from .models import ArticleImages, Article, Comment
+from .models import ArticleImages, Article, Comment, SecondaryTags, MainTags
 
 
 ARTICLE_MAIN_TAGS = (
@@ -21,7 +21,7 @@ class AddArticleForm(forms.ModelForm):
         model = Article
         fields = ('title', 'short_desc', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags',
                   'user', 'image_section_two', 'text_section_two', 'image_section_three', 'text_section_three',
-                  'image_section_four', 'text_section_four', 'slug', 'shown_tag')
+                  'image_section_four', 'text_section_four', 'slug')
         widgets = {
             'title': forms.Textarea(attrs={'class': 'input'}),
             'short_desc': forms.Textarea(attrs={'class': 'input'}),
@@ -36,7 +36,6 @@ class AddArticleForm(forms.ModelForm):
             'text_section_four': forms.Textarea(attrs={'class': 'input'}),
             'main_tags': forms.CheckboxSelectMultiple(attrs={'class': 'checkboxMltp'}),
             'secondary_tags': forms.CheckboxSelectMultiple(attrs={'class': 'checkboxMltp'}),
-            'shown_tag': forms.CheckboxSelectMultiple(attrs={'class': 'shownTagCL'}),
         }
 
 class AddArticleImagesForm(forms.ModelForm):
@@ -58,3 +57,7 @@ class AddCommentForm(forms.ModelForm):
             'username': forms.Textarea(attrs={'class': 'commentUsername', 'placeholder': 'Pseudonim'}),
             'content': forms.Textarea(attrs={'class': 'commentContent', 'placeholder': 'Komentarz'}),
         }
+
+class SearchForm(forms.ModelForm):
+    class Meta:
+        pass

@@ -6,9 +6,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../static/css/searchS.css" type="text/css"/>
 </head>
 <body>
-
+<form method="post">
+{% csrf_token %}
+<div class="container">
+<ul class="MTags">
+<div id="mainTagContainer">
+    <h2>Obszar geograficzny</h2>
+    {%  for mTag in mainTags %}
+        <li><input type="checkbox" id="{{ mTag.main_tag }}" value="{{ mTag.main_tag }}" name="{{ mTag.main_tag }}">
+        <label for="{{ mTag.main_tag }}">{{ mTag.main_tag }}</label></li>
+    {% endfor %}
+</div>
+<div id="break"></div>
+<div id="secondaryTagContainer">
+    <h2>Kategorie</h2>
+    {%  for sTag in secondaryTags %}
+        <li><input type="checkbox" id="{{ sTag.secondary_tag }}" value="{{ sTag.secondary_tag }}" name="{{ sTag.secondary_tag }}">
+        <label for="{{ sTag.secondary_tag }}">{{ sTag.secondary_tag }}</label></li>
+    {% endfor %}
+</div>
+</ul>
+<button type="submit" id="btnTags">Szukaj</button>
+</div>
+</form>
 </body>
 </html>
 

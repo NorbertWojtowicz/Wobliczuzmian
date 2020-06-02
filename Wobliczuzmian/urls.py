@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Wobliczu.views import renderHome, renderInfo, renderKontakt, renderPostCreator, renderBase, renderUserPanel, \
-    renderArticles, renderUserArticles, renderSingleArticle
+from django.conf.urls import url
+from Wobliczu.views import renderHome, renderSearch, renderKontakt, renderPostCreator, renderBase, renderUserPanel, \
+    renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult
 from django.conf.urls.static import static
 from django.conf import settings
 from Wobliczu.models import Article
@@ -26,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
-    path('articles/search', renderInfo, name='search'),
+    path('articles/search', renderSearch, name='search'),
     path('articles', renderArticles, name='articles'),
     path('journalist/postCreator', renderPostCreator, name='postCreator'),
     path('base', renderBase, name='base'),
@@ -34,5 +35,6 @@ urlpatterns = [
     path('journalist/userPanel', renderUserPanel, name='user-panel'),
     path('journalist/userArticles', renderUserArticles, name='user-articles'),
     path('articles/<slug:slug>', renderSingleArticle, name='single-article'),
+    url(r'^search-result', renderSearchResult, name='search-result'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
