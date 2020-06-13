@@ -102,3 +102,10 @@ class Comment(models.Model):
     username = models.CharField(max_length=35, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
+
+
+class CommentAnswers(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, blank=True)
+    username = models.CharField(max_length=35, null=True)
+    pub_date = models.DateTimeField(auto_now_add=True, blank=True)
+    content = models.CharField(max_length=999, null=True)
