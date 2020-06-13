@@ -83,7 +83,7 @@ def renderUserPanel(request):
     total_views = 0
     for article in articles:
         total_views += article.views
-    print(len(articles))
+    arUser.total_views = total_views
 
     context = {
         'user': arUser,
@@ -151,18 +151,25 @@ def renderSearch(request):
 def renderSearchResult(request):
     geoTags = []
     categoryTags = []
-    articles = []
-    queries =[]
     catTagsId = []
     titles = []
-    articlesSecondary = []
-    articlesSecondaryWithTab = []
     jakas = []
-    filter = 'main_tags__contains'
+    errors = []
     for mTag in MainTags.objects.all():
         if request.POST.get(mTag.main_tag) is not None:
             geoTags.append(request.POST.get(mTag.main_tag))
             #print(tab)
+    if len(geoTags) > 1:
+        errors.append('Możesz wybrać maksymalnie jeden region!')
+    if len(geoTags) < 1:
+        errors.append('Musisz wybrać region!')
+    if errors:
+        context = {
+            'mainTags': MainTags.objects.all(),
+            'secondaryTags': SecondaryTags.objects.all(),
+            'errors': errors
+        }
+        return render(request, 'search.html', context)
     for sTag in SecondaryTags.objects.all():
         if request.POST.get(sTag.secondary_tag) is not None:
             categoryTags.append(request.POST.get(sTag.secondary_tag))
@@ -178,12 +185,13 @@ def renderSearchResult(request):
     tytul = 'jd'
     print(catTagsId)
     number_of_tags = len(catTagsId)
-    objects_ext = Article.objects.all()
+    objects_ext = Article.objects.filter(main_tags=geoTagId)
     for i in catTagsId:
         objects_ext = objects_ext.filter(secondary_tags=i)
     for obj in objects_ext:
         titles = obj.title
-    rest_of_articles = Article.objects.filter(reduce(lambda x, y : x | y,(Q(secondary_tags=idd) for idd in catTagsId))).distinct()
+    rest_of_articles = Article.objects.filter(reduce(lambda x, y : x | y,(Q(secondary_tags=idd) for idd in catTagsId)))\
+        .distinct()
     #rest_of_articles.exclude(secondary_tags__secondary_tags__in=objects_ext)
     print(rest_of_articles)
     context = {

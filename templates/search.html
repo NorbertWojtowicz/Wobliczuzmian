@@ -29,6 +29,11 @@
     {% endfor %}
 </div>
 </ul>
+{% if errors %}
+    {% for error in errors %}
+        <h2>{{ error }}</h2>
+    {% endfor %}
+{% endif %}
 <button type="submit" id="btnTags">Szukaj</button>
 </div>
 </form>
