@@ -99,13 +99,8 @@ class ArticleImages(models.Model):
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, blank=True)
+    reply = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='replies')
     username = models.CharField(max_length=35, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
 
-
-class CommentAnswers(models.Model):
-    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, blank=True)
-    username = models.CharField(max_length=35, null=True)
-    pub_date = models.DateTimeField(auto_now_add=True, blank=True)
-    content = models.CharField(max_length=999, null=True)
