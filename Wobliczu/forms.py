@@ -58,6 +58,7 @@ class AddCommentForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'class': 'commentContent', 'placeholder': 'Komentarz'}),
         }
 
+
 class SearchForm(forms.ModelForm):
     class Meta:
         pass

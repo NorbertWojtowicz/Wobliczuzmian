@@ -72,8 +72,13 @@ def renderPostCreator(request):
     else:
         return HttpResponseRedirect('accounts/login/')
 
+
 def renderBase(request):
-    return render(request, 'base.html')
+    context = {
+        'user': request.user,
+    }
+    return render(request, 'base.html', context)
+
 
 def renderUserPanel(request):
     user = request.user
@@ -104,11 +109,26 @@ def renderUserArticles(request):
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
         commentForm = AddCommentForm(request.POST)
+        try:
+            comment_id = int(request.POST.get('comment_id'))
+        except:
+            comment_id = None
         print('j')
         if commentForm.is_valid():
             print('d')
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
+            print('id jd')
+            print(comment_id)
+            print('teraz wszystkie')
+            objs = Comment.objects.all()
+            for o in objs:
+                print(o.id)
+            if comment_id:
+                comment_qs = Comment.objects.get(id=comment_id)
+                if comment_qs:
+                    reply_comment = commentForm.save(commit=False)
+                    reply_comment.reply = comment_qs
             articleCom = comment.article
             print('psa')
             link = '/articles/' + slug
@@ -200,3 +220,4 @@ def renderSearchResult(request):
     }
 
     return render(request, 'searchResult.html', context)
+
