@@ -221,3 +221,12 @@ def renderSearchResult(request):
 
     return render(request, 'searchResult.html', context)
 
+
+def renderEditArticle(request, id):
+    instance = Article.objects.get(ID=id)
+    instance2 = ArticleImages.objects.filter(article=instance)
+    form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('postCreator')
+    return render(request, 'journalist/editArticle.html', {'articleForm': form, 'articleImagesFormSet': instance2})

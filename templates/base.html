@@ -19,6 +19,9 @@
         <i class="icon-doc-text-inv"></i>&nbsp;Artykuły</button></a>
         <a href="../articles/search"><button value="szukaj" class="menu_button">
         <i class="icon-search"></i>&nbsp;Szukaj</button></a>
+        {% if user.is_superuser %}
+            <a href="/journalist/userPanel"><button name="journalist" class="menu_button"><i class="icon-star"></i> Panel Dziennikarza</button></a>
+        {% endif %}
     </div>
 <div class="wrapper">
 {% block content %}
