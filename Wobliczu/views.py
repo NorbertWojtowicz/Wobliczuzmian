@@ -108,6 +108,20 @@ def renderUserArticles(request):
 
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
+        try:
+            if_delete = int(request.POST.get('delete'))
+            print('mam')
+        except:
+            print('nie mam')
+            if_delete = None
+        if if_delete:
+            comment_id = int(request.POST.get('comment_id'))
+            if comment_id:
+                comment_obj = Comment.objects.get(id=comment_id)
+                comment_obj.delete()
+                link = '/articles/' + slug
+                print('Deleting comment... ', comment_id)
+                return HttpResponseRedirect(link)
         commentForm = AddCommentForm(request.POST)
         try:
             comment_id = int(request.POST.get('comment_id'))
@@ -155,7 +169,8 @@ def renderSingleArticle(request, slug):
         'object': Article.objects.get(slug=slug),
         'commentForm': commentForm,
         'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
-        'site_key': settings.RECAPTCHA_PUBLIC_KEY
+        'site_key': settings.RECAPTCHA_PUBLIC_KEY,
+        'user': request.user,
     }
     return render(request, 'articles/article.html', context)
 
@@ -224,9 +239,8 @@ def renderSearchResult(request):
 
 def renderEditArticle(request, id):
     instance = Article.objects.get(ID=id)
-    instance2 = ArticleImages.objects.filter(article=instance)
     form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('postCreator')
-    return render(request, 'journalist/editArticle.html', {'articleForm': form, 'articleImagesFormSet': instance2})
+    return render(request, 'journalist/editArticle.html', {'articleForm': form})
