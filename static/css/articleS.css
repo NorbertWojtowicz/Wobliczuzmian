@@ -179,3 +179,31 @@
 {
     background-color: #005580;
 }
+.trash-button
+{
+    width: 40px;
+    text-indent: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, #464646 0%,#313131 100%); /* W3C */
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    border-bottom: 4px solid #161616;
+    color: #fbfbfb;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    font-size: 15px;
+    box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+    cursor: pointer;
+    margin-bottom: 5px;
+    float: left;
+}
+.trash-button:active
+{
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+    top: 1px;
+}
+.trash-button:after
+{
+  display: none;
+}
