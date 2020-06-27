@@ -91,7 +91,7 @@
             <div style="clear: both"></div>
             <div style="clear: both"></div>
         <div class="comC">{{ comment.content }}</div>
-            <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi (2)</button>
+            <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}</button>
         </div>
         <div class="comLine"></div>
         <div id="{{ comment.id }}" style="display: none">
@@ -101,7 +101,7 @@
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
             <input type="text" name="username" placeholder="Pseudonim">
             <div class="clear"></div>
-            <input type="text" name="content" placeholder="Odpowiedź">
+            <textarea type="text" name="content" placeholder="Odpowiedź"></textarea>
             <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
             <button type="submit" class="btnCom">Opublikuj</button>
         </form>
@@ -111,6 +111,7 @@
                 <form method="post">
                 {% csrf_token %}
                     <input type="hidden" name="delete" value="1">
+                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
                     <input type="hidden" name="comment_id" value="{{ reply.id }}">
                     <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
                 </form>
