@@ -94,35 +94,47 @@
             <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi (2)</button>
         </div>
         <div class="comLine"></div>
-        <div id="{{ comment.id }}" style="display: none">
+        <div class="repliesContainer">
         <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-        <form method="post">
+        <div id="{{ comment.id }}" style="display: none;">
+        <form method="post" class="addReplyBox">
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
-            <input type="text" name="username" placeholder="Pseudonim">
+            <textarea rows="40" cols="10" type="text" name="username" placeholder="Pseudonim" class="addReplyNick"></textarea>
             <div class="clear"></div>
-            <input type="text" name="content" placeholder="Odpowiedź">
-            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-            <button type="submit" class="btnCom">Opublikuj</button>
+            <textarea rows="40" cols="10" type="text" name="content" placeholder="Odpowiedź" class="addReplyContent"></textarea>
+            <div class="addReplyFooter">
+                <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+                <button type="submit">Opublikuj</button>
+            </div>
         </form>
-        <div class="replies-box">
-            {% for reply in comment.replies.all %}
+        <div class="replyLine"></div>
+        {% for reply in comment.replies.all %}
+            <div class="replyBox">
+            <div class="replyHeader">
                 {% if user.is_superuser %}
-                <form method="post">
-                {% csrf_token %}
-                    <input type="hidden" name="delete" value="1">
-                    <input type="hidden" name="comment_id" value="{{ reply.id }}">
-                    <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
-                </form>
-            {% endif %}
-                {{ reply.username }}
-                {{ reply.content }}
-            {% endfor %}
+                        <form method="post">
+                        {% csrf_token %}
+                            <input type="hidden" name="delete" value="1">
+                            <input type="hidden" name="comment_id" value="{{ reply.id }}">
+                            <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
+                        </form>
+                {% endif %}
+                        <div class="replyNick">
+                            {{ reply.username }}
+                        </div>
+                    </div>
+                    <div class="replyContent">
+                        {{ reply.content }}
+                    </div>
+            </div>
+            <div class="replyLine"></div>
+        {% endfor %}
         </div>
         </div>
         {% endif %}
     {% endfor %}
 </div>
-    </body>
+</body>
 </html>
 {% endblock %}
