@@ -68,8 +68,10 @@
         <h2>Dodaj komentarz!</h2>
         {{commentForm.username}}
         {{ commentForm.content }}
-        <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-        <button type="submit" class="btnCom">Opublikuj</button>
+        <div class="btnCom">
+            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+            <button type="submit">Opublikuj</button>
+        </div>
     </div>
     </form>
     {% for comment in comments %}
