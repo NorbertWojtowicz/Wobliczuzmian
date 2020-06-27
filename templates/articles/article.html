@@ -77,21 +77,23 @@
     {% for comment in comments %}
         {% if comment.reply == None %}
         <div class="box">
-            {% if user.is_superuser %}
-                <form method="post">
-                {% csrf_token %}
-                    <input type="hidden" name="delete" value="1">
-                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
-                    <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
-                </form>
-            {% endif %}
-        <div class="comUN">{{ comment.username }}</div><div class="pubdate" style="">{{ comment.pub_date }}</div>
+            <div class="comHeader">
+                {% if user.is_superuser %}
+                    <form method="post">
+                    {% csrf_token %}
+                        <input type="hidden" name="delete" value="1">
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                        <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
+                    </form>
+                {% endif %}
+                <div class="comUN">{{ comment.username }}</div><div class="pubdate" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
+            </div>
             <div style="clear: both"></div>
             <div style="clear: both"></div>
         <div class="comC">{{ comment.content }}</div>
             <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi (2)</button>
         </div>
-        <div class="titleLine"></div>
+        <div class="comLine"></div>
         <div id="{{ comment.id }}" style="display: none">
         <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <form method="post">

@@ -73,7 +73,7 @@
 {
     width: 850px;
     min-height: 41px;
-    margin: 20px auto 50px auto;
+    margin: 20px auto 30px auto;
     border: 3px solid #eaeaea;
     background: #eee;
 }
@@ -123,23 +123,6 @@
     outline: none;
 }
 
-.comC
-{
-    font-size: 15px;
-    margin-left: 25px;
-    margin-bottom: 7px;
-}
-
-.comUN
-{
-    margin-top: 5px;
-    margin-left: 10px;
-    font-weight: 700;
-    float: left;
-    font-size: 19px;
-    margin-bottom: 11px;
-}
-
 .btnCom
 {
     margin: 10px auto 10px auto;
@@ -173,26 +156,117 @@
     border-radius: 5px;
 }
 
+.btnCom button:hover{
+    cursor: pointer;
+}
+
+.btnCom button:active{
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
 .box
 {
     margin: 0 auto 0 auto;
-    width: 800px;
+    width: 760px;
+    background: #eaeaea;
+    padding: 20px;
+}
+
+.comHeader{
+    width: 760px;
+    min-height: 24px;
+    max-height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.trash-button
+{
+    width: 40px;
+    text-indent: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, #464646 0%,#313131 100%); /* W3C */
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    border-bottom: 4px solid #161616;
+    color: #fbfbfb;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    font-size: 15px;
+    box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.trash-button:hover{
+    cursor: pointer;
+}
+
+.trash-button:active
+{
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+    top: 1px;
+    outline: none;
+}
+
+.trash-button:after
+{
+    display: none;
+    outline: none;
+}
+
+.comUN
+{
+    height: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 19px;
 }
 
 .pubdate
 {
-    float: left;
-    margin-left: 20px;
-    margin-top: 10px;
+    height: 24px;
+    line-height: 24px;
     font-size: 11px;
-    color: darkgrey;
+    color: #aaa;
+}
+
+.comC
+{
+    font-size: 15px;
+    margin: 15px 0 15px 25px;
+    width: 710px;
+    word-wrap: break-word;
 }
 
 #replies-button
 {
-    font-size: 12px;
-    margin-bottom: 20px;
+    height: 36px;
+    padding: 0 10px 0 10px;
+    background: #161616;
+    color: #fff;
+    font-size: 14px;
     margin-left: 12px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 4px solid #000;
+    border-radius: 7px;
+    outline: none;
+}
+
+#replies-button:hover{
+    cursor: pointer;
+}
+
+#replies-button:active{
+    border: none;
+    outline: none;
 }
 
 .commentReply
@@ -211,31 +285,8 @@
 {
     background-color: #005580;
 }
-.trash-button
-{
-    width: 40px;
-    text-indent: 0;
-    height: 40px;
-    background: linear-gradient(to bottom, #464646 0%,#313131 100%); /* W3C */
-    border: none;
-    border-radius: 5px;
-    position: relative;
-    border-bottom: 4px solid #161616;
-    color: #fbfbfb;
-    font-weight: 600;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.4);
-    font-size: 15px;
-    box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2);
-    cursor: pointer;
+
+.comLine{
+    width: 800px;
     margin-bottom: 5px;
-    float: left;
-}
-.trash-button:active
-{
-    box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
-    top: 1px;
-}
-.trash-button:after
-{
-  display: none;
 }
