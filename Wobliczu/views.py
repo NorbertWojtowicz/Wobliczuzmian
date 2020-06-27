@@ -116,11 +116,15 @@ def renderSingleArticle(request, slug):
             if_delete = None
         if if_delete:
             comment_id = int(request.POST.get('comment_id'))
-            if comment_id:
+            parent_id = int(request.POST.get('parent_id'))
+            if comment_id and parent_id:
+                parent_obj = Comment.objects.get(id=parent_id)
+                parent_obj.number_of_replies -= 1
+                parent_obj.save()
                 comment_obj = Comment.objects.get(id=comment_id)
                 comment_obj.delete()
                 link = '/articles/' + slug
-                print('Deleting comment... ', comment_id)
+                print('Deleting comment... Actual number of comments: ', parent_obj.number_of_replies)
                 return HttpResponseRedirect(link)
         commentForm = AddCommentForm(request.POST)
         try:
@@ -141,8 +145,11 @@ def renderSingleArticle(request, slug):
             if comment_id:
                 comment_qs = Comment.objects.get(id=comment_id)
                 if comment_qs:
+                    comment_qs.number_of_replies += 1
+                    comment_qs.save()
                     reply_comment = commentForm.save(commit=False)
                     reply_comment.reply = comment_qs
+                    print('Comment added... Actual number of replies: ', comment_qs.number_of_replies)
             articleCom = comment.article
             print('psa')
             link = '/articles/' + slug

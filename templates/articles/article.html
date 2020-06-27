@@ -91,7 +91,7 @@
             <div style="clear: both"></div>
             <div style="clear: both"></div>
         <div class="comC">{{ comment.content }}</div>
-            <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi (2)</button>
+            <button id="replies-button" onclick="f({{ comment.id }})">Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}</button>
         </div>
         <div class="comLine"></div>
         <div class="repliesContainer">

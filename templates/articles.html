@@ -17,6 +17,11 @@
                     {% for tag in article.secondary_tags.all %}
                         {{ tag }}
                     {% endfor %}
+                <a class="link2" href="journalist/editArticle/{{ article.ID }}">
+                        <div class="edit-button-div">
+                            <i class="icon-pencil"></i> Edytuj
+                        </div>
+                </a>
                 </div>
                 <div class="title">{{ article.title }}</div>
                 <div class="short_desc">{{ article.short_desc }}</div>
@@ -26,7 +31,7 @@
                 <div class="date" style="float: left">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
             </div>
         </a>
-    <a href="journalist/editArticle/{{ article.ID }}">Klik id: {{ article.title }}</a>
+    <a href="journalist/editArticle/{{ article.ID }}"></a>
 {% endfor %}
     </div>
 </body>
