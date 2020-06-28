@@ -139,6 +139,9 @@ def renderSingleArticle(request, slug):
             print('d')
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
+            if request.user.is_superuser:
+                comment.username = request.user.first_name + " " + request.user.last_name
+                comment.is_journalist = True
             print('id jd')
             print(comment_id)
             print('teraz wszystkie')

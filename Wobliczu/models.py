@@ -38,7 +38,8 @@ class ArticleUser(models.Model):
 
 
     def __str__(self):
-        return self.user.first_name
+        name = self.user.first_name + " " + self.user.last_name
+        return name
 
 
 class Article(models.Model):
@@ -104,4 +105,5 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
     number_of_replies = models.IntegerField(max_length=3, blank=True, default=0)
+    is_journalist = models.BooleanField(max_length=5, default=False)
 

@@ -87,6 +87,9 @@
                     </form>
                 {% endif %}
                 <div class="comUN">{{ comment.username }}</div><div class="pubdate" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
+                {% if comment.is_journalist %}
+                    Dziennikarz
+                {% endif %}
             </div>
             <div style="clear: both"></div>
             <div style="clear: both"></div>
