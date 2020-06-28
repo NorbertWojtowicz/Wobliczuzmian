@@ -15,8 +15,11 @@ from functools import reduce
 # Create your views here.
 
 def renderHome(request):
+    articles = Article.objects.all().order_by('-pub_date')
+    first_obj = articles.first()
+    articles = articles.exclude(ID=first_obj.ID)
     context = {
-        'articles': Article.objects.all().order_by('-pub_date'),
+        'articles': articles,
         'latest_article': Article.objects.last()
     }
     return render(request, 'main.html', context)
