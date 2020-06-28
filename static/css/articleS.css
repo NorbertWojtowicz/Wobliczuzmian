@@ -154,6 +154,7 @@
     font-weight: 600;
     font-size: 18px;
     border-radius: 5px;
+    outline: none;
 }
 
 .btnCom button:hover{
@@ -162,7 +163,6 @@
 
 .btnCom button:active{
     border: none;
-    border-radius: 6px;
     outline: none;
 }
 
@@ -239,7 +239,7 @@
 .comC
 {
     font-size: 15px;
-    margin: 15px 0 15px 25px;
+    margin: 15px 25px 15px 25px;
     width: 710px;
     word-wrap: break-word;
 }
@@ -269,24 +269,127 @@
     outline: none;
 }
 
-.commentReply
-{
-    width:700px;
-    height: 100px;
-    margin-left: 140px;
-}
-
-#reply-form
-{
-    //display: none;
-}
-
-.chuj
-{
-    background-color: #005580;
-}
-
 .comLine{
     width: 800px;
     margin-bottom: 5px;
+}
+
+.repliesContainer{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.addReplyBox{
+    width: 700px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    //border: 3px solid #eaeaea;
+    background: #eee;
+    padding-bottom: 10px;
+}
+
+.addReplyNick{
+    height: 26px;
+    margin-top: 20px;
+    min-width: 240px;
+    max-width: 240px;
+    margin-left: 25px;
+    float: left;
+    font-size: 20px;
+    border-radius: 4px;
+    overflow-wrap: break-word;
+    border: 2px solid #b2b2b2;
+    resize: none;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.addReplyContent{
+    height: 68px;
+    min-width: 650px;
+    max-width: 650px;
+    border: 2px solid #b2b2b2;
+    border-radius: 4px;
+    margin: 0 0 10px 25px;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    resize: none;
+    outline: none;
+}
+
+.addReplyBox button{
+    margin: 0 20px 0 20px;
+    padding: 0 15px 0 15px;
+    height: 50px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: #161616;
+    border-bottom: 7px solid #000;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.addReplyBox button:hover{
+    cursor: pointer;
+}
+
+.addReplyBox button:active{
+    border: none;
+    outline: none;
+}
+
+.addReplyFooter{
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.replyLine{
+    width: 700px;
+    margin-bottom: 5px;
+}
+
+.repliesBox{
+    width: 700px;
+}
+
+.replyBox{
+    background: #eee;
+    width: 660px;
+    padding: 20px;
+}
+
+.replyHeader{
+    width: 660px;
+    min-height: 24px;
+    max-height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.replyNick{
+    height: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.replyContent{
+    font-size: 15px;
+    margin: 15px 25px 0px 25px;
+    width: 610px;
+    word-wrap: break-word;
 }
