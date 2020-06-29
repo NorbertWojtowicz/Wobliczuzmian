@@ -115,7 +115,8 @@
 .latest > div, .new_article > div{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
     color: #fff;
     transition: background 300ms;
 }
@@ -152,4 +153,21 @@
     -webkit-box-shadow: none;
     background: none;
     color: #ddd;
+}
+
+.articleTagLatest{
+    margin: 20px 0 0 20px;
+}
+
+.articleTagNew{
+    margin: 15px 0 0 20px;
+}
+
+.articleTagLatest, .articleTagNew{
+    background: #161616;
+    color: #fff;
+    padding: 8px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 600;
 }
