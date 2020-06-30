@@ -11,6 +11,7 @@ import requests
 import json
 from django.db.models import Count
 from functools import reduce
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def renderArticles(request):
     context = {
         'articles': Article.objects.all().order_by('-pub_date')
     }
-    return render(request, 'articles.html',context)
+    return renderArticlesListView.as_view()(request)
 
 def renderPostCreator(request):
     if request.user.is_superuser:
@@ -257,3 +258,8 @@ def renderEditArticle(request, id):
         form.save()
         return HttpResponseRedirect('postCreator')
     return render(request, 'journalist/editArticle.html', {'articleForm': form})
+
+
+class renderArticlesListView(ListView):
+    model = Article
+    paginate_by = 6

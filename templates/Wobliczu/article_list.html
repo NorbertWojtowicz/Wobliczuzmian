@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/css/articlesS.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/articlesS.css" type="text/css">
 </head>
 <body>
 <div class="container">
-{% for article in articles %}
+{% for article in object_list %}
         <a href="articles/{{ article.slug }}" class="link">
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="txt">
