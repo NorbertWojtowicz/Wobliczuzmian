@@ -262,4 +262,4 @@ def renderEditArticle(request, id):
 
 class renderArticlesListView(ListView):
     model = Article
-    paginate_by = 6
+    paginate_by = 2

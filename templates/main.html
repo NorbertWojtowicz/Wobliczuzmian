@@ -25,7 +25,7 @@
 	<body>
         <div class="box">
             <a href="articles/{{ latest_article.slug }}">
-                <div class="latest" style="background-image: url({{ latest_article.main_image.url }})">
+                <div class="latest" style="background-image: url({{ latest_article.miniature.url }})">
                     <div class="articleTitle">
                         <div class="articleTagLatest">
                             Najnowsze JD
@@ -36,7 +36,7 @@
             </a>
             {% for article in articles|slice:"5" %}
             <a href="articles/{{ article.slug }}">
-                <div class="new_article" style="background-image: url({{ article.main_image.url }})">
+                <div class="new_article" style="background-image: url({{ article.miniature.url }})">
                     <div>
                         <div class="articleTagNew">
                             Najpopularniejsze
