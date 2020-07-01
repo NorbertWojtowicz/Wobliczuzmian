@@ -11,6 +11,7 @@ import requests
 import json
 from django.db.models import Count
 from functools import reduce
+from django.views.generic.list import ListView
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def renderArticles(request):
     context = {
         'articles': Article.objects.all().order_by('-pub_date')
     }
-    return render(request, 'articles.html',context)
+    return renderArticlesListView.as_view()(request)
 
 def renderPostCreator(request):
     if request.user.is_superuser:
@@ -106,7 +107,7 @@ def renderUserArticles(request):
     context = {
         'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
     }
-    return render(request, 'journalist/userArticles.html', context)
+    return renderJournalistArticlesListView.as_view()(request)
 
 
 def renderSingleArticle(request, slug):
@@ -257,3 +258,27 @@ def renderEditArticle(request, id):
         form.save()
         return HttpResponseRedirect('postCreator')
     return render(request, 'journalist/editArticle.html', {'articleForm': form})
+
+
+class renderArticlesListView(ListView):
+    model = Article
+    paginate_by = 2
+
+
+class renderJournalistArticlesListView(ListView):
+    user = None
+    paginate_by = 2
+    context_object_name = 'articles'
+    template_name = 'journalist/userArticles.html'
+
+    def get_context_data(self, **kwargs):
+        print(self.user)
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        queryset = super(renderJournalistArticlesListView, self).get_queryset()
+        queryset = Article.objects.filter(user_id=self.request.user.id)
+        return queryset
+    queryset = get_queryset
+

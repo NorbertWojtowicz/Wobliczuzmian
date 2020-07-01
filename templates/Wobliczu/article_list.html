@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/css/articlesS.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/articlesS.css" type="text/css">
 </head>
 <body>
 <div class="container">
-{% for article in articles %}
+{% for article in object_list %}
         <a href="articles/{{ article.slug }}" class="link">
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="txt">
@@ -35,6 +35,25 @@
         </a>
 {% endfor %}
     </div>
+{% if page_obj.has_next or page_obj.has_previous %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; Pierwsza strona</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Poprzednie</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Następne</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Ostatnia strona&raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
 </body>
 </html>
 

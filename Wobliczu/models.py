@@ -104,6 +104,6 @@ class Comment(models.Model):
     username = models.CharField(max_length=35, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
-    number_of_replies = models.IntegerField(max_length=3, blank=True, default=0)
+    number_of_replies = models.IntegerField(blank=True, default=0)
     is_journalist = models.BooleanField(max_length=5, default=False)
 
