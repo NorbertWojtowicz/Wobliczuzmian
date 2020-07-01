@@ -107,7 +107,7 @@ def renderUserArticles(request):
     context = {
         'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
     }
-    return render(request, 'journalist/userArticles.html', context)
+    return renderJournalistArticlesListView.as_view()(request)
 
 
 def renderSingleArticle(request, slug):
@@ -263,3 +263,22 @@ def renderEditArticle(request, id):
 class renderArticlesListView(ListView):
     model = Article
     paginate_by = 2
+
+
+class renderJournalistArticlesListView(ListView):
+    user = None
+    paginate_by = 2
+    context_object_name = 'articles'
+    template_name = 'journalist/userArticles.html'
+
+    def get_context_data(self, **kwargs):
+        print(self.user)
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self):
+        queryset = super(renderJournalistArticlesListView, self).get_queryset()
+        queryset = Article.objects.filter(user_id=self.request.user.id)
+        return queryset
+    queryset = get_queryset
+
