@@ -11,6 +11,7 @@ import requests
 import json
 from django.db.models import Count
 from functools import reduce
+from django.contrib import messages
 from django.views.generic.list import ListView
 
 # Create your views here.
@@ -109,14 +110,14 @@ def renderUserArticles(request):
     }
     return renderJournalistArticlesListView.as_view()(request)
 
-
+def boolToFalse(bool):
+    bool = False
+    return bool
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
         try:
             if_delete = int(request.POST.get('delete'))
-            print('mam')
         except:
-            print('nie mam')
             if_delete = None
         if if_delete:
             comment_id = int(request.POST.get('comment_id'))
@@ -135,20 +136,12 @@ def renderSingleArticle(request, slug):
             comment_id = int(request.POST.get('comment_id'))
         except:
             comment_id = None
-        print('j')
         if commentForm.is_valid():
-            print('d')
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
             if request.user.is_superuser:
                 comment.username = request.user.first_name + " " + request.user.last_name
                 comment.is_journalist = True
-            print('id jd')
-            print(comment_id)
-            print('teraz wszystkie')
-            objs = Comment.objects.all()
-            for o in objs:
-                print(o.id)
             if comment_id:
                 comment_qs = Comment.objects.get(id=comment_id)
                 if comment_qs:
@@ -158,7 +151,6 @@ def renderSingleArticle(request, slug):
                     reply_comment.reply = comment_qs
                     print('Comment added... Actual number of replies: ', comment_qs.number_of_replies)
             articleCom = comment.article
-            print('psa')
             link = '/articles/' + slug
             clientKey = request.POST['g-recaptcha-response']
             secretKey = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'
@@ -173,7 +165,18 @@ def renderSingleArticle(request, slug):
             if verify:
                 commentForm.save()
                 comment.save()
+                messages.success(request, 'Komentarz został pomyślnie dodany!')
+            else:
+                messages.error(request, 'Nie udało się dodać komentarza, musisz potwierdzić, że nie jesteś robotem!')
+            context = {
+                'object': Article.objects.get(slug=slug),
+                'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
+                'site_key': settings.RECAPTCHA_PUBLIC_KEY,
+                'commentForm': AddCommentForm(),
+                'user': request.user,
+            }
             return HttpResponseRedirect(link)
+
     else:
         articleCom = Article.objects.get(slug=slug)
         articleCom.views += 1
@@ -181,9 +184,9 @@ def renderSingleArticle(request, slug):
         commentForm = AddCommentForm()
     context = {
         'object': Article.objects.get(slug=slug),
-        'commentForm': commentForm,
         'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
         'site_key': settings.RECAPTCHA_PUBLIC_KEY,
+        'commentForm': AddCommentForm(),
         'user': request.user,
     }
     return render(request, 'articles/article.html', context)
