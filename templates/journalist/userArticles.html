@@ -7,6 +7,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="../../static/css/userArticlesS.css" type="text/css">
     <link rel="stylesheet" href="../../static/css/articlesS.css" type="text/css">
+    <link rel="stylesheet" href="../../static/css/fontello.css" type="text/css"/>
 </head>
 <body>
 <div class="container">
@@ -14,9 +15,21 @@
         <a href="articles/{{ article.slug }}" class="link">
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="txt">
-                {% if article.shown_tag %}
-                <div class="tag">{{ article.shown_tag }}</div>
-                {% endif %}
+                <div class="tag">
+                    {% for tag in article.secondary_tags.all %}
+                        {{ tag }}
+                    {% endfor %}
+                    {% if article.when_to_public > time_now %}
+                        Premiera dopiero: {{ article.when_to_public }}
+                    {% endif %}
+                    {% if user.is_superuser %}
+                    <form action="journalist/editArticle/{{ article.ID }}">
+                        <button type="submit" class="edit-button">
+                            <i class="icon-pencil"></i> Edytuj
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
                 <div class="title">{{ article.title }}</div>
                 <div class="short_desc">{{ article.short_desc }}</div>
             </div>
