@@ -37,9 +37,6 @@ def renderKontakt(request):
 
 
 def renderArticles(request):
-    context = {
-        'articles': Article.objects.all().order_by('-pub_date')
-    }
     return renderArticlesListView.as_view()(request)
 
 def renderPostCreator(request):
@@ -211,6 +208,7 @@ def renderSearchResult(request):
     titles = []
     jakas = []
     errors = []
+    time_now = timezone.now()
     for mTag in MainTags.objects.all():
         if request.POST.get(mTag.main_tag) is not None:
             geoTags.append(request.POST.get(mTag.main_tag))
@@ -251,8 +249,8 @@ def renderSearchResult(request):
     #rest_of_articles.exclude(secondary_tags__secondary_tags__in=objects_ext)
     print(rest_of_articles)
     context = {
-        'obj': objects_ext,
-        'rest': rest_of_articles
+        'obj': objects_ext.exclude(when_to_public__gt=time_now),
+        'rest': rest_of_articles.exclude(when_to_public__gt=time_now)
     }
 
     return render(request, 'searchResult.html', context)
@@ -268,7 +266,10 @@ def renderEditArticle(request, id):
 
 
 class renderArticlesListView(ListView):
-    model = Article
+    time_now = timezone.now()
+    articles = Article.objects.all().exclude(when_to_public__gt=time_now)
+    print(articles)
+    queryset = articles
     paginate_by = 2
 
 
@@ -281,6 +282,7 @@ class renderJournalistArticlesListView(ListView):
     def get_context_data(self, **kwargs):
         print(self.user)
         context = super().get_context_data(**kwargs)
+        context['time_now'] = timezone.now()
         return context
 
     def get_queryset(self):
