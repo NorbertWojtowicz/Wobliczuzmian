@@ -9,6 +9,7 @@ from django.conf import settings
 from django.db.models import Q
 import requests
 import json
+from django.utils import timezone
 from django.db.models import Count
 from functools import reduce
 from django.views.generic.list import ListView
@@ -17,11 +18,17 @@ from django.views.generic.list import ListView
 
 def renderHome(request):
     articles = Article.objects.all().order_by('-pub_date')
+    time_now = timezone.now()
+    for article in articles:
+        if article.when_to_public > time_now:
+            articles = articles.exclude(ID=article.ID)
+            print('Oj ty sobie jeszcze poczekasz..', article.ID)
     first_obj = articles.first()
     articles = articles.exclude(ID=first_obj.ID)
+
     context = {
         'articles': articles,
-        'latest_article': Article.objects.last()
+        'latest_article': first_obj
     }
     return render(request, 'main.html', context)
 

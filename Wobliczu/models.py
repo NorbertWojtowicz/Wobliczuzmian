@@ -61,6 +61,7 @@ class Article(models.Model):
     image_section_three = models.ImageField(upload_to='media/sect3/', null=True, blank=True)
     text_section_four = models.CharField(max_length=10000, null=True, blank=True)
     image_section_four = models.ImageField(upload_to='media/sect4/', null=True, blank=True)
+    when_to_public = models.DateTimeField(default=timezone.now, blank=True)
     #shown_tag = models.ForeignKey(SecondaryTags, on_delete=models.CASCADE, related_name='%(class)s_requests_created', null=True, blank=True)
 
     def delete(self, **kwargs):
