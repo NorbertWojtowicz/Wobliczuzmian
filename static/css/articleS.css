@@ -1,5 +1,120 @@
-.container{
+.container, #commentContainer{
     width: 1250px;
+}
+
+.title, .author_date, .short_desc, .mainImg, .content, .titleLine, .addImg, .addImg > img, .addTxt{
+    width: 1000px;
+}
+
+.commentBox{
+    width: 850px;
+}
+
+.box, .comHeader{
+    width: 760px;
+}
+
+.comC{
+    width: 710px;
+}
+
+.comLine, .repliesContainer{
+    width: 800px;
+}
+
+.addReplyBox, .repliesBox, .replyLine, .addReplyFooter{
+    width: 700px;
+}
+
+.replyBox, .replyHeader{
+    width: 660px;
+}
+
+.replyContent {
+    width: 610px;
+}
+
+@media only screen and (max-width: 1250px){
+
+    .container.container, #commentContainer#commentContainer{
+        width: 1000px;
+    }
+
+    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
+    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
+        width: 750px;
+    }
+
+    .commentBox.commentBox{
+        width: 850px;
+    }
+
+    .box.box, .comHeader.comHeader{
+        width: 760px;
+    }
+
+    .comC.comC{
+        width: 710px;
+    }
+
+    .comLine.comLine, .repliesContainer.repliesContainer{
+        width: 800px;
+    }
+
+    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
+        width: 700px;
+    }
+
+    .replyBox.replyBox, .replyHeader.replyHeader{
+        width: 660px;
+    }
+
+    .replyContent.replyContent {
+        width: 610px;
+    }
+}
+
+@media only screen and (max-width: 1250px){
+
+    .container.container, #commentContainer#commentContainer{
+        width: 900px;
+    }
+
+    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
+    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
+        width: 650px;
+    }
+
+    .commentBox.commentBox{
+        width: 850px;
+    }
+
+    .box.box, .comHeader.comHeader{
+        width: 660px;
+    }
+
+    .comC.comC{
+        width: 610px;
+    }
+
+    .comLine.comLine, .repliesContainer.repliesContainer{
+        width: 700px;
+    }
+
+    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
+        width: 600px;
+    }
+
+    .replyBox.replyBox, .replyHeader.replyHeader{
+        width: 560px;
+    }
+
+    .replyContent.replyContent {
+        width: 510px;
+    }
+}
+
+.container{
     margin: 0 auto 0 auto;
     padding: 30px 0 30px 0;
     font-family: 'Arial', serif;
@@ -15,10 +130,6 @@
 
 .addTxt, .addImg{
     margin-top: 30px;
-}
-
-.title, .author_date, .short_desc, .mainImg, .content, .titleLine, .addImg, .addImg > img, .addTxt{
-    width: 1000px;
 }
 
 .title, .short_desc, .content, .addTxt{
@@ -59,7 +170,6 @@
 
 #commentContainer
 {
-    width: 1250px;
     margin: 0 auto 0 auto;
     padding: 30px 0 30px 0;
     min-height: 40px;
@@ -71,7 +181,6 @@
 
 .commentBox
 {
-    width: 850px;
     min-height: 41px;
     margin: 20px auto 30px auto;
     border: 3px solid #eaeaea;
@@ -169,13 +278,11 @@
 .box
 {
     margin: 0 auto 0 auto;
-    width: 760px;
     background: #eaeaea;
     padding: 20px;
 }
 
 .comHeader{
-    width: 760px;
     min-height: 24px;
     max-height: 40px;
     display: flex;
@@ -240,7 +347,6 @@
 {
     font-size: 15px;
     margin: 15px 25px 15px 25px;
-    width: 710px;
     word-wrap: break-word;
 }
 
@@ -270,12 +376,10 @@
 }
 
 .comLine{
-    width: 800px;
     margin-bottom: 5px;
 }
 
 .repliesContainer{
-    width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -283,7 +387,6 @@
 }
 
 .addReplyBox{
-    width: 700px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -348,7 +451,6 @@
 }
 
 .addReplyFooter{
-    width: 700px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -356,22 +458,15 @@
 }
 
 .replyLine{
-    width: 700px;
     margin-bottom: 5px;
-}
-
-.repliesBox{
-    width: 700px;
 }
 
 .replyBox{
     background: #eee;
-    width: 660px;
     padding: 20px;
 }
 
 .replyHeader{
-    width: 660px;
     min-height: 24px;
     max-height: 40px;
     display: flex;
@@ -390,7 +485,6 @@
 .replyContent{
     font-size: 15px;
     margin: 15px 25px 0px 25px;
-    width: 610px;
     word-wrap: break-word;
 }
 .error

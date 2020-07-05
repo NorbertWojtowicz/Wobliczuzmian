@@ -1,103 +1,52 @@
-@media only screen and (min-width: 1250px){
-    .box {
-        width: 1230px;
-        height: 780px;
-        margin: 20px auto 20px auto;
-        padding: 0 0 20px 20px;
-    }
-
-    .latest{
-        width: 800px;
-        height: 500px;
-        margin: 20px 20px 0 0;
-    }
-
-    .new_article{
-        width: 390px;
-        height: 240px;
-        margin: 20px 20px 0 0;
-    }
-
-    .latest > div{
-        width: 800px;
-        height: 500px;
-    }
-
-    .new_article > div{
-        width: 390px;
-        height: 240px;
-    }
-
-    .latest > div > p{
-        width: 760px;
-        font-size: 30px;
-    }
-
-    .new_article > div > p{
-        width: 350px;
-        font-size: 22px;
-    }
-
-    .latest > div > p, .new_article > div > p{
-        padding: 0 20px 20px 20px;;
-    }
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 20px 0;
 }
 
-@media only screen and (min-width: 791px) and (max-width: 1250px){
-    body{
-        background: #161616;
-    }
+.warning{
+    display: none;
+}
 
-    .box {
-        width: 791px;
-        height: 491px;
-        margin: 0 auto 0 auto;
-        padding: 0 0 11px 11px;
-    }
+.box{
+    width: 1230px;
+    height: 780px;
+    padding: 0 0 20px 20px;
+    display: block;
+}
 
-    .latest{
-        width: 515px;
-        height: 315px;
-        margin: 11px 11px 0 0;
-    }
+.latest, .latest > div{
+    width: 800px;
+    height: 500px;
+}
 
-    .new_article{
-        width: 252px;
-        height: 152px;
-        margin: 11px 11px 0 0;
-    }
+.new_article, .new_article > div{
+    width: 390px;
+    height: 240px;
+}
 
-    .latest > div{
-        width: 515px;
-        height: 315px;
-    }
+.latest, .new_article{
+    margin: 20px 20px 0 0;
+}
 
-    .new_article > div{
-        width: 252px;
-        height: 152px;
-    }
+.latest > div > p{
+    width: 760px;
+    font-size: 30px;
+}
 
-    .latest > div > p{
-        width: 493px;
-        font-size: 20px;
-    }
+.new_article > div > p{
+    width: 350px;
+    font-size: 22px;
+}
 
-    .new_article > div > p{
-        width: 230px;
-        font-size: 15px;
-    }
-
-    .latest > div > p, .new_article > div > p{
-        padding: 0 11px 11px 11px;
-    }
-
-    footer{
-        border-top: 2px solid #fff;
-    }
+.latest > div > p, .new_article > div > p{
+    padding: 0 20px 20px 20px;;
 }
 
 .box{
     background: #161616;
+    margin: 0 auto 0 auto;
 }
 
 .latest{
@@ -106,10 +55,9 @@
 }
 
 .new_article{
-    background-image: url('../../media/putin.jpg');
     background-size: cover;
-    float: left;
     letter-spacing: 0.6px;
+    float: right;
 }
 
 .latest > div, .new_article > div{
@@ -170,4 +118,124 @@
     border-radius: 9px;
     font-size: 16px;
     font-weight: 600;
+}
+
+@media only screen and (max-width: 1260px){
+    body{
+        background: #161616;
+    }
+
+    .box.box {
+        width: 791px;
+        height: 491px;
+        padding: 0 0 11px 11px;
+    }
+
+    .latest.latest{
+        width: 515px;
+        height: 315px;
+        margin: 11px 11px 0 0;
+        float: left;
+    }
+
+    .new_article.new_article{
+        width: 252px;
+        height: 152px;
+        margin: 11px 11px 0 0;
+        float: right;
+    }
+
+    .latest.latest > div{
+        width: 515px;
+        height: 315px;
+    }
+
+    .new_article.new_article > div{
+        width: 252px;
+        height: 152px;
+    }
+
+    .latest.latest > div > p{
+        width: 493px;
+        font-size: 20px;
+    }
+
+    .new_article.new_article > div > p{
+        width: 230px;
+        font-size: 15px;
+    }
+
+    .latest.latest > div > p, .new_article.new_article > div > p{
+        padding: 0 11px 11px 11px;
+    }
+
+    footer{
+        border-top: 2px solid #fff;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    body{
+        background: #161616;
+    }
+
+    .box.box {
+        width: 760px;
+        height: auto;
+        padding: 10px 0 10px 10px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .latest.latest, .new_article.new_article{
+        float: none;
+    }
+
+    .latest.latest, .new_article.new_article, .latest.latest > div, .new_article.new_article > div{
+        width: 370px;
+        height: 275px;
+        margin-right: 10px;
+    }
+
+    .latest.latest > div, .new_article.new_article > div{
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .latest.latest > div > p, .new_article.new_article > div > p{
+        background: none;
+        padding: 0 10px 10px 10px;
+        font-size: 20px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .latest.latest > div > p, .new_article.new_article > div > p{
+        width: 355px;
+        font-size: 20px;
+    }
+
+    footer{
+        border-top: 2px solid #fff;
+    }
+}
+
+@media only screen and (max-width: 789px){
+    .box.box, .banner.banner, .menu.menu, .footer.footer{
+        display: none;
+    }
+
+    .warning.warning{
+        display: block;
+        width: 90%;
+        padding-top: 30px;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+    }
+    .logo.logo{
+        width: 100%;
+    }
 }
