@@ -63,6 +63,7 @@ def renderPostCreator(request):
                         image = arForm['image']
                         articlePhoto = ArticleImages(article=article_form, image=image)
                         articlePhoto.save()
+                        messages.success(request, 'Pomyślnie dodano artykuł!')
                 return HttpResponseRedirect('../')
             else:
                 print(articleForm.errors, articleImagesFormset.errors)
