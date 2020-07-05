@@ -75,7 +75,7 @@ def renderPostCreator(request):
         }
         return render(request, 'journalist/postCreator.html', context)
     else:
-        return HttpResponseRedirect('accounts/login/')
+        return HttpResponseRedirect('../accounts/login/')
 
 
 def renderBase(request):
@@ -86,33 +86,36 @@ def renderBase(request):
 
 
 def renderUserPanel(request):
-    user = request.user
-    ruser_id = user.id
-    arUser = ArticleUser.objects.get(user_id=ruser_id)
-    articles = Article.objects.filter(user_id=ruser_id)
-    total_views = 0
-    for article in articles:
-        total_views += article.views
-    arUser.total_views = total_views
+    if request.user.is_superuser:
+        user = request.user
+        ruser_id = user.id
+        arUser = ArticleUser.objects.get(user_id=ruser_id)
+        articles = Article.objects.filter(user_id=ruser_id)
+        total_views = 0
+        for article in articles:
+            total_views += article.views
+        arUser.total_views = total_views
 
-    context = {
-        'user': arUser,
-        'Articles': Article.objects.all()
-    }
-    return render(request, 'journalist/userPanel.html', context)
-
+        context = {
+            'user': arUser,
+            'Articles': Article.objects.all()
+        }
+        return render(request, 'journalist/userPanel.html', context)
+    else:
+        return HttpResponseRedirect('../accounts/login/')
 
 def renderUserArticles(request):
-    user_id = request.user.id
+    if request.user.is_superuser:
+        user_id = request.user.id
 
-    context = {
-        'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
-    }
-    return renderJournalistArticlesListView.as_view()(request)
+        context = {
+            'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
+        }
+        return renderJournalistArticlesListView.as_view()(request)
+    else:
+        return HttpResponseRedirect('../accounts/login/')
 
-def boolToFalse(bool):
-    bool = False
-    return bool
+
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
         try:
@@ -255,12 +258,15 @@ def renderSearchResult(request):
 
 
 def renderEditArticle(request, id):
-    instance = Article.objects.get(ID=id)
-    form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('postCreator')
-    return render(request, 'journalist/editArticle.html', {'articleForm': form})
+    if request.user.is_superuser:
+        instance = Article.objects.get(ID=id)
+        form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('postCreator')
+        return render(request, 'journalist/editArticle.html', {'articleForm': form})
+    else:
+        return HttpResponseRedirect('../../accounts/login/')
 
 
 class renderArticlesListView(ListView):
