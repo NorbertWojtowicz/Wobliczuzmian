@@ -12,6 +12,7 @@ import json
 from django.utils import timezone
 from django.db.models import Count
 from functools import reduce
+from django.contrib import messages
 from django.views.generic.list import ListView
 
 # Create your views here.
@@ -66,6 +67,7 @@ def renderPostCreator(request):
                         image = arForm['image']
                         articlePhoto = ArticleImages(article=article_form, image=image)
                         articlePhoto.save()
+                        messages.success(request, 'Pomyślnie dodano artykuł!')
                 return HttpResponseRedirect('../')
             else:
                 print(articleForm.errors, articleImagesFormset.errors)
@@ -78,7 +80,7 @@ def renderPostCreator(request):
         }
         return render(request, 'journalist/postCreator.html', context)
     else:
-        return HttpResponseRedirect('accounts/login/')
+        return HttpResponseRedirect('../accounts/login/')
 
 
 def renderBase(request):
@@ -89,38 +91,41 @@ def renderBase(request):
 
 
 def renderUserPanel(request):
-    user = request.user
-    ruser_id = user.id
-    arUser = ArticleUser.objects.get(user_id=ruser_id)
-    articles = Article.objects.filter(user_id=ruser_id)
-    total_views = 0
-    for article in articles:
-        total_views += article.views
-    arUser.total_views = total_views
+    if request.user.is_superuser:
+        user = request.user
+        ruser_id = user.id
+        arUser = ArticleUser.objects.get(user_id=ruser_id)
+        articles = Article.objects.filter(user_id=ruser_id)
+        total_views = 0
+        for article in articles:
+            total_views += article.views
+        arUser.total_views = total_views
 
-    context = {
-        'user': arUser,
-        'Articles': Article.objects.all()
-    }
-    return render(request, 'journalist/userPanel.html', context)
-
+        context = {
+            'user': arUser,
+            'Articles': Article.objects.all()
+        }
+        return render(request, 'journalist/userPanel.html', context)
+    else:
+        return HttpResponseRedirect('../accounts/login/')
 
 def renderUserArticles(request):
-    user_id = request.user.id
+    if request.user.is_superuser:
+        user_id = request.user.id
 
-    context = {
-        'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
-    }
-    return renderJournalistArticlesListView.as_view()(request)
+        context = {
+            'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
+        }
+        return renderJournalistArticlesListView.as_view()(request)
+    else:
+        return HttpResponseRedirect('../accounts/login/')
 
 
 def renderSingleArticle(request, slug):
     if request.method == 'POST':
         try:
             if_delete = int(request.POST.get('delete'))
-            print('mam')
         except:
-            print('nie mam')
             if_delete = None
         if if_delete:
             comment_id = int(request.POST.get('comment_id'))
@@ -139,20 +144,12 @@ def renderSingleArticle(request, slug):
             comment_id = int(request.POST.get('comment_id'))
         except:
             comment_id = None
-        print('j')
         if commentForm.is_valid():
-            print('d')
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
             if request.user.is_superuser:
                 comment.username = request.user.first_name + " " + request.user.last_name
                 comment.is_journalist = True
-            print('id jd')
-            print(comment_id)
-            print('teraz wszystkie')
-            objs = Comment.objects.all()
-            for o in objs:
-                print(o.id)
             if comment_id:
                 comment_qs = Comment.objects.get(id=comment_id)
                 if comment_qs:
@@ -162,7 +159,6 @@ def renderSingleArticle(request, slug):
                     reply_comment.reply = comment_qs
                     print('Comment added... Actual number of replies: ', comment_qs.number_of_replies)
             articleCom = comment.article
-            print('psa')
             link = '/articles/' + slug
             clientKey = request.POST['g-recaptcha-response']
             secretKey = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'
@@ -177,7 +173,18 @@ def renderSingleArticle(request, slug):
             if verify:
                 commentForm.save()
                 comment.save()
+                messages.success(request, 'Komentarz został pomyślnie dodany!')
+            else:
+                messages.error(request, 'Nie udało się dodać komentarza, musisz potwierdzić, że nie jesteś robotem!')
+            context = {
+                'object': Article.objects.get(slug=slug),
+                'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
+                'site_key': settings.RECAPTCHA_PUBLIC_KEY,
+                'commentForm': AddCommentForm(),
+                'user': request.user,
+            }
             return HttpResponseRedirect(link)
+
     else:
         articleCom = Article.objects.get(slug=slug)
         articleCom.views += 1
@@ -185,9 +192,9 @@ def renderSingleArticle(request, slug):
         commentForm = AddCommentForm()
     context = {
         'object': Article.objects.get(slug=slug),
-        'commentForm': commentForm,
         'comments': Comment.objects.filter(article=Article.objects.get(slug=slug)),
         'site_key': settings.RECAPTCHA_PUBLIC_KEY,
+        'commentForm': AddCommentForm(),
         'user': request.user,
     }
     return render(request, 'articles/article.html', context)
@@ -257,12 +264,15 @@ def renderSearchResult(request):
 
 
 def renderEditArticle(request, id):
-    instance = Article.objects.get(ID=id)
-    form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('postCreator')
-    return render(request, 'journalist/editArticle.html', {'articleForm': form})
+    if request.user.is_superuser:
+        instance = Article.objects.get(ID=id)
+        form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('postCreator')
+        return render(request, 'journalist/editArticle.html', {'articleForm': form})
+    else:
+        return HttpResponseRedirect('../../accounts/login/')
 
 
 class renderArticlesListView(ListView):
