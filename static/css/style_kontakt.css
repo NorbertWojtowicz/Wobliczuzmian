@@ -1,5 +1,6 @@
 .infoBox{
-	margin: 30px auto 30px auto;
+	margin: 0 auto 0 auto;
+	padding-top: 30px;
 	width: calc(100% - 60px);
 	color: #161616;
 	font-size: 20px;
@@ -24,13 +25,21 @@ a{
 	margin: 20px 0 0 0;
 }
 
-.infoBox > a:nth-of-type(1):hover{
+.info > i{
+	color: #161616;
+}
+
+.infoBox > a, .infoBox > a i{
+	transition: color 300ms;
+}
+
+.infoBox > a:hover, .infoBox > a:hover i{
 	color: #3578E5;
 }
 
-.infoBox > a:nth-of-type(2):hover{
+/*.infoBox > a:nth-of-type(2):hover{
 	color: #c4302b;
-}
+}*/
 
 h2, h3{
 	margin: 20px 0 0 0;
