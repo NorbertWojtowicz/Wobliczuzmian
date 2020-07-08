@@ -171,3 +171,31 @@ a:hover{
 .icon-youtube-play:hover{
 	color: #c4302b;
 }
+
+.warning{
+    display: none;
+}
+
+@media only screen and (max-width: 790px){
+    .box.box, .banner.banner, .menu.menu, .footer.footer, .wrapper.wrapper{
+        display: none;
+    }
+
+	body{
+		background: #161616;
+	}
+
+    .warning.warning{
+        display: block;
+        width: 90%;
+        padding-top: 30px;
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+		margin: 0 auto 0 auto;
+    }
+
+    .logo.logo{
+		margin: 0 auto 20px auto;
+    }
+}

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-<h2>Artykuły zawierające każdy z pożądanych tagów:</h2><br>
+<h2 class="searchH2">Artykuły zawierające każdy z pożądanych tagów:</h2>
 {% for article in obj %}
     <a href="../../articles/{{ article.slug }}" class="link">
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
@@ -28,7 +28,7 @@
             </div>
         </a>
 {% endfor %}
-    <h2>Artykuły powiązane z conajmniej jednym z tagów:</h2><br>
+    <h2 class="searchH2">Artykuły powiązane z conajmniej jednym z tagów:</h2><br>
 {% for article in rest %}
     {% if article not in obj %}
     <a href="../../articles/{{ article.slug }}" class="link">
