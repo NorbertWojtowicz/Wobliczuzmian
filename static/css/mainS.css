@@ -222,7 +222,7 @@
     }
 }
 
-@media only screen and (max-width: 789px){
+/*@media only screen and (max-width: 789px){
     .box.box, .banner.banner, .menu.menu, .footer.footer{
         display: none;
     }
@@ -238,4 +238,4 @@
     .logo.logo{
         width: 100%;
     }
-}
+}*/

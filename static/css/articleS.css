@@ -343,6 +343,14 @@
     color: #aaa;
 }
 
+.journalistTag{
+    font-size: 16px;
+    background: #161616;
+    color: #fff;
+    padding: 7px;
+    border-radius: 7px;
+}
+
 .comC
 {
     font-size: 15px;
