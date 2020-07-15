@@ -153,8 +153,6 @@ def renderSingleArticle(request, slug):
             if comment_id:
                 comment_qs = Comment.objects.get(id=comment_id)
                 if comment_qs:
-                    comment_qs.number_of_replies += 1
-                    comment_qs.save()
                     reply_comment = commentForm.save(commit=False)
                     reply_comment.reply = comment_qs
                     print('Comment added... Actual number of replies: ', comment_qs.number_of_replies)
@@ -171,6 +169,11 @@ def renderSingleArticle(request, slug):
             verify = response['success']
             print('Your success is: ', verify)
             if verify:
+                if comment_id:
+                    comment_qs = Comment.objects.get(id=comment_id)
+                    if comment_qs:
+                        comment_qs.number_of_replies += 1
+                        comment_qs.save()
                 commentForm.save()
                 comment.save()
                 messages.success(request, 'Komentarz został pomyślnie dodany!')
