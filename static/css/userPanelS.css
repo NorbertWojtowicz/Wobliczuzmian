@@ -3,6 +3,10 @@ body
     font-family: 'Arial', serif;
     background: #fff;
 }
+a
+{
+    color: white;
+}
 #boxesContainer
 {
     width: 1000px;
