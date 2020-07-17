@@ -96,6 +96,11 @@ def renderUserPanel(request):
         ruser_id = user.id
         arUser = ArticleUser.objects.get(user_id=ruser_id)
         articles = Article.objects.filter(user_id=ruser_id)
+        comments = []
+        numberOfComments = 0
+        for article in articles:
+            commentsqs = Comment.objects.filter(article=article)
+            numberOfComments = numberOfComments + len(commentsqs)
         total_views = 0
         for article in articles:
             total_views += article.views
@@ -103,7 +108,9 @@ def renderUserPanel(request):
 
         context = {
             'user': arUser,
-            'Articles': Article.objects.all()
+            'Articles': Article.objects.all(),
+            'journalist_id': ruser_id,
+            'numberOfComments': numberOfComments,
         }
         return render(request, 'journalist/userPanel.html', context)
     else:
@@ -114,7 +121,7 @@ def renderUserArticles(request):
         user_id = request.user.id
 
         context = {
-            'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
+            'articles': Article.objects.filter(user_id=user_id)
         }
         return renderJournalistArticlesListView.as_view()(request)
     else:
@@ -280,7 +287,7 @@ def renderEditArticle(request, id):
 
 class renderArticlesListView(ListView):
     time_now = timezone.now()
-    articles = Article.objects.all().exclude(when_to_public__gt=time_now)
+    articles = Article.objects.all().exclude(when_to_public__gt=time_now).order_by('-pub_date')
     print(articles)
     queryset = articles
     paginate_by = 2
@@ -300,7 +307,10 @@ class renderJournalistArticlesListView(ListView):
 
     def get_queryset(self):
         queryset = super(renderJournalistArticlesListView, self).get_queryset()
-        queryset = Article.objects.filter(user_id=self.request.user.id)
+        queryset = Article.objects.filter(user_id=self.request.user.id).order_by('-pub_date')
         return queryset
     queryset = get_queryset
 
+
+def renderJournalistComments(request, journalist_id):
+    journalist = ArticleUser.objects.get()
