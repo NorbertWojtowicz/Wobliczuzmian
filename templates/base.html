@@ -14,13 +14,20 @@
     </div>
     <div class="menu">
         <a href="../../"><button value="strona_glowna" class="menu_button">
-        <i class="icon-home" style="font-size: 27px;"></i>&nbsp;Strona główna</button></a>
+        <i class="icon-home"></i>Strona główna</button></a>
+
+        <a href="../../" id="mainLowQlt"><button value="glowna" class="menu_button">
+        <i class="icon-home"></i>Główna</button></a>
+
         <a href="../../articles"><button value="artykuly" class="menu_button">
-        <i class="icon-doc-text-inv"></i>&nbsp;Artykuły</button></a>
+        <i class="icon-doc-text-inv"></i>Artykuły</button></a>
+
         <a href="../articles/search"><button value="szukaj" class="menu_button">
-        <i class="icon-search"></i>&nbsp;Szukaj</button></a>
+        <i class="icon-search"></i>Szukaj</button></a>
+
         {% if user.is_superuser %}
-            <a href="/journalist/userPanel"><button name="journalist" class="menu_button"><i class="icon-star"></i> Panel Dziennikarza</button></a>
+            <a href="/journalist/userPanel"><button name="journalist" class="menu_button">
+            <i class="icon-star"></i> Panel Dziennikarza</button></a>
         {% endif %}
     </div>
 <div class="wrapper">
@@ -33,13 +40,7 @@
         <a href="https://www.facebook.com/Wobliczu/" target="_blank"><i class="icon-facebook-squared"></i></a>
         <!--<a href="#"  target="_blank"><i class="icon-youtube-play""></i></a>-->
     </div>
-    <a href="../../kontakt"><button class="footer_button" value="kontakt">Kontakt</button></a>
+    <a href="../../kontakt"><img class="footer_contact" alt="kontakt" src="../media/footer_kontakt.png"></a>
 </footer>
-<div class="warning">
-    <img src="../media/WObliczuLowHQ.png" alt="logo" class="logo">
-    Przykro nam, ale urządzenie, na którym obecnie przeglądasz witrynę wobliczu.pl, ma bardzo małą
-    rozdzielczość. W trosce o twój wzrok zablokowaliśmy możliwość przeglądania strony w tak spartańskich
-    warunkach.
-</div>
 </body>
 </html>

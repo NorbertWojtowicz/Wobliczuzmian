@@ -1,3 +1,87 @@
+@media only screen and (max-width: 1250px){
+
+    .container.container, #commentContainer#commentContainer{
+        width: 1000px;
+    }
+
+    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
+    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
+        width: 900px;
+    }
+
+    .commentBox.commentBox{
+        width: 850px;
+    }
+
+    .box.box, .comHeader.comHeader{
+        width: 760px;
+    }
+
+    .comC.comC{
+        width: 710px;
+    }
+
+    .comLine.comLine, .repliesContainer.repliesContainer{
+        width: 800px;
+    }
+
+    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
+        width: 700px;
+    }
+
+    .replyBox.replyBox, .replyHeader.replyHeader{
+        width: 660px;
+    }
+
+    .replyContent.replyContent {
+        width: 610px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+
+    .container.container, #commentContainer#commentContainer{
+        width: 900px;
+    }
+
+    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
+    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
+        width: 900px;
+    }
+
+    .commentBox.commentBox{
+        width: 850px;
+    }
+
+    .box.box, .comHeader.comHeader{
+        width: 660px;
+    }
+
+    .comC.comC{
+        width: 610px;
+    }
+
+    .comLine.comLine, .repliesContainer.repliesContainer{
+        width: 700px;
+    }
+
+    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
+        width: 600px;
+    }
+
+    .replyBox.replyBox, .replyHeader.replyHeader{
+        width: 560px;
+    }
+
+    .addReplyContent.addReplyContent {
+        width: 550px;
+    }
+
+    .replyContent.replyContent {
+        width: 510px;
+    }
+}
+
 .container, #commentContainer{
     width: 1250px;
 }
@@ -32,86 +116,6 @@
 
 .replyContent {
     width: 610px;
-}
-
-@media only screen and (max-width: 1250px){
-
-    .container.container, #commentContainer#commentContainer{
-        width: 1000px;
-    }
-
-    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
-    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
-        width: 750px;
-    }
-
-    .commentBox.commentBox{
-        width: 850px;
-    }
-
-    .box.box, .comHeader.comHeader{
-        width: 760px;
-    }
-
-    .comC.comC{
-        width: 710px;
-    }
-
-    .comLine.comLine, .repliesContainer.repliesContainer{
-        width: 800px;
-    }
-
-    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
-        width: 700px;
-    }
-
-    .replyBox.replyBox, .replyHeader.replyHeader{
-        width: 660px;
-    }
-
-    .replyContent.replyContent {
-        width: 610px;
-    }
-}
-
-@media only screen and (max-width: 1250px){
-
-    .container.container, #commentContainer#commentContainer{
-        width: 900px;
-    }
-
-    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
-    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
-        width: 650px;
-    }
-
-    .commentBox.commentBox{
-        width: 850px;
-    }
-
-    .box.box, .comHeader.comHeader{
-        width: 660px;
-    }
-
-    .comC.comC{
-        width: 610px;
-    }
-
-    .comLine.comLine, .repliesContainer.repliesContainer{
-        width: 700px;
-    }
-
-    .addReplyBox.addReplyBox, .repliesBox.repliesBox, .replyLine.replyLine, .addReplyFooter.addReplyFooter{
-        width: 600px;
-    }
-
-    .replyBox.replyBox, .replyHeader.replyHeader{
-        width: 560px;
-    }
-
-    .replyContent.replyContent {
-        width: 510px;
-    }
 }
 
 .container{
@@ -421,8 +425,7 @@
 
 .addReplyContent{
     height: 68px;
-    min-width: 650px;
-    max-width: 650px;
+    width: 650px;
     border: 2px solid #b2b2b2;
     border-radius: 4px;
     margin: 0 0 10px 25px;
