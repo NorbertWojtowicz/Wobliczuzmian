@@ -231,9 +231,13 @@ def renderSearchResult(request):
             geoTags.append(request.POST.get(mTag.main_tag))
             #print(tab)
     if len(geoTags) > 1:
-        errors.append('Możesz wybrać maksymalnie jeden region!')
+        errors.append('Możesz wybrać maksymalnie jeden obszar geograficzny!')
     if len(geoTags) < 1:
-        errors.append('Musisz wybrać region!')
+        errors.append('Musisz wybrać obszar geograficzny!')
+    for sTag in SecondaryTags.objects.all():
+        if request.POST.get(sTag.secondary_tag) is not None:
+            categoryTags.append(request.POST.get(sTag.secondary_tag))
+            #print(tabSecond)
     if errors:
         context = {
             'mainTags': MainTags.objects.all(),
@@ -241,10 +245,6 @@ def renderSearchResult(request):
             'errors': errors
         }
         return render(request, 'search.html', context)
-    for sTag in SecondaryTags.objects.all():
-        if request.POST.get(sTag.secondary_tag) is not None:
-            categoryTags.append(request.POST.get(sTag.secondary_tag))
-            #print(tabSecond)
     geoTagId = MainTags.objects.get(main_tag=geoTags[0])
     print(geoTagId.id)
     query = Q(main_tags=geoTagId.id)
@@ -257,11 +257,16 @@ def renderSearchResult(request):
     print(catTagsId)
     number_of_tags = len(catTagsId)
     objects_ext = Article.objects.filter(main_tags=geoTagId)
+    if len(categoryTags) == 0:
+        context = {
+            'obj': objects_ext,
+        }
+        return render(request, 'searchResult.html', context)
     for i in catTagsId:
         objects_ext = objects_ext.filter(secondary_tags=i)
     for obj in objects_ext:
         titles = obj.title
-    rest_of_articles = Article.objects.filter(reduce(lambda x, y : x | y,(Q(secondary_tags=idd) for idd in catTagsId)))\
+    rest_of_articles = Article.objects.filter(reduce(lambda x, y: x | y, (Q(secondary_tags=idd) for idd in catTagsId)))\
         .distinct()
     #rest_of_articles.exclude(secondary_tags__secondary_tags__in=objects_ext)
     print(rest_of_articles)
