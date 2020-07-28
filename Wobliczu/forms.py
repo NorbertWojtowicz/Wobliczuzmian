@@ -1,5 +1,9 @@
 from django import forms
 from .models import ArticleImages, Article, Comment, SecondaryTags, MainTags
+from ckeditor.fields import RichTextFormField
+from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.fields import RichTextUploadingFormField
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 ARTICLE_MAIN_TAGS = (
@@ -17,6 +21,8 @@ ARTICLE_SECONDARY_TAGS = (
 
 
 class AddArticleForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
     class Meta:
         model = Article
         fields = ('title', 'short_desc', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags',
@@ -25,7 +31,6 @@ class AddArticleForm(forms.ModelForm):
         widgets = {
             'title': forms.Textarea(attrs={'class': 'input'}),
             'short_desc': forms.Textarea(attrs={'class': 'input'}),
-            'content': forms.Textarea(attrs={'class': 'input'}),
             'miniature': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
             'main_image': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
             'image_section_two': forms.ClearableFileInput(attrs={'class': 'inputImage'}),

@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Wobliczu',
     'snowpenguin.django.recaptcha2',
-
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Wobliczuzmian.urls'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 TEMPLATES = [
     {
