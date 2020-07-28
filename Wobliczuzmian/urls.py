@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from Wobliczu.views import renderHome, renderSearch, renderKontakt, renderPostCreator, renderBase, renderUserPanel, \
-    renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult, renderEditArticle
+    renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult, renderEditArticle, renderJournalistComments
 from django.conf.urls.static import static
 from django.conf import settings
 from Wobliczu.models import Article
@@ -37,5 +37,7 @@ urlpatterns = [
     path('articles/<slug:slug>', renderSingleArticle, name='single-article'),
     url(r'^search-result', renderSearchResult, name='search-result'),
     path('journalist/editArticle/<int:id>', renderEditArticle, name='render-edit'),
+    path('journalist/userPanel/<int:journalist_id>', renderJournalistComments, name='journalist-comments'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

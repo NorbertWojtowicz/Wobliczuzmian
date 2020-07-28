@@ -37,7 +37,7 @@
     </div>
     <img src="{{ object.main_image.url }}" alt="Główne zdjęcie" class="mainImg">
     <div class="content">
-        {{ object.content }}
+        {{ object.content | safe }}
     </div>
     {% if object.image_section_two %}
     <div class="addImg">

@@ -96,6 +96,11 @@ def renderUserPanel(request):
         ruser_id = user.id
         arUser = ArticleUser.objects.get(user_id=ruser_id)
         articles = Article.objects.filter(user_id=ruser_id)
+        comments = []
+        numberOfComments = 0
+        for article in articles:
+            commentsqs = Comment.objects.filter(article=article)
+            numberOfComments = numberOfComments + len(commentsqs)
         total_views = 0
         for article in articles:
             total_views += article.views
@@ -103,7 +108,9 @@ def renderUserPanel(request):
 
         context = {
             'user': arUser,
-            'Articles': Article.objects.all()
+            'Articles': Article.objects.all(),
+            'journalist_id': ruser_id,
+            'numberOfComments': numberOfComments,
         }
         return render(request, 'journalist/userPanel.html', context)
     else:
@@ -114,7 +121,7 @@ def renderUserArticles(request):
         user_id = request.user.id
 
         context = {
-            'articles': Article.objects.filter(user_id=user_id).order_by('-pub_date')
+            'articles': Article.objects.filter(user_id=user_id)
         }
         return renderJournalistArticlesListView.as_view()(request)
     else:
@@ -153,8 +160,6 @@ def renderSingleArticle(request, slug):
             if comment_id:
                 comment_qs = Comment.objects.get(id=comment_id)
                 if comment_qs:
-                    comment_qs.number_of_replies += 1
-                    comment_qs.save()
                     reply_comment = commentForm.save(commit=False)
                     reply_comment.reply = comment_qs
                     print('Comment added... Actual number of replies: ', comment_qs.number_of_replies)
@@ -171,6 +176,11 @@ def renderSingleArticle(request, slug):
             verify = response['success']
             print('Your success is: ', verify)
             if verify:
+                if comment_id:
+                    comment_qs = Comment.objects.get(id=comment_id)
+                    if comment_qs:
+                        comment_qs.number_of_replies += 1
+                        comment_qs.save()
                 commentForm.save()
                 comment.save()
                 messages.success(request, 'Komentarz został pomyślnie dodany!')
@@ -221,9 +231,13 @@ def renderSearchResult(request):
             geoTags.append(request.POST.get(mTag.main_tag))
             #print(tab)
     if len(geoTags) > 1:
-        errors.append('Możesz wybrać maksymalnie jeden region!')
+        errors.append('Możesz wybrać maksymalnie jeden obszar geograficzny!')
     if len(geoTags) < 1:
-        errors.append('Musisz wybrać region!')
+        errors.append('Musisz wybrać obszar geograficzny!')
+    for sTag in SecondaryTags.objects.all():
+        if request.POST.get(sTag.secondary_tag) is not None:
+            categoryTags.append(request.POST.get(sTag.secondary_tag))
+            #print(tabSecond)
     if errors:
         context = {
             'mainTags': MainTags.objects.all(),
@@ -231,10 +245,6 @@ def renderSearchResult(request):
             'errors': errors
         }
         return render(request, 'search.html', context)
-    for sTag in SecondaryTags.objects.all():
-        if request.POST.get(sTag.secondary_tag) is not None:
-            categoryTags.append(request.POST.get(sTag.secondary_tag))
-            #print(tabSecond)
     geoTagId = MainTags.objects.get(main_tag=geoTags[0])
     print(geoTagId.id)
     query = Q(main_tags=geoTagId.id)
@@ -247,11 +257,16 @@ def renderSearchResult(request):
     print(catTagsId)
     number_of_tags = len(catTagsId)
     objects_ext = Article.objects.filter(main_tags=geoTagId)
+    if len(categoryTags) == 0:
+        context = {
+            'obj': objects_ext,
+        }
+        return render(request, 'searchResult.html', context)
     for i in catTagsId:
         objects_ext = objects_ext.filter(secondary_tags=i)
     for obj in objects_ext:
         titles = obj.title
-    rest_of_articles = Article.objects.filter(reduce(lambda x, y : x | y,(Q(secondary_tags=idd) for idd in catTagsId)))\
+    rest_of_articles = Article.objects.filter(reduce(lambda x, y: x | y, (Q(secondary_tags=idd) for idd in catTagsId)))\
         .distinct()
     #rest_of_articles.exclude(secondary_tags__secondary_tags__in=objects_ext)
     print(rest_of_articles)
@@ -277,7 +292,7 @@ def renderEditArticle(request, id):
 
 class renderArticlesListView(ListView):
     time_now = timezone.now()
-    articles = Article.objects.all().exclude(when_to_public__gt=time_now)
+    articles = Article.objects.all().exclude(when_to_public__gt=time_now).order_by('-pub_date')
     print(articles)
     queryset = articles
     paginate_by = 2
@@ -297,7 +312,10 @@ class renderJournalistArticlesListView(ListView):
 
     def get_queryset(self):
         queryset = super(renderJournalistArticlesListView, self).get_queryset()
-        queryset = Article.objects.filter(user_id=self.request.user.id)
+        queryset = Article.objects.filter(user_id=self.request.user.id).order_by('-pub_date')
         return queryset
     queryset = get_queryset
 
+
+def renderJournalistComments(request, journalist_id):
+    journalist = ArticleUser.objects.get()

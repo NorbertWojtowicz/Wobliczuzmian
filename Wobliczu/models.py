@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from django.urls import reverse
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class MainTags(models.Model):
@@ -48,7 +50,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     views = models.IntegerField(default=0)
     short_desc = models.CharField(max_length=650)
-    content = models.TextField()
+    content = RichTextUploadingField(blank=True, null=True)
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     main_tags = models.ManyToManyField(MainTags, null=True)

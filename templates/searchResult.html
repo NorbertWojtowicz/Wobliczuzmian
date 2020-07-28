@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+{% if obj %}
 <h2 class="searchH2">Artykuły zawierające każdy z pożądanych tagów:</h2>
 {% for article in obj %}
     <a href="../../articles/{{ article.slug }}" class="link">
@@ -28,6 +29,14 @@
             </div>
         </a>
 {% endfor %}
+{% endif %}
+{% if not obj and rest %}
+    <h2 class="searchH2" style="text-align: center">Przykro nam, lecz nie znaleźliśmy artykułów zawierających każdy z wymaganych tagów.<br>Zapraszamy do sprawdzenia podobnych poniżej!<br></h2>
+{% endif %}
+{% if not obj and not rest %}
+    <h2 class="searchH2" style="text-align: center">Przykro nam, lecz nie znaleźliśmy artykułów związanych z wybranymi tagami.</h2>
+{% endif %}
+{% if rest %}
     <h2 class="searchH2">Artykuły powiązane z conajmniej jednym z tagów:</h2><br>
 {% for article in rest %}
     {% if article not in obj %}
@@ -49,6 +58,7 @@
         </a>
     {% endif %}
 {% endfor %}
+{% endif %}
 </div>
 </body>
 </html>
