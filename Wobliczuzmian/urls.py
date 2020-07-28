@@ -38,5 +38,6 @@ urlpatterns = [
     url(r'^search-result', renderSearchResult, name='search-result'),
     path('journalist/editArticle/<int:id>', renderEditArticle, name='render-edit'),
     path('journalist/userPanel/<int:journalist_id>', renderJournalistComments, name='journalist-comments'),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

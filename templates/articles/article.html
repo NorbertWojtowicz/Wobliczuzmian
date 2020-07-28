@@ -37,38 +37,8 @@
     </div>
     <img src="{{ object.main_image.url }}" alt="Główne zdjęcie" class="mainImg">
     <div class="content">
-        {{ object.content }}
+        {{ object.content | safe }}
     </div>
-    {% if object.image_section_two %}
-    <div class="addImg">
-        <img src="{{ object.image_section_two.url }}" alt="zdjecie2">
-    </div>
-    {% endif %}
-    {% if object.text_section_two %}
-    <div class="addTxt">
-        {{ object.text_section_two }}
-    </div>
-    {% endif %}
-    {% if object.image_section_three %}
-    <div class="addImg">
-        <img src="{{ object.image_section_three.url }}" alt="zdjecie2">
-    </div>
-    {% endif %}
-    {% if object.text_section_three %}
-    <div class="addTxt">
-        {{ object.text_section_three }}
-    </div>
-    {% endif %}
-    {% if object.image_section_four %}
-    <div class="addImg">
-        <img src="{{ object.image_section_four.url }}" alt="zdjecie2">
-    </div>
-    {% endif %}
-    {% if object.text_section_four %}
-    <div class="addTxt">
-        {{ object.text_section_four }}
-    </div>
-    {% endif %}
 </div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div id="commentContainer">

@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from django.urls import reverse
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class MainTags(models.Model):
@@ -48,21 +50,14 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     views = models.IntegerField(default=0)
     short_desc = models.CharField(max_length=650)
-    content = models.TextField()
+    content = RichTextUploadingField(blank=True, null=True)
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     main_tags = models.ManyToManyField(MainTags, null=True)
     secondary_tags = models.ManyToManyField(SecondaryTags, null=True)
     miniature = models.ImageField(upload_to='media/miniatures/')
     main_image = models.ImageField(upload_to='media/main_images/')
-    text_section_two = models.CharField(max_length=10000, null=True, blank=True)
-    image_section_two = models.ImageField(upload_to='media/sect2/', null=True, blank=True)
-    text_section_three = models.CharField(max_length=10000, null=True, blank=True,)
-    image_section_three = models.ImageField(upload_to='media/sect3/', null=True, blank=True)
-    text_section_four = models.CharField(max_length=10000, null=True, blank=True)
-    image_section_four = models.ImageField(upload_to='media/sect4/', null=True, blank=True)
     when_to_public = models.DateTimeField(default=timezone.now, blank=True)
-    #shown_tag = models.ForeignKey(SecondaryTags, on_delete=models.CASCADE, related_name='%(class)s_requests_created', null=True, blank=True)
 
     def delete(self, **kwargs):
         print('Usuwam artykuł id: ', self.ID, ' o tytule: ', self.title)

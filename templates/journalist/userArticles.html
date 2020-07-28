@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 {% for article in object_list %}
-        <a href="articles/{{ article.slug }}" class="link">
+        <a href="../articles/{{ article.slug }}" class="link">
             <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="txt">
                 <div class="tag">
@@ -20,7 +20,7 @@
                         {{ tag }}
                     {% endfor %}
                     {% if article.when_to_public > time_now %}
-                        Premiera dopiero: {{ article.when_to_public }}
+                        <div class="premiere">Premiera dopiero: {{ article.when_to_public }}</div>
                     {% endif %}
                     {% if user.is_superuser %}
                     <form action="journalist/editArticle/{{ article.ID }}">

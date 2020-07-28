@@ -1,5 +1,9 @@
 from django import forms
 from .models import ArticleImages, Article, Comment, SecondaryTags, MainTags
+from ckeditor.fields import RichTextFormField
+from ckeditor.widgets import CKEditorWidget
+from ckeditor_uploader.fields import RichTextUploadingFormField
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
 ARTICLE_MAIN_TAGS = (
@@ -17,23 +21,17 @@ ARTICLE_SECONDARY_TAGS = (
 
 
 class AddArticleForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorUploadingWidget())
+
     class Meta:
         model = Article
         fields = ('title', 'short_desc', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags',
-                  'user', 'image_section_two', 'text_section_two', 'image_section_three', 'text_section_three',
-                  'image_section_four', 'text_section_four', 'slug', 'when_to_public')
+                  'user', 'slug', 'when_to_public')
         widgets = {
             'title': forms.Textarea(attrs={'class': 'input'}),
             'short_desc': forms.Textarea(attrs={'class': 'input'}),
-            'content': forms.Textarea(attrs={'class': 'input'}),
             'miniature': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
             'main_image': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
-            'image_section_two': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
-            'image_section_three': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
-            'image_section_four': forms.ClearableFileInput(attrs={'class': 'inputImage'}),
-            'text_section_two': forms.Textarea(attrs={'class': 'input'}),
-            'text_section_three': forms.Textarea(attrs={'class': 'input'}),
-            'text_section_four': forms.Textarea(attrs={'class': 'input'}),
             'main_tags': forms.CheckboxSelectMultiple(attrs={'class': 'checkboxMltp'}),
             'secondary_tags': forms.CheckboxSelectMultiple(attrs={'class': 'checkboxMltp'}),
             'when_to_public': forms.DateTimeInput(attrs={'class': 'input'}),
