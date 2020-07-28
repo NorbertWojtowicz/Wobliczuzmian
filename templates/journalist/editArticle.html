@@ -26,63 +26,13 @@
             </div>
             {{ articleForm.short_desc }}
         </div>
-        <div class="field" style="margin-top: 20px">
-            <div class="nameField">
-                Treść
-            </div>
-            {{ articleForm.content }}
+         <div class="nameField">
+            Treść
         </div>
-
-        <div class="separator"></div>
-
-        <div class="field" style="margin-top: -20px">
-            <div class="nameField">
-                (opcjonalne) sekcja 2
-            </div>
-            {{ articleForm.image_section_two }}
+        <div class="postContentCreator">
+            {{ articleForm.media }}
+            {{ articleForm.content | safe }}
         </div>
-
-        <div class="field" style="margin-top: 20px;">
-            <div class="nameField">
-                (opcjonalne) sekcja 2
-            </div>
-            {{ articleForm.text_section_two }}
-        </div>
-
-        <div class="separator"></div>
-
-        <div class="field" style="margin-top: -20px">
-            <div class="nameField">
-                (opcjonalne) sekcja 3
-            </div>
-            {{ articleForm.image_section_three }}
-        </div>
-
-        <div class="field" style="margin-top: 20px">
-            <div class="nameField">
-                (opcjonalne) sekcja 3
-            </div>
-            {{ articleForm.text_section_three }}
-        </div>
-
-        <div class="separator"></div>
-
-        <div class="field" style="margin-top: -20px">
-            <div class="nameField">
-                (opcjonalne) sekcja 4
-            </div>
-            {{ articleForm.image_section_four }}
-        </div>
-
-        <div class="field" style="margin-top: 20px">
-            <div class="nameField">
-                (opcjonalne) sekcja 4
-            </div>
-            {{ articleForm.text_section_four }}
-        </div>
-
-        <div class="separator"></div>
-
         <div class="field" style="width: 485px; float: left;">
             <div class="nameField" style="height: 90px; line-height: 90px">
                 Główne tagi
@@ -110,17 +60,6 @@
             {{ articleForm.main_image }}
         </div>
         <div style="clear: both"></div>
-
-        <br>
-        <br>
-        <div class="field" style="margin-top: 20px">
-            <div class="nameField" style="padding-left: 50px">
-                Galeria
-            </div>
-        <br>
-        </div>
-
-
 
         <br/>
         <div class="submit">

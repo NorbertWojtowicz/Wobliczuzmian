@@ -41,8 +41,8 @@ body
     margin-left: 25px;
     margin-right: 25px;
     height: 100%;
-    font-size: 20px;
-    font-weight: normal;
+    font-size: 21px;
+    font-weight: 500;
     float: left;
 }
 .input
@@ -59,6 +59,17 @@ body
     //border: 2px solid #e0e0e0;
     //border-radius: 5px;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+}
+.postContentCreator{
+    background: #fff;
+    padding: 0;
+    margin: 10px auto 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
 }
 .input:focus
 {
@@ -133,4 +144,12 @@ body
 .field br
 {
     display: none;
+}
+.container > form > .nameField.nameField{
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 30px;
+    font-weight: 600;
 }
