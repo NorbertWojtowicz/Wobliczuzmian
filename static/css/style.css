@@ -6,13 +6,12 @@ html{
 
 body::-webkit-scrollbar{
 	width: 5px;
-	background: #161616;
+	background: #fff;
 }
 
 body::-webkit-scrollbar-thumb{
-	background-color: #fff;
+	background-color: #161616;
 	outline: none;
-	border-radius: 2px;
 }
 
 body::-webkit-scrollbar-track{

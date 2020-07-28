@@ -20,7 +20,7 @@
                         {{ tag }}
                     {% endfor %}
                     {% if article.when_to_public > time_now %}
-                        Premiera dopiero: {{ article.when_to_public }}
+                        <div class="premiere">Premiera dopiero: {{ article.when_to_public }}</div>
                     {% endif %}
                     {% if user.is_superuser %}
                     <form action="journalist/editArticle/{{ article.ID }}">
