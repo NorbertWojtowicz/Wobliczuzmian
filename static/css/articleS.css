@@ -4,8 +4,8 @@
         width: 1000px;
     }
 
-    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
-    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
+    .title.title, .author_date.author_date, .short_desc.short_desc, .content.content,
+    .titleLine.titleLine, .addTxt.addTxt, .container.container > img{
         width: 900px;
     }
 
@@ -39,14 +39,13 @@
 }
 
 @media only screen and (max-width: 1000px){
-
     .container.container, #commentContainer#commentContainer{
         width: 900px;
     }
 
-    .title.title, .author_date.author_date, .short_desc.short_desc, .mainImg.mainImg, .content.content,
-    .titleLine.titleLine, .addImg.addImg, .addImg.addImg > img, .addTxt.addTxt{
-        width: 900px;
+    .title.title, .author_date.author_date, .short_desc.short_desc, .content.content,
+    .titleLine.titleLine, .addTxt.addTxt, .container.container > img{
+        width: 800px;
     }
 
     .commentBox.commentBox{
@@ -86,8 +85,22 @@
     width: 1250px;
 }
 
-.title, .author_date, .short_desc, .mainImg, .content, .titleLine, .addImg, .addImg > img, .addTxt{
+.title, .author_date, .short_desc, .content, .titleLine, .addTxt, .container > img{
     width: 1000px;
+}
+
+.content > p{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.content > p > img{
+    width: 90% !important;
+    height: auto !important;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 .commentBox{
@@ -128,11 +141,11 @@
 }
 
 /* Marginesy obiektow */
-.title, .short_desc, .mainImg{
+.title, .short_desc, .container > img{
     margin-bottom: 30px;
 }
 
-.addTxt, .addImg{
+.addTxt, .content > img{
     margin-top: 30px;
 }
 
