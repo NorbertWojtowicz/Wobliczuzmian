@@ -45,8 +45,8 @@ class ArticleUser(models.Model):
 
 
 class Article(models.Model):
-    ID = models.AutoField(primary_key=True, auto_created=True)
-    user = models.ForeignKey(ArticleUser, on_delete=models.CASCADE, null=True, blank=True)
+    id = models.AutoField(primary_key=True, auto_created=True)
+    user = models.ForeignKey(ArticleUser, on_delete=models.CASCADE, null=True, blank=True, related_name='users')
     title = models.CharField(max_length=100)
     views = models.IntegerField(default=0)
     short_desc = models.CharField(max_length=650)

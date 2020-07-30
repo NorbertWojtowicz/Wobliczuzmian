@@ -21,7 +21,6 @@ ARTICLE_SECONDARY_TAGS = (
 
 
 class AddArticleForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Article
@@ -61,3 +60,10 @@ class AddCommentForm(forms.ModelForm):
 class SearchForm(forms.ModelForm):
     class Meta:
         pass
+
+
+class EditArticle(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ('title', 'short_desc', 'content', 'miniature', 'main_image', 'main_tags', 'secondary_tags',
+                  'user', 'slug', 'when_to_public')

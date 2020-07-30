@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm
+from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm, EditArticle
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags
@@ -22,10 +22,10 @@ def renderHome(request):
     time_now = timezone.now()
     for article in articles:
         if article.when_to_public > time_now:
-            articles = articles.exclude(ID=article.ID)
-            print('Oj ty sobie jeszcze poczekasz..', article.ID)
+            articles = articles.exclude(id=article.id)
+            print('Oj ty sobie jeszcze poczekasz..', article.id)
     first_obj = articles.first()
-    articles = articles.exclude(ID=first_obj.ID)
+    articles = articles.exclude(id=first_obj.id)
 
     context = {
         'articles': articles,
@@ -278,13 +278,17 @@ def renderSearchResult(request):
     return render(request, 'searchResult.html', context)
 
 
-def renderEditArticle(request, id):
+def renderEditArticle(request, slug):
     if request.user.is_superuser:
-        instance = Article.objects.get(ID=id)
-        form = AddArticleForm(request.POST or None, request.FILES or None, instance=instance)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('postCreator')
+        article = Article.objects.get(slug=slug)
+        if request.method == 'POST':
+            form = AddArticleForm(request.POST, request.FILES, instance=article)
+            if form.is_valid():
+                print(form)
+                form.save()
+                return HttpResponseRedirect('../../articles')
+        else:
+            form = AddArticleForm(instance=article)
         return render(request, 'journalist/editArticle.html', {'articleForm': form})
     else:
         return HttpResponseRedirect('../../accounts/login/')
@@ -312,7 +316,10 @@ class renderJournalistArticlesListView(ListView):
 
     def get_queryset(self):
         queryset = super(renderJournalistArticlesListView, self).get_queryset()
-        queryset = Article.objects.filter(user_id=self.request.user.id).order_by('-pub_date')
+        user_id = self.request.user.id
+        articleuser = ArticleUser.objects.get(user_id=user_id)
+        queryset = Article.objects.filter(user_id=articleuser.id).order_by('-pub_date')
+        articles = Article.objects.all()
         return queryset
     queryset = get_queryset
 
