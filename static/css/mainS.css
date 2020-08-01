@@ -24,7 +24,7 @@
         height: 430px;
     }
 
-    .latest.latest > div > p{
+    .latestTitle.latestTitle{
         width: 646px;
     }
 
@@ -33,7 +33,7 @@
         height: 205px;
     }
 
-    .new_article.new_article > div > p{
+    .newArticleTitle.newArticleTitle{
         width: 293px;
     }
 
@@ -42,11 +42,20 @@
     }
 }
 
-@media only screen and (max-width: 1059px){
+@media only screen and (max-width: 1079px){
     .box.box{
-        width: 820px;
+        width: 840px;
+        height: auto;
+        padding: 0;
+    }
+
+    .box.box > div{
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 0 0 20px 20px;
+        width: 820px;
     }
 
     .latest.latest, .latest.latest > div{
@@ -55,8 +64,9 @@
         float: none;
     }
 
-    .latest.latest > div > p{
-        width: 760px;
+    .latestTitle.latestTitle{
+        width: 800px;
+        float: none;
     }
 
     .new_article.new_article, .new_article.new_article > div{
@@ -65,90 +75,84 @@
         float: none;
     }
 
-    .new_article.new_article > div > p{
-        width: 350px;
+    .newArticleTitle.newArticleTitle{
+        width: 390px;
     }
 
-    .box.box > a:nth-last-child(1){
+    .box.box > div > a:nth-last-child(1){
         display: none;
     }
-}
 
-@media only screen and (max-width: 840px){
-    .box.box{
-        width: 700px;
-        padding: 0 0 15px 15px;
+    .latestTitle.latestTitle, .newArticleTitle.newArticleTitle{
+        padding: 0;
     }
 
-    .latest.latest, .new_article.new_article{
-        width: 335px;
-        height: 209px;
-        margin: 15px 15px 0 0;
-    }
-
-    .latest.latest > div, .new_article.new_article > div{
-        width: 335px;
-        height: 209px;
-        margin: 0;
-    }
-
-    .latest.latest > div > p, .new_article.new_article > div > p{
-        padding: 0 10px 10px 10px;
-        width: 315px;
-        font-size: 24px;
-    }
-
-    .box.box > a:nth-last-child(1){
-        display: block;
+    .latestTitle.latestTitle > div, .newArticleTitle.newArticleTitle > div{
+        margin: 0 20px 20px 20px;
     }
 }
 
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 980px){
     .box.box{
-        width: 100vw;
-        padding: 0 0 15px 0;
+        width: 980px;
+        padding: 10px 10px 30px 30px;
     }
 
-    .box.box > a{
-        --a-res-width: calc(100vw - 30px);
-        width: var(--a-res-width);
-        height: calc(var(--a-res-width) * 5 / 8);
-        margin: 15px 15px 0 15px;
-    }
-
-    .latest.latest, .new_article.new_article{
+    .box.box > div{
+        width: 940px;
         margin: 0;
-        width: 100%;
-        height: 100%;
     }
 
-    .latest.latest > div, .new_article.new_article > div{
-        margin: 0;
-        width: 100%;
-        height: 100%;
+    .latest.latest, .latest.latest > div, .new_article.new_article, .new_article.new_article > div{
+        margin: 20px 20px 0 0;
     }
 
-    .latest.latest > div > p, .new_article.new_article > div > p{
-        width: calc(100% - 20px);
+    .latest.latest, .latest.latest > div{
+        width: 920px;
+        height: 575px;
+    }
+
+    .new_article.new_article, .new_article.new_article > div{
+        width: 450px;
+        height: 281px;
+    }
+
+    .latestTitle.latestTitle{
+        width: 920px;
+    }
+
+    .newArticleTitle.newArticleTitle{
+        width: 450px;
+    }
+
+    .latestTitle.latestTitle > div{
+        margin: 0 25px 25px 25px;
+    }
+
+    .newArticleTitle.newArticleTitle > div{
+        margin: 0 15px 15px 15px;
+    }
+
+    .latestTitle.latestTitle{
+        font-size: 49px;
+    }
+
+    .newArticleTitle.newArticleTitle{
+        font-size: 35px;
     }
 }
 
 .wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px 0 20px 0;
-}
-
-.warning{
-    display: none;
+    display: flex;
+    justify-content: center;
 }
 
 .box{
     width: 1230px;
     height: 780px;
     padding: 0 0 20px 20px;
-    display: block;
+    background: #161616;
 }
 
 .latest, .latest > div{
@@ -165,24 +169,23 @@
     margin: 20px 20px 0 0;
 }
 
-.latest > div > p{
+.latestTitle{
     width: 760px;
     font-size: 30px;
 }
 
-.new_article > div > p{
+.newArticleTitle{
     width: 350px;
     font-size: 22px;
 }
 
-.latest > div > p, .new_article > div > p{
+.latestTitle, .newArticleTitle{
     padding: 0 20px 20px 20px;
 }
 
-.box{
-    background: #161616;
-    margin: 0 auto 0 auto;
-    height: auto;
+.latestTitle, .latestTitle > div, .newArticleTitle, .newArticleTitle > div{
+    outline: none;
+    border: none;
 }
 
 .latest{
@@ -209,7 +212,7 @@
     background: rgba(0, 0, 0, 0.3);
 }
 
-.latest > div > p, .new_article > div > p{
+.latestTitle, .newArticleTitle{
     text-align: left;
     margin: 0;
     background: rgba(0, 0, 0, 0.3);
@@ -221,19 +224,19 @@
     background 300ms;
 }
 
-.latest > div > p{
+.latestTitle{
     -webkit-box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 0 -30px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-.new_article > div > p{
+.newArticleTitle{
     -webkit-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 0 -20px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-.latest:hover > div > p, .new_article:hover > div > p{
+.latestTitle:hover, .newArticleTitle:hover{
     -webkit-box-shadow: none;
     background: none;
     color: #ddd;

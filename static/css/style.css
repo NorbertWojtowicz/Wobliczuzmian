@@ -18,15 +18,10 @@ body::-webkit-scrollbar-track{
 	background: transparent;
 }
 
-/* Definuje zmienne dla stopki */
-
+/*
 @media only screen and (max-width: 1000px){
 	.menu.menu > a{
 		border: none;
-	}
-
-	.wrapper.wrapper{
-		min-height: calc(100vh - 275px);
 	}
 
 	.footer.footer{
@@ -53,10 +48,6 @@ body::-webkit-scrollbar-track{
 
 	.menu.menu > a:first-of-type{
 		display: none;
-	}
-
-	.wrapper.wrapper{
-		min-height: calc(100vh - 265px);
 	}
 
 	.footer.footer{
@@ -100,10 +91,6 @@ body::-webkit-scrollbar-track{
 		height: auto;
 	}
 
-	.wrapper.wrapper{
-		min-height: calc(100vh - 252px);
-	}
-
 	.footer.footer{
 		height: 50px;
 	}
@@ -136,6 +123,60 @@ body::-webkit-scrollbar-track{
 
 	.footer.footer > a:last-child{
 		margin: 0;
+	}
+}
+*/
+
+@media only screen and (max-width: 980px){
+	.logo.logo{
+		height: 170px;
+		margin-top: 15px;
+		margin-bottom: 20px;
+	}
+
+	.menu.menu{
+		height: 100px;
+		align-items: center;
+	}
+
+	.menu_button.menu_button{
+		font-size: 36px;
+	}
+
+	.icon-doc-text-inv.icon-doc-text-inv, .icon-search.icon-search{
+		font-size: 37px;
+	}
+
+	.icon-home.icon-home{
+		font-size: 43px;
+	}
+
+	.menu_button.menu_button > i{
+		margin-right: 12px;
+	}
+
+	.wrapper.wrapper{
+		min-height: calc(100vh - 435px);
+	}
+
+	.footer.footer > a:first-of-type{
+		margin-left: 60px;
+	}
+
+	.footer.footer > a:last-of-type{
+		margin-right: 60px;
+	}
+
+	.logo_footer.logo_footer, .footer_contact.footer_contact{
+		width: 300px;
+	}
+
+	.icon-facebook-squared.icon-facebook-squared{
+		font-size: 60px;
+	}
+
+	.footer.footer{
+		height: 130px;
 	}
 }
 
@@ -261,7 +302,7 @@ a:hover{
 	background: #161616;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	clear: both;
 }

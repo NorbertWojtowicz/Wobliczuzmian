@@ -95,7 +95,7 @@
     justify-content: flex-start;
 }
 
-.content > p > img{
+.content img{
     width: 90% !important;
     height: auto !important;
     margin-left: auto;
@@ -178,8 +178,11 @@
     word-spacing: 2px;
 }
 
-.content, .addTxt{
+.addTxt{
     text-align: justify;
+}
+
+.content, .addTxt{
     word-spacing: 2px;
     font-size: 20px;
     line-height: 30px;

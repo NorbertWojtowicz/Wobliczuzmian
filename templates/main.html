@@ -6,7 +6,7 @@
 	<head>
 		<!-- Meta dane -->
 		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<meta name="url" content="www.wobliczu.pl">
 		<meta http-equiv="Expires" content="0">
 		<meta http-equiv="Pragma" content="no-cache">
@@ -23,14 +23,14 @@
         <link rel="stylesheet" href="../static/css/mainS.css" type="text/css">
 	</head>
 	<body>
-        <div class="box">
+        <div class="box"><div>
             <a href="articles/{{ latest_article.slug }}">
                 <div class="latest" style="background-image: url({{ latest_article.miniature.url }})">
                     <div class="articleTitle">
                         <div class="articleTagLatest">
                             Najnowszy artykuł
                         </div>
-                        <p>{{ latest_article.title }}</p>
+                        <div class="latestTitle"><div>{{ latest_article.title }}</div></div>
                     </div>
                 </div>
             </a>
@@ -41,12 +41,12 @@
                         <div class="articleTagNew">
                             Example tag
                         </div>
-                        <p>{{ article.title }}</p>
+                        <div class="newArticleTitle"><div>{{ article.title }}</div></div>
                     </div>
                 </div>
             </a>
             {% endfor %}
-        </div>
+        </div></div>
         <!--<div class="warning">
             <img src="../media/logo_footer.png" alt="logo" class="logo">
             Przykro nam, ale urządzenie, na którym obecnie przeglądasz witrynę wobliczuzmian.pl, ma bardzo małą
