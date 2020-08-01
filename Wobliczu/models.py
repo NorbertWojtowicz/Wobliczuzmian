@@ -50,7 +50,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     views = models.IntegerField(default=0)
     short_desc = models.CharField(max_length=650)
-    content = RichTextUploadingField(blank=True, null=True)
+    content = RichTextUploadingField(blank=True, null=True, config_name='rich_config')
     slug = models.SlugField(max_length=200, unique=True, null=True, blank=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     main_tags = models.ManyToManyField(MainTags, null=True)
