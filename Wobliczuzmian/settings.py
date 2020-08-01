@@ -58,6 +58,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Wobliczuzmian.urls'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_CONFIGS = {
+    'rich_config': {
+        'toolbar': 'full',
+    },
+}
 
 TEMPLATES = [
     {
