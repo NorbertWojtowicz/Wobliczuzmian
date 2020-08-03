@@ -24,7 +24,7 @@ from Wobliczu.models import Article
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('nihhal/', admin.site.urls),
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
     path('articles/search', renderSearch, name='search'),
