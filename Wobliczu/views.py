@@ -17,6 +17,11 @@ from django.views.generic.list import ListView
 
 # Create your views here.
 
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
+
+
 def renderHome(request):
     articles = Article.objects.all().order_by('-pub_date')
     time_now = timezone.now()
@@ -38,6 +43,18 @@ def renderKontakt(request):
 
 
 def renderArticles(request):
+    if request.method == 'POST':
+        try:
+            articleIdToDelete = int(request.POST.get('article-id-to-delete'))
+        except:
+            articleIdToDelete = None
+
+        print('id do usuniecia: ', articleIdToDelete)
+        if articleIdToDelete:
+            articleToDelete = Article.objects.get(id=articleIdToDelete)
+            articleToDelete.delete()
+            return HttpResponseRedirect('../articles')
+
     return renderArticlesListView.as_view()(request)
 
 def renderPostCreator(request):
@@ -279,13 +296,16 @@ def renderSearchResult(request):
 
 
 def renderEditArticle(request, slug):
+    article = Article.objects.get(slug=slug)
+    articleUser = article.user
     if request.user.is_superuser:
         article = Article.objects.get(slug=slug)
         if request.method == 'POST':
             form = AddArticleForm(request.POST, request.FILES, instance=article)
             if form.is_valid():
-                print(form)
-                form.save()
+                articleForm = form.save(commit=False)
+                articleForm.user = articleUser
+                articleForm.save()
                 return HttpResponseRedirect('../../articles')
         else:
             form = AddArticleForm(instance=article)

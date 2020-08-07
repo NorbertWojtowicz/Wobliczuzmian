@@ -28,7 +28,7 @@ urlpatterns = [
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
     path('articles/search', renderSearch, name='search'),
-    path('articles', renderArticles, name='articles'),
+    path('articles/', renderArticles, name='articles'),
     path('journalist/postCreator', renderPostCreator, name='postCreator'),
     path('base', renderBase, name='base'),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -40,4 +40,6 @@ urlpatterns = [
     path('journalist/userPanel/<int:journalist_id>', renderJournalistComments, name='journalist-comments'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'Wobliczu.views.error_404_view'
 
