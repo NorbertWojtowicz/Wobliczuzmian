@@ -27,6 +27,10 @@
                             <i class="icon-pencil"></i> Edytuj
                         </button>
                     </form>
+                        <form action="articles/confirm-delete/{{ article.id }}" method="post">
+                        {% csrf_token %}
+                            <button>!usuń! <i class="icon-trash"></i></button>
+                        </form>
                     {% endif %}
                 </div>
                 <div class="article-title">{{ article.title }}</div>
@@ -44,15 +48,15 @@
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo;&nbsp;Pierwsza strona</a>
-            <a href="?page={{ page_obj.previous_page_number }}">Poprzednie</a>
+            <a href="articles/?page=1">&laquo;&nbsp;Pierwsza strona</a>
+            <a href="articles/?page={{ page_obj.previous_page_number }}">Poprzednie</a>
         {% endif %}
         <div class="current">
             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
         </div>
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">Następne</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">Ostatnia strona&nbsp;&raquo;</a>
+            <a href="articles/?page={{ page_obj.next_page_number }}">Następne</a>
+            <a href="articles/?page={{ page_obj.paginator.num_pages }}">Ostatnia strona&nbsp;&raquo;</a>
         {% endif %}
     </span>
 </div>

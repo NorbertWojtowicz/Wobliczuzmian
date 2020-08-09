@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Czy napewno usunąc artykuł o tytule {{ article_title }}?
+    <form action="../../articles/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="article-id-to-delete" value="{{ article_id }}">
+        <button>Tak</button>
+    </form>
+    <form action="../../articles/">
+        <button>Nie</button>
+    </form>
+</body>
+</html>

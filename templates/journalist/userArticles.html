@@ -27,11 +27,16 @@
                         <div class="premiere">Premiera dopiero: {{ article.when_to_public }}</div>
                     {% endif %}
                     {% if user.is_superuser %}
-                    <form action="editArticle/{{ article.ID }}">
+                    <form action="editArticle/{{ article.slug }}">
                         <button type="submit" class="edit-button">
                             <i class="icon-pencil"></i> Edytuj
                         </button>
                     </form>
+                        <form action="../articles/" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="article-id-to-delete" value="{{ article.id }}">
+                            <button>!usuń! <i class="icon-trash"></i></button>
+                        </form>
                     {% endif %}
                 </div>
                 <div class="article-title">{{ article.title }}</div>

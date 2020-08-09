@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm, EditArticle
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags
+from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags, User
 from django.db import connection
 from django.core.exceptions import ValidationError
 from django.conf import settings
@@ -16,6 +16,11 @@ from django.contrib import messages
 from django.views.generic.list import ListView
 
 # Create your views here.
+
+
+def error_404_view(request, exception):
+    return render(request, '404.html')
+
 
 def renderHome(request):
     articles = Article.objects.all().order_by('-pub_date')
@@ -38,6 +43,18 @@ def renderKontakt(request):
 
 
 def renderArticles(request):
+    if request.method == 'POST':
+        try:
+            articleIdToDelete = int(request.POST.get('article-id-to-delete'))
+        except:
+            articleIdToDelete = None
+
+        print('id do usuniecia: ', articleIdToDelete)
+        if articleIdToDelete:
+            articleToDelete = Article.objects.get(id=articleIdToDelete)
+            articleToDelete.delete()
+            return HttpResponseRedirect('../articles')
+
     return renderArticlesListView.as_view()(request)
 
 def renderPostCreator(request):
@@ -92,10 +109,9 @@ def renderBase(request):
 
 def renderUserPanel(request):
     if request.user.is_superuser:
-        user = request.user
-        ruser_id = user.id
-        arUser = ArticleUser.objects.get(user_id=ruser_id)
-        articles = Article.objects.filter(user_id=ruser_id)
+        user = User.objects.get(id=request.user.id)
+        arUser = ArticleUser.objects.get(user__exact=user)
+        articles = Article.objects.filter(user=arUser)
         comments = []
         numberOfComments = 0
         for article in articles:
@@ -105,11 +121,10 @@ def renderUserPanel(request):
         for article in articles:
             total_views += article.views
         arUser.total_views = total_views
-
         context = {
             'user': arUser,
+            'total_views': total_views,
             'Articles': Article.objects.all(),
-            'journalist_id': ruser_id,
             'numberOfComments': numberOfComments,
         }
         return render(request, 'journalist/userPanel.html', context)
@@ -279,13 +294,16 @@ def renderSearchResult(request):
 
 
 def renderEditArticle(request, slug):
+    article = Article.objects.get(slug=slug)
+    articleUser = article.user
     if request.user.is_superuser:
         article = Article.objects.get(slug=slug)
         if request.method == 'POST':
             form = AddArticleForm(request.POST, request.FILES, instance=article)
             if form.is_valid():
-                print(form)
-                form.save()
+                articleForm = form.save(commit=False)
+                articleForm.user = articleUser
+                articleForm.save()
                 return HttpResponseRedirect('../../articles')
         else:
             form = AddArticleForm(instance=article)
@@ -326,3 +344,12 @@ class renderJournalistArticlesListView(ListView):
 
 def renderJournalistComments(request, journalist_id):
     journalist = ArticleUser.objects.get()
+
+
+def render_confirm_delete(request, article_id):
+    article = Article.objects.get(id=article_id)
+    context = {
+        'article_title': article.title,
+        'article_id': article_id
+    }
+    return render(request, "confirm-delete.html", context)
