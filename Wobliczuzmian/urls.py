@@ -17,18 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from Wobliczu.views import renderHome, renderSearch, renderKontakt, renderPostCreator, renderBase, renderUserPanel, \
-    renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult, renderEditArticle, renderJournalistComments
+    renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult, renderEditArticle, renderJournalistComments, render_confirm_delete
 from django.conf.urls.static import static
 from django.conf import settings
 from Wobliczu.models import Article
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('nihhal/', admin.site.urls),
     path('', renderHome, name='home'),
     path('kontakt', renderKontakt, name='kontakt'),
     path('articles/search', renderSearch, name='search'),
-    path('articles', renderArticles, name='articles'),
+    path('articles/', renderArticles, name='articles'),
     path('journalist/postCreator', renderPostCreator, name='postCreator'),
     path('base', renderBase, name='base'),
     path('accounts/', include('django.contrib.auth.urls')),
@@ -39,5 +39,8 @@ urlpatterns = [
     path('journalist/editArticle/<slug:slug>', renderEditArticle, name='render-edit'),
     path('journalist/userPanel/<int:journalist_id>', renderJournalistComments, name='journalist-comments'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('articles/confirm-delete/<int:article_id>', render_confirm_delete, name='confirm-delete')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'Wobliczu.views.error_404_view'
 

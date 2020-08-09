@@ -26,14 +26,13 @@ SECRET_KEY = '44@du2q^nj87#^oou03sid5#saq@sj7+**j20k56dho0yyac9h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '161.35.70.242', 'wobliczu.pl', 'www.wobliczu.pl']
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,7 +43,25 @@ INSTALLED_APPS = [
     'Wobliczu',
     'snowpenguin.django.recaptcha2',
     'ckeditor',
+    'compressor',
 ]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/scss', 'django_libsass.SassCompiler'),
+)
+
+
+COMPRESS_OFFLINE = True
+
+
+# Django Sass
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -117,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 
@@ -132,7 +149,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL='postCreator'
+LOGIN_REDIRECT_URL = 'postCreator'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'com.app.static')
 
 RECAPTCHA_PUBLIC_KEY = '6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2'
 RECAPTCHA_PRIVATE_KEY = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'

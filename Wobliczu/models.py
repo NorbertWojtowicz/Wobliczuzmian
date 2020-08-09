@@ -60,7 +60,7 @@ class Article(models.Model):
     when_to_public = models.DateTimeField(default=timezone.now, blank=True)
 
     def delete(self, **kwargs):
-        print('Usuwam artykuł id: ', self.ID, ' o tytule: ', self.title)
+        print('Usuwam artykuł id: ', self.id, ' o tytule: ', self.title)
         self.user.numberOfArticles -= 1
         self.user.save()
         super(Article, self).delete()
