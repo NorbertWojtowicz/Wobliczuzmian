@@ -346,3 +346,12 @@ class renderJournalistArticlesListView(ListView):
 
 def renderJournalistComments(request, journalist_id):
     journalist = ArticleUser.objects.get()
+
+
+def render_confirm_delete(request, article_id):
+    article = Article.objects.get(id=article_id)
+    context = {
+        'article_title': article.title,
+        'article_id': article_id
+    }
+    return render(request, "confirm-delete.html", context)
