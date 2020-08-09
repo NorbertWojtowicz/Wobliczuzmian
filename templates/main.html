@@ -4,44 +4,34 @@
 <!DOCTYPE HTML>
 <html lang="pl">
 	<head>
-		<!-- Meta dane -->
-		<meta charset="utf-8"/>
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-		<meta name="url" content="www.wobliczu.pl">
-		<meta http-equiv="Expires" content="0">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Cache-Control" content="no-cache">
-		<link rel="icon" type="image/png" href="icon-16x16.png" sizes="16x16" />
-		
-		<meta name="keywords" content="wobliczu, zmian, wobliczu zmian, w, obliczu, oblicze, świat, informacje, aktualności"/>
-		<meta name="subject" content="Serwis informacyjny">
-		<meta name="language" content="PL">
-		<meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
 		<title> W obliczu zmian</title>
-		<link rel="stylesheet" href="../static/css/style.css" type="text/css">
-        <link rel="stylesheet" href="../static/css/mainS.css" type="text/css">
+		{% load compress static %}
+
+        {% compress css %}
+        <link type="text/x-scss" href="{% static 'scss/mainS.scss' %}" rel="stylesheet" media="screen">
+        {% endcompress %}
 	</head>
 	<body>
 
         <div class="box"><div>
             <a href="articles/{{ latest_article.slug }}">
                 <div class="latest" style="background-image: url({{ latest_article.miniature.url }})">
-                    <div class="articleTitle">
-                        <div class="articleTagLatest">
+                    <div>
+                        <div class="latest-tag">
                             Najnowszy artykuł
                         </div>
-                        <div class="latestTitle"><div>{{ latest_article.title }}</div></div>
+                        <div class="latest-title"><div>{{ latest_article.title }}</div></div>
                     </div>
                 </div>
             </a>
             {% for article in articles|slice:"5" %}
             <a href="articles/{{ article.slug }}">
-                <div class="new_article" style="background-image: url({{ article.miniature.url }})">
+                <div class="new-article" style="background-image: url({{ article.miniature.url }})">
                     <div>
-                        <div class="articleTagNew">
+                        <div class="new-article-tag">
                             Example tag
                         </div>
-                        <div class="newArticleTitle"><div>{{ article.title }}</div></div>
+                        <div class="new-article-title"><div>{{ article.title }}</div></div>
                     </div>
                 </div>
             </a>

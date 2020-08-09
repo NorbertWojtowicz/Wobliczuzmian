@@ -1,0 +1,84 @@
+@import "variables.scss";
+
+@media only screen and (max-width: 980px) {
+  .box.box {
+    width: calc(100% - 60px);
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    padding-bottom: 30px;
+
+    h1{
+      font-size: 70px;
+    }
+
+    h2{
+      font-size: 60px;
+      margin: 20px 0 5px 0;
+    }
+
+    > a {
+      color: #fff;
+
+      &:hover, &:hover i {
+        color: $fb-blue;
+      }
+    }
+
+    .info > i {
+      color: #fff;
+    }
+
+    hr {
+      border-width: 2px 0 0 0;
+      border-color: #fff;
+      width: 60%;
+      margin: 20px auto 0 auto;
+    }
+  }
+}
+
+.wrapper.wrapper {
+  @include flex(column, flex-start, center);
+}
+
+.box {
+  margin: 0;
+  padding-top: 30px;
+  width: calc(100% - 60px);
+  color: $base-color;
+  font-size: 20px;
+
+  > a, > a i {
+    transition: color 300ms;
+  }
+
+  > a:hover, > a:hover i {
+    color: $fb-blue;
+  }
+
+  .info > i {
+    color: $base-color;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    margin: 20px 0 0 0;
+  }
+
+  hr {
+    margin-top: 20px;
+    border-style: solid;
+    border-color: $base-color;
+    border-width: 2px 0 0 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $base-color;
+  }
+}

@@ -6,16 +6,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../../static/css/userArticlesS.css" type="text/css">
-    <link rel="stylesheet" href="../../static/css/articlesS.css" type="text/css">
     <link rel="stylesheet" href="../../static/css/fontello.css" type="text/css"/>
+    {% load compress static %}
+
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
 </head>
 <body>
 <div class="container">
 {% for article in object_list %}
-        <a href="../../articles/{{ article.slug }}" class="link">
-            <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
-            <div class="txt">
-                <div class="tag">
+        <a href="../../articles/{{ article.slug }}" class="article">
+            <div class="article-img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
+            <div class="article-txt">
+                <div class="article-tag">
                     {% for tag in article.secondary_tags.all %}
                         {{ tag }}
                     {% endfor %}
@@ -35,12 +39,12 @@
                         </form>
                     {% endif %}
                 </div>
-                <div class="title">{{ article.title }}</div>
-                <div class="short_desc">{{ article.short_desc }}</div>
+                <div class="article-title">{{ article.title }}</div>
+                <div class="article-short-desc">{{ article.short_desc }}</div>
             </div>
-            <div class="txt_bottom">
+            <div class="article-txt-bottom">
                 <hr>
-                <div class="date">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
+                <div class="article-date">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
             </div>
         </a>
 {% endfor %}
