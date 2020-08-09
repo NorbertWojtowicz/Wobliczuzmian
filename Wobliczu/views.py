@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .forms import AddArticleForm, AddArticleImagesForm, AddCommentForm, EditArticle
 from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags
+from .models import ArticleImages, Article, ArticleUser, Comment, MainTags, SecondaryTags, User
 from django.db import connection
 from django.core.exceptions import ValidationError
 from django.conf import settings
@@ -109,10 +109,9 @@ def renderBase(request):
 
 def renderUserPanel(request):
     if request.user.is_superuser:
-        user = request.user
-        ruser_id = user.id
-        arUser = ArticleUser.objects.get(user_id=ruser_id)
-        articles = Article.objects.filter(user_id=ruser_id)
+        user = User.objects.get(id=request.user.id)
+        arUser = ArticleUser.objects.get(user__exact=user)
+        articles = Article.objects.filter(user=arUser)
         comments = []
         numberOfComments = 0
         for article in articles:
@@ -122,11 +121,10 @@ def renderUserPanel(request):
         for article in articles:
             total_views += article.views
         arUser.total_views = total_views
-
         context = {
             'user': arUser,
+            'total_views': total_views,
             'Articles': Article.objects.all(),
-            'journalist_id': ruser_id,
             'numberOfComments': numberOfComments,
         }
         return render(request, 'journalist/userPanel.html', context)
