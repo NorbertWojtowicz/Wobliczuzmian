@@ -1,0 +1,240 @@
+@import "variables.scss";
+
+/* Mobile phone version */
+
+@media only screen and (max-width: 980px) {
+  .base-body.base-body {
+    background: $base-color;
+    .banner{
+      padding: 35px 0 40px 0;
+    }
+    .logo {
+      height: 170px;
+      margin: 0 auto;
+    }
+
+    .menu {
+      height: 100px;
+      align-items: center;
+      border-bottom: $white-line;
+
+      > a:hover {
+        border-bottom: none;
+      }
+
+      &-button {
+        font-size: 36px;
+
+        > i {
+          margin-right: 12px;
+        }
+
+        .icon {
+          &-doc-text-inv, &-search {
+            font-size: 37px;
+          }
+
+          &-home {
+            font-size: 43px;
+          }
+        }
+      }
+    }
+
+    .wrapper {
+      min-height: calc(100vh - 481px);
+    }
+
+    .footer {
+      height: 130px;
+      border-top: $white-line;
+
+      > a {
+        &:first-of-type {
+          margin-left: 60px;
+        }
+
+        &:last-of-type {
+          margin-right: 60px;
+        }
+      }
+
+      &-logo, &-contact {
+        width: 300px;
+      }
+
+      .icon-facebook-squared {
+        font-size: 60px;
+      }
+    }
+  }
+}
+
+/* Common values */
+
+html, body, header, .banner, nav, main, footer {
+  width: 100vw;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body::-webkit-scrollbar-thumb, .banner, nav, footer {
+  background: $base-color;
+}
+
+a, .logo, .footer-logo, .menu-button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+/* Html, body and hyperlinks style */
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: $main-font;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background: #fff;
+
+    &-thumb {
+      outline: none;
+    }
+
+    &-track {
+      background: transparent;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header style */
+
+.banner {
+    padding: 20px 0;
+
+    .logo {
+      display: block;
+      height: 100px;
+      margin: 0 auto 0 auto;
+    }
+  }
+
+.menu {
+  @include flex(row, center, flex-start);
+  flex-wrap: wrap;
+  border-top: $white-line;
+  height: 70px;
+  $menu: &;
+
+  > a {
+    padding: 0;
+    height: 68px;
+    margin: 0 20px;
+    transition: border 300ms;
+
+    &:hover {
+      border-bottom: 2px solid $menu-hover-color;
+    }
+
+    &:active {
+      border-bottom: 2px solid $menu-active-color;
+    }
+
+    #{$menu}-button {
+      display: block;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 22px;
+      height: 68px;
+      color: #fff;
+      transition: color 300ms;
+
+      > i {
+        margin-right: 6px;
+      }
+
+      &:hover {
+        color: $menu-hover-color;
+      }
+
+      &:active {
+        color: $menu-active-color;
+      }
+
+      .icon {
+        &-home {
+          font-size: 27px;
+        }
+
+        &-doc-text-inv, &-search {
+          font-size: 23px;
+        }
+      }
+    }
+  }
+}
+
+/* Main part style */
+
+main {
+  min-height: calc(100vh - 315px);
+}
+
+/* Footer style */
+
+.footer {
+  @include flex(row, space-around, center);
+  height: 103px;
+  padding: 0;
+  clear: both;
+  $footer: &;
+
+  > a {
+    @include flex(row, flex-start, center);
+    height: 56px;
+
+    &:first-of-type {
+      margin-left: 40px;
+    }
+
+    &:last-of-type {
+      margin-right: 40px;
+    }
+
+    #{$footer}-contact, #{$footer}-logo {
+      width: 250px;
+      height: auto;
+    }
+  }
+
+  #{&}-social-media {
+    @include flex(row, flex-start, center);
+
+    > a {
+      color: #fff;
+      transition: 300ms;
+
+      > .icon-facebook-squared {
+        font-size: 40px;
+      }
+
+      &:hover {
+        color: $fb-blue;
+      }
+    }
+  }
+}

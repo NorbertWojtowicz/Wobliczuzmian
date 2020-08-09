@@ -5,7 +5,6 @@
 <head>
     <!-- Meta dane -->
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="url" content="www.wobliczu.pl">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Pragma" content="no-cache">
@@ -17,11 +16,14 @@
     <meta name="description" content="Kontakt do nas, gdyby strona nie działała poprawnie.">
 		
     <title> W obliczu zmian</title>
-    <link rel="stylesheet" href="../static/css/style.css" type="text/css">
-    <link rel="stylesheet" href="../static/css/style_kontakt.css">
+    {% load compress static %}
+
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'scss/contact.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
 </head>
 <body>
-    <div class="infoBox">
+    <div class="box">
         <h1>W Obliczu Zmian</h1>
         <hr>
         <h2>Kontakt</h2>

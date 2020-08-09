@@ -32,6 +32,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,7 +47,20 @@ INSTALLED_APPS = [
     'Wobliczu',
     'snowpenguin.django.recaptcha2',
     'ckeditor',
+    'compressor',
 ]
+
+# Django Sass
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

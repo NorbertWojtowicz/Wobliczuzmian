@@ -1,0 +1,53 @@
+$base-color: #161616;
+$main-font: 'Arial', serif;
+$menu-hover-color: #fff;
+$menu-active-color: #ddd;
+$fb-blue: #4267b2;
+$hover-shadow: rgba(0, 0, 0, 0.3);
+$white-line: 2px solid #fff;
+
+@mixin flex($direction, $justify, $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin latest-shadowbox(){
+  -webkit-box-shadow: 0 -30px 10px 5px $hover-shadow;
+  -moz-box-shadow: 0 -30px 10px 5px $hover-shadow;
+  box-shadow: 0 -30px 10px 5px $hover-shadow;
+}
+
+@mixin new-article-shadowbox(){
+  -webkit-box-shadow: 0 -20px 10px 5px $hover-shadow;
+  -moz-box-shadow: 0 -20px 10px 5px $hover-shadow;
+  box-shadow: 0 -20px 10px 5px $hover-shadow;
+}
+
+@mixin container-shadowbox() {
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+@mixin inside-box() {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

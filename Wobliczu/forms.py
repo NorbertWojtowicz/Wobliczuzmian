@@ -52,8 +52,8 @@ class AddCommentForm(forms.ModelForm):
         model = Comment
         fields = ('username', 'content', 'article')
         widgets = {
-            'username': forms.Textarea(attrs={'class': 'commentUsername', 'placeholder': 'Pseudonim'}),
-            'content': forms.Textarea(attrs={'class': 'commentContent', 'placeholder': 'Komentarz'}),
+            'username': forms.Textarea(attrs={'class': 'comment-add-username', 'placeholder': 'Pseudonim'}),
+            'content': forms.Textarea(attrs={'class': 'comment-add-content', 'placeholder': 'Komentarz'}),
         }
 
 
