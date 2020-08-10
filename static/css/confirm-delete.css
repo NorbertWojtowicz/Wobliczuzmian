@@ -1,0 +1,50 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #161616;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    margin: 0 0 20px 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.container{
+    margin: 0 auto;
+    font-family: "Arial", serif;
+    padding: 20px;
+    border: 2px solid #fff;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    padding: 5px 50px;
+    font-size: 22px;
+    background: #161616;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+form:first-of-type{
+    margin-bottom: 20px;
+}

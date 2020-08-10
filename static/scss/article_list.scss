@@ -129,12 +129,13 @@
 }
 
 @media only screen and (max-width: 980px) {
-  body {
-    background: $base-color;
-  }
-
   .container.container {
     box-shadow: none;
+
+    .searchH2 {
+      color: #fff;
+      width: 869px;
+    }
 
     .article {
       padding: 0;
@@ -180,14 +181,11 @@
 
 .container {
   width: 1250px;
-  margin: 0 auto 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: 'Arial', serif;
+  margin: 0 auto;
+  @include flex(column, flex-start, center);
+  font-family: $main-font;
   word-wrap: break-word;
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
   @include container-shadowbox();
 
   > hr {
@@ -197,16 +195,17 @@
 
 .searchH2 {
   font-size: 25px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   padding: 0;
   font-family: $main-font;
   font-weight: 600;
+  text-align: center;
 }
 
 .article {
   display: block;
   width: 1210px;
-  background: #161616;
+  background: $base-color;
   padding: 0;
   margin: 10px 0 10px 0;
   color: #fff;
@@ -240,6 +239,24 @@
     }
   }
 
+  &-delete{
+    @include inside-box();
+    border: $white-line;
+    color: #fff;
+    background: $base-color;
+    font-size: 15px;
+    padding: 3px 3px 3px 0;
+    font-weight: 600;
+    transition: color 300ms,
+    border-color 300ms;
+
+    &:hover {
+      color: #f00;
+      border-color: #f00;
+      cursor: pointer;
+    }
+  }
+
   :hover > &-img > div {
     background: $hover-shadow;
   }
@@ -263,11 +280,16 @@
     border: none;
     background: none;
     color: #fff;
-    transition: color 2137ms;
+    @include inside-box();
+    border: $white-line;
+    padding: 3px 3px 3px 0;
+    transition: color 300ms,
+    border-color 300ms;
 
-    :hover {
+    &:hover {
       cursor: pointer;
-      color: #ff56d5;
+      color: #ffd500;
+      border-color: #ffd500;
     }
   }
 

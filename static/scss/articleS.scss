@@ -117,6 +117,23 @@
 
     .content {
       font-size: 26px;
+
+      blockquote {
+        padding: 1px 0;
+        border-color: #222;
+        background: #333;
+        p {
+          margin: 14px 0;
+        }
+      }
+
+      > p > a {
+        color: #00aeff;
+
+        &:visited {
+          color: #9744ff;
+        }
+      }
     }
 
     .comment-add, .replies-add, .comment-box, .replies-box {
@@ -243,17 +260,31 @@
     font-size: 20px;
     line-height: 30px;
 
+    blockquote {
+      background: #fafafa;
+      border-left: 10px solid #ddd;
+
+      > p {
+        font-family: 'Crimson Text', serif;
+        padding: 0 10px;
+        font-style: italic;
+        content: open-quote;
+      }
+    }
+
     > p {
       width: 100%;
-      display: flex;
-      justify-content: flex-start;
+
+      * {
+        width: 100%;
+      }
     }
 
     img {
       width: 90% !important;
       height: auto !important;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 5%;
+      vertical-align: baseline;
       position: relative;
     }
   }
@@ -519,24 +550,22 @@
   margin: 0;
 }
 
-.error {
+.error, .notification {
   width: 100%;
   height: 3vw;
   text-align: center;
   line-height: 2.9vw;
-  background-color: red;
   font-size: 1.2em;
+  background-color: $base-color;
+  border-top: 2px solid #fff;
 }
 
 .notification {
-  width: 100%;
-  height: 3vw;
-  text-align: center;
-  line-height: 2.9vw;
-  background-color: $base-color;
   color: #fff;
-  border-top: 2px solid #fff;
-  font-size: 1.2em;
+}
+
+.error {
+  color: #fd5858;
 }
 
 .trash-button {
