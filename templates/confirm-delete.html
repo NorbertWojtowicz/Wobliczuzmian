@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../static/css/confirm-delete.css" type="text/css">
 </head>
 <body>
-    Czy napewno usunąc artykuł o tytule {{ article_title }}?
+<main class="container">
+    <h1>Czy na pewno chcesz usunąć artykuł o tytule "{{ article_title }}"?</h1>
     <form action="../../articles/" method="post">
         {% csrf_token %}
         <input type="hidden" name="article-id-to-delete" value="{{ article_id }}">
@@ -14,5 +16,6 @@
     <form action="../../articles/">
         <button>Nie</button>
     </form>
+</main>
 </body>
 </html>

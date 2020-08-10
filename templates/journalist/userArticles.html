@@ -12,6 +12,12 @@
     {% compress css %}
     <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
+
+    <style type="text/css">
+        .menu{
+            width: 1250px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -35,7 +41,7 @@
                         <form action="../articles/" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="article-id-to-delete" value="{{ article.id }}">
-                            <button>!usuń! <i class="icon-trash"></i></button>
+                            <button class="article-delete"><i class="icon-trash"></i> Usuń to</button>
                         </form>
                     {% endif %}
                 </div>

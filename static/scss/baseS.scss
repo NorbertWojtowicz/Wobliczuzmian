@@ -41,10 +41,6 @@
       }
     }
 
-    .wrapper {
-      min-height: calc(100vh - 481px);
-    }
-
     .footer {
       height: 130px;
       border-top: $white-line;
@@ -79,7 +75,21 @@ html, body, header, .banner, nav, main, footer {
 html, body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  height: 100%;
+}
+
+/* Sticky footer settings */
+
+body {
+  @include flex(column, flex-start, flex-start);
+}
+
+.wrapper {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
 }
 
 body::-webkit-scrollbar-thumb, .banner, nav, footer {
@@ -186,12 +196,6 @@ a {
       }
     }
   }
-}
-
-/* Main part style */
-
-main {
-  min-height: calc(100vh - 315px);
 }
 
 /* Footer style */

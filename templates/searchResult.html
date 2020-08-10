@@ -35,29 +35,29 @@
 {% endfor %}
 {% endif %}
 {% if not obj and rest %}
-    <h2 class="searchH2" style="text-align: center">Przykro nam, lecz nie znaleźliśmy artykułów zawierających każdy z wymaganych tagów.<br>Zapraszamy do sprawdzenia podobnych poniżej!<br></h2>
+    <div class="searchH2">Przykro nam, lecz nie znaleźliśmy artykułów zawierających każdy z wymaganych tagów.<br>Zapraszamy do sprawdzenia podobnych poniżej!<br></div>
 {% endif %}
 {% if not obj and not rest %}
-    <h2 class="searchH2" style="text-align: center">Przykro nam, lecz nie znaleźliśmy artykułów związanych z wybranymi tagami.</h2>
+    <div class="searchH2">Przykro nam, lecz nie znaleźliśmy artykułów związanych z wybranymi tagami.</div>
 {% endif %}
 {% if rest %}
-    <h2 class="searchH2">Artykuły powiązane z conajmniej jednym z tagów:</h2><br>
+    <div class="searchH2">Artykuły powiązane z conajmniej jednym z tagów:</div>
 {% for article in rest %}
     {% if article not in obj %}
-    <a href="../../articles/{{ article.slug }}" class="link">
-            <div class="img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
-            <div class="txt">
-                <div class="tag">
+    <a href="../../articles/{{ article.slug }}" class="article">
+            <div class="article-img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
+            <div class="article-txt">
+                <div class="article-tag">
                     {% for tag in article.secondary_tags.all %}
                         {{ tag }}
                     {% endfor %}
                 </div>
-                <div class="title">{{ article.title }}</div>
-                <div class="short_desc">{{ article.short_desc }}</div>
+                <div class="article-title">{{ article.title }}</div>
+                <div class="article-short-desc">{{ article.short_desc }}</div>
             </div>
-            <div class="txt_bottom">
+            <div class="article-txt-bottom">
                 <hr>
-                <div class="date" style="float: left">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
+                <div class="article-date" style="float: left">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
             </div>
         </a>
     {% endif %}

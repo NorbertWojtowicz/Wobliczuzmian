@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1100px){
+    .wrapper.wrapper img{
+        width: 1000px;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .wrapper.wrapper img{
+        width: 900px;
+    }
+}
+
+.wrapper.wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper img{
+    width: 1000px;
+    height: auto;
+}
