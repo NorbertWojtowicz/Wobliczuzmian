@@ -74,10 +74,9 @@ def create_slug(instance, new_slug=None):
     if new_slug is not None:
         slug = new_slug
     qs = Article.objects.filter(slug=slug).order_by("-id")
-    exists = qs.exists()
-    if exists:
-        new_slug = "%s-%s" %(slug, qs.first().id)
-        return create_slug(instance, new_slug=new_slug)
+
+
+        
     return slug
 
 
@@ -97,7 +96,7 @@ class ArticleImages(models.Model):
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, blank=True)
     reply = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='replies')
-    username = models.CharField(max_length=35, null=True)
+    username = models.CharField(max_length=30, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, blank=True)
     content = models.CharField(max_length=999, null=True)
     number_of_replies = models.IntegerField(blank=True, default=0)

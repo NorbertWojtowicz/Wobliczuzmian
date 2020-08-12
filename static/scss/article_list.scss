@@ -19,7 +19,7 @@
 
     &#{&} {
       width: 1000px;
-      padding: 8px 0 8px 0;
+      padding: 8px 0;
     }
 
     &-img#{&}-img {
@@ -53,6 +53,10 @@
 
     &-tag#{&}-tag {
       margin-bottom: 16px;
+    }
+
+    &-short-desc#{&}-short-desc {
+      -webkit-line-clamp: 6; /* Number of lines displayed before it truncate */
     }
   }
 
@@ -117,6 +121,10 @@
       margin-bottom: 13px;
     }
 
+    &-short-desc#{&}-short-desc {
+      -webkit-line-clamp: 5; /* Number of lines displayed before it truncate */
+    }
+
     &-date#{&}-date {
       margin-top: 3px;
     }
@@ -129,6 +137,53 @@
 }
 
 @media only screen and (max-width: 980px) {
+  .container.container {
+    width: 980px;
+  }
+
+  .article {
+    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom, &-date#{&}-date {
+      width: 450px;
+    }
+
+    &#{&} {
+      width: 940px;
+    }
+
+    &-img#{&}-img {
+      width: 450px;
+      height: 281px;
+
+      > div {
+        width: 450px;
+        height: 281px;
+      }
+    }
+
+    &-txt#{&}-txt {
+      height: 232px;
+    }
+
+    &-tag#{&}-tag{
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    &-title#{&}-title{
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    &-short-desc#{&}-short-desc {
+      font-size: 26px;
+      -webkit-line-clamp: 4; /* Number of lines displayed before it truncate */
+    }
+
+    &-txt-bottom#{&}-txt-bottom {
+      height: 35px;
+    }
+  }
+
   .container.container {
     box-shadow: none;
 
@@ -207,7 +262,7 @@
   width: 1210px;
   background: $base-color;
   padding: 0;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   color: #fff;
   text-decoration: none;
   transition: color 300ms,

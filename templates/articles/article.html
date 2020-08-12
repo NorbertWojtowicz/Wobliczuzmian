@@ -68,14 +68,16 @@
                     <form method="post">
                     {% csrf_token %}
                         <input type="hidden" name="delete" value="1">
-                        <input type="hidden" name="comment-id" value="{{ comment.id }}">
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
                         <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
                     </form>
                 {% endif %}
                 <div class="comment-nickname">{{ comment.username }}</div><div class="comment-date" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
-                {% if comment.is_journalist %}
-                    &emsp;<div class="journalist-tag">Dziennikarz</div>
-                {% endif %}
+                {% if comment.is_journalist and comment.username == 'Norbert Wojtowicz' or comment.is_journalist and comment.username == 'Bartek Pietrzak' %}
+                    <div class="journalist-tag">Programista</div>
+                        {% elif comment.is_journalist %}
+                        <div class="journalist-tag">Dziennikarz</div>
+                    {% endif %}
             </div>
             <div style="clear: both"></div>
             <div style="clear: both"></div>
@@ -113,6 +115,11 @@
                         <div class="replies-nick">
                             {{ reply.username }}
                         </div><div class="comment-date" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
+                    {% if reply.is_journalist and reply.username == 'Norbert Wojtowicz' or reply.is_journalist and reply.username == 'Bartek Pietrzak' %}
+                    <div class="journalist-tag">Programista</div>
+                        {% elif reply.is_journalist %}
+                        <div class="journalist-tag">Dziennikarz</div>
+                    {% endif %}
                     </div>
                     <div class="replies-content">
                         {{ reply.content }}

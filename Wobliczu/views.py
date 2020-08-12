@@ -150,9 +150,13 @@ def renderSingleArticle(request, slug):
         except:
             if_delete = None
         if if_delete:
+            parent_id = 0
             comment_id = int(request.POST.get('comment_id'))
-            parent_id = int(request.POST.get('parent_id'))
-            if comment_id and parent_id:
+            try:
+                parent_id = int(request.POST.get('parent_id'))
+            except:
+                print('nie ma parenta')
+            if comment_id and parent_id != 0:
                 parent_obj = Comment.objects.get(id=parent_id)
                 parent_obj.number_of_replies -= 1
                 parent_obj.save()
@@ -161,6 +165,13 @@ def renderSingleArticle(request, slug):
                 link = '/articles/' + slug
                 print('Deleting comment... Actual number of comments: ', parent_obj.number_of_replies)
                 return HttpResponseRedirect(link)
+            elif comment_id:
+                comment_obj = Comment.objects.get(id=comment_id)
+                comment_obj.delete()
+                link = '/articles/' + slug
+                print('Deleting comment...')
+                return HttpResponseRedirect(link)
+
         commentForm = AddCommentForm(request.POST)
         try:
             comment_id = int(request.POST.get('comment_id'))
@@ -317,7 +328,7 @@ class renderArticlesListView(ListView):
     articles = Article.objects.all().exclude(when_to_public__gt=time_now).order_by('-pub_date')
     print(articles)
     queryset = articles
-    paginate_by = 2
+    paginate_by = 5
 
 
 class renderJournalistArticlesListView(ListView):

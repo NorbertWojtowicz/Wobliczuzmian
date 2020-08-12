@@ -37,6 +37,7 @@
   }
 }
 
+/*
 @media only screen and (max-width: 1000px) {
   .wrapper.wrapper {
     .container, .comment {
@@ -81,11 +82,59 @@
     }
   }
 }
+*/
 
 @media only screen and (max-width: 980px) {
+  .notification.notification, .error.error {
+    padding: 20px 0;
+    font-size: 2em;
+    height: auto;
+  }
+
+  /* Width for mobile devices */
+
   .wrapper.wrapper {
-    .title, .title-line, .short-desc, .content {
-      color: #fff;
+    .container, .comment {
+      width: 980px;
+    }
+
+    .title, .author-date, .short-desc, .content,
+    .title-line, .main-img {
+      width: 880px;
+    }
+
+    .comment-add {
+      width: 850px;
+    }
+
+    .comment-box, .comment-header {
+      width: 780px;
+    }
+
+    .comment-content {
+      width: 684px;
+    }
+
+    .comment-line, .replies {
+      width: 700px;
+    }
+
+    .replies-box, .replies-header {
+      width: 560px;
+    }
+
+    .replies-content {
+      width: 584px;
+    }
+  }
+
+  .base-body.base-body {
+    background: #fff;
+  }
+
+  .wrapper.wrapper {
+    .title, .short-desc, .content {
+      color: #000;
     }
 
     .short-desc, .author-date {
@@ -93,7 +142,7 @@
     }
 
     .author-date {
-      color: #ddd;
+      color: $base-color;
       margin: 0;
     }
 
@@ -103,6 +152,8 @@
 
     .title-line {
       margin: 20px auto;
+      border-color: $base-color;
+      border-width: 1px 0 0 0;
     }
 
     .short-desc {
@@ -118,16 +169,20 @@
     .content {
       font-size: 26px;
 
+      > p, li, ol, span {
+        font-size: 26px !important;
+        text-align: left !important;
+      }
+
       blockquote {
         padding: 1px 0;
-        border-color: #222;
-        background: #333;
+
         p {
           margin: 14px 0;
         }
       }
 
-      > p > a {
+      a {
         color: #00aeff;
 
         &:visited {
@@ -137,18 +192,13 @@
     }
 
     .comment-add, .replies-add, .comment-box, .replies-box {
-      background: #aaa;
-      border: 3px solid #555;
+      border: 3px solid #eaeaea;
       @include inside-box();
     }
 
     .comment {
-      &-add-username, &-add-content {
-        border-color: #555;
-      }
-
       &-header {
-        width: 614px;
+        width: 734px;
       }
 
       &-nickname {
@@ -156,44 +206,62 @@
       }
 
       &-content {
-        width: 565px;
         font-size: 20px;
       }
 
       &-box {
         .comment-date {
-          color: #555;
           font-size: 18px;
         }
       }
     }
 
     .replies {
-      width: 660px;
+      width: 780px;
 
-      &-add-nick, &-add-content {
-        border-color: #555;
+      > div {
+        width: 680px;
+      }
+
+      &-add, &-box {
+        margin-right: 0;
+      }
+
+      &-add {
+        width: 680px;
+
+        &-content {
+          width: 624px;
+          font-size: 19px;
+        }
+
+        &-footer {
+          width: 680px;
+        }
+
+        &-nick {
+          font-size: 24px;
+          height: 30px;
+        }
       }
 
       &-header {
-        width: 554px;
+        width: 634px;
       }
 
       &-box {
-        width: 600px;
+        width: 680px;
 
         .comment-date {
-          color: #555;
-          font-size: 16px;
+          font-size: 14px;
         }
       }
 
       &-nick {
-        font-size: 24px;
+        font-size: 20px;
       }
 
       &-content {
-        width: 504px;
         font-size: 18px;
       }
 
@@ -291,19 +359,29 @@
 }
 
 .comment-add button, .replies-add button {
-    padding: 0 15px;
-    height: 50px;
-    border-width: 0 0 7px 0;
-    border-style: solid;
-    border-color: #000;
-    background: $base-color;
-    color: #fff;
-    text-align: center;
-    font-weight: 600;
-    font-size: 18px;
-    border-radius: 5px;
+  padding: 0 15px;
+  height: 50px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  background: $base-color;
+  color: #fff;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px solid #000;
+  border-radius: 7px;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    border: none;
     outline: none;
   }
+}
 
 .comment {
   width: 1250px;
@@ -607,4 +685,6 @@
   color: #fff;
   padding: 7px;
   border-radius: 7px;
+  margin-left: auto;
+  margin-right: 0;
 }
