@@ -48,22 +48,12 @@
 </div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div class="comment">
-    <form method="post">
-        {% csrf_token %}
-    <div class="comment-add">
-        <h2>Dodaj komentarz!</h2>
-        {{commentForm.username}}
-        {{ commentForm.content }}
-        <div class="comment-add-button">
-            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-            <button type="submit">Opublikuj</button>
-        </div>
-    </div>
-    </form>
+<h2 class="comments">Komentarze</h2>
     {% for comment in comments %}
         {% if comment.reply == None %}
-        <div class="comment-box">
-            <div class="comment-header">
+        <div class="comment-all">
+        <div class="profile">
+                <i class="icon-user-2"></i>
                 {% if user.is_superuser %}
                     <form method="post">
                     {% csrf_token %}
@@ -72,65 +62,106 @@
                         <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
                     </form>
                 {% endif %}
-                <div class="comment-nickname">{{ comment.username }}</div><div class="comment-date" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
+        </div>
+        <div class="comment-box">
+            <div class="comment-box-header">
+                <p>{{ comment.username }}</p>
                 {% if comment.is_journalist and comment.username == 'Norbert Wojtowicz' or comment.is_journalist and comment.username == 'Bartek Pietrzak' %}
-                    <div class="journalist-tag">Programista</div>
+                    <div class="header-tag"><i class="icon-code"></i>Programista</div>
                         {% elif comment.is_journalist %}
-                        <div class="journalist-tag">Dziennikarz</div>
-                    {% endif %}
+                            <div class="header-tag"><i class="icon-doc-text"></i>Dziennikarz</div>
+                {% endif %}
+                <div class="pause">&nbsp;&#124;&nbsp;</div><smart>{{ comment.pub_date }}</smart>
             </div>
             <div style="clear: both"></div>
             <div style="clear: both"></div>
-        <div class="comment-content">{{ comment.content }}</div>
-            <button class="replies-button" onclick="f({{ comment.id }})">Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}</button>
+        <div class="comment-box-content">{{ comment.content }}</div>
+            <button class="replies-button" onclick="f({{ comment.id }})">
+                <i class="icon-reply"></i>Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}
+            </button>
+        </div>
         </div>
         <div class="comment-line"></div>
-        <div class="replies">
+        <div class="reply">
         <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <div id="{{ comment.id }}" style="display: none;">
-        <form method="post" class="replies-add">
+        {% for reply in comment.replies.all %}
+            <div class="reply-all">
+            <div class="profile">
+                <i class="icon-user-2"></i>
+                {% if user.is_superuser %}
+                    <form method="post">
+                    {% csrf_token %}
+                        <input type="hidden" name="delete" value="1">
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                        <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
+                    </form>
+                {% endif %}
+            </div>
+            <div class="reply-box">
+            <div class="reply-box-header">
+                        <div class="reply-box-nick">
+                            <p>{{ reply.username }}</p>
+                        </div>
+                    {% if reply.is_journalist and reply.username == 'Norbert Wojtowicz' or reply.is_journalist and reply.username == 'Bartek Pietrzak' %}
+                    <div class="header-tag"><i class="icon-code"></i>Programista</div>
+                        {% elif reply.is_journalist %}
+                        <div class="header-tag"><i class="icon-doc-text"></i>Dziennikarz</div>
+                    {% endif %}
+                    <div class="pause">&nbsp;&#124;&nbsp;</div><smart>{{ comment.pub_date }}</smart>
+                    </div>
+                    <div class="reply-box-content">
+                        {{ reply.content }}
+                    </div>
+            </div>
+            </div>
+            <div class="reply-line"></div>
+        {% endfor %}
+        <form method="post" class="reply-add">
+            <h2>Dodaj odpowiedź!</h2>
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
-            <textarea rows="40" cols="10" type="text" name="username" placeholder="Pseudonim" class="replies-add-nick"></textarea>
+            <label class="reply-add-label">
+            <div class="reply-add-label-div">Treść Twojej odpowiedzi</div>
+            <textarea rows="40" cols="10" type="text" name="username" class="reply-add-nick"></textarea>
             <div class="clear"></div>
-            <textarea rows="40" cols="10" type="text" name="content" placeholder="Odpowiedź" class="replies-add-content"></textarea>
-            <div class="replies-add-footer">
+            </label>
+            <div class="reply-add-line"></div>
+            <label class="reply-add-label">
+            <div class="reply-add-label-div">Treść Twojej odpowiedzi</div>
+            <textarea rows="40" cols="10" type="text" name="content" class="reply-add-content"></textarea>
+            </label>
+            <div class="reply-add-line"></div>
+            <div class="reply-add-footer">
                 <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
                 <button type="submit">Opublikuj</button>
             </div>
         </form>
-        <div class="replies-line"></div>
-        {% for reply in comment.replies.all %}
-            <div class="replies-box">
-            <div class="replies-header">
-                {% if user.is_superuser %}
-                        <form method="post">
-                        {% csrf_token %}
-                            <input type="hidden" name="delete" value="1">
-                            <input type="hidden" name="comment_id" value="{{ reply.id }}">
-                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                            <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
-                        </form>
-                {% endif %}
-                        <div class="replies-nick">
-                            {{ reply.username }}
-                        </div><div class="comment-date" style="">&emsp;|&emsp;{{ comment.pub_date }}</div>
-                    {% if reply.is_journalist and reply.username == 'Norbert Wojtowicz' or reply.is_journalist and reply.username == 'Bartek Pietrzak' %}
-                    <div class="journalist-tag">Programista</div>
-                        {% elif reply.is_journalist %}
-                        <div class="journalist-tag">Dziennikarz</div>
-                    {% endif %}
-                    </div>
-                    <div class="replies-content">
-                        {{ reply.content }}
-                    </div>
-            </div>
-            <div class="replies-line"></div>
-        {% endfor %}
+        <div class="comment-line"></div>
         </div>
         </div>
         {% endif %}
     {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+    <div class="comment-add">
+        <h2>Dodaj komentarz!</h2>
+        <label class="comment-add-label">
+        <div class="comment-add-label-div">Pseudonim</div>
+        {{ commentForm.username }}
+        </label>
+        <div class="comment-add-line"></div>
+        <label class="comment-add-label">
+        <div class="comment-add-label-div">Treść Twojego komentarza</div>
+        {{ commentForm.content }}
+        </label>
+        <div class="comment-add-footer">
+            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+            <button type="submit">Opublikuj</button>
+        </div>
+    </div>
+    </form>
 </div>
 </body>
 </html>
