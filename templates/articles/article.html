@@ -10,6 +10,7 @@
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -17,6 +18,10 @@
     function onSubmit(token)
     {
         document.getElementById("i-recaptcha").submit();
+    }
+    function onSubmit1(token)
+    {
+        document.getElementById("i-recaptcha1").submit();
     }
     function f(id) {
         document.getElementById(id).style.display = 'block';
@@ -92,15 +97,14 @@
         <div class="replies">
         <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
         <div id="{{ comment.id }}" style="display: none;">
-        <form method="post" class="replies-add">
+        <form id="i-recaptcha1" method="post" class="replies-add">
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
-            <textarea rows="40" cols="10" type="text" name="username" placeholder="Pseudonim" class="replies-add-nick"></textarea>
+            <textarea rows="40" cols="10" name="username" placeholder="Pseudonim" class="replies-add-nick"></textarea>
             <div class="clear"></div>
-            <textarea rows="40" cols="10" type="text" name="content" placeholder="Odpowiedź" class="replies-add-content"></textarea>
+            <textarea rows="40" cols="10" name="content" placeholder="Odpowiedź" class="replies-add-content"></textarea>
             <div class="replies-add-footer">
-                <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-                <button type="submit">Opublikuj</button>
+                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
             </div>
         </form>
         <div class="replies-line"></div>

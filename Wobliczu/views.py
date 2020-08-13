@@ -144,6 +144,7 @@ def renderUserArticles(request):
 
 
 def renderSingleArticle(request, slug):
+
     if request.method == 'POST':
         try:
             if_delete = int(request.POST.get('delete'))
@@ -177,6 +178,7 @@ def renderSingleArticle(request, slug):
             comment_id = int(request.POST.get('comment_id'))
         except:
             comment_id = None
+
         if commentForm.is_valid():
             comment = commentForm.save(commit=False)
             comment.article = Article.objects.get(slug=slug)
