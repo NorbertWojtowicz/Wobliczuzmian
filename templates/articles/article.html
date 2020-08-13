@@ -23,8 +23,12 @@
     {
         document.getElementById("i-recaptcha1").submit();
     }
-    function f(id) {
-        document.getElementById(id).style.display = 'block';
+    function changeRepliesDisplay(id) {
+        noneOrBlockValue = document.getElementById(id).style.display;
+        if(noneOrBlockValue == 'none')
+            document.getElementById(id).style.display = 'block';
+        else
+            document.getElementById(id).style.display = 'none';
     }
 
 </script>
@@ -91,7 +95,7 @@
             <div style="clear: both"></div>
             <div style="clear: both"></div>
         <div class="comment-content">{{ comment.content }}</div>
-            <button class="replies-button" onclick="f({{ comment.id }})">Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}</button>
+            <button class="replies-button" onclick="changeRepliesDisplay({{ comment.id }})">Odpowiedzi{% if comment.number_of_replies > 0 %} ({{ comment.number_of_replies }}){% endif %}</button>
         </div>
         <div class="comment-line"></div>
         <div class="replies">
