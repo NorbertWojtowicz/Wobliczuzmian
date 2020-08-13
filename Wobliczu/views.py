@@ -192,7 +192,7 @@ def renderSingleArticle(request, slug):
             articleCom = comment.article
             link = '/articles/' + slug
             clientKey = request.POST['g-recaptcha-response']
-            secretKey = '6LfSBvYUAAAAANGvFfdFTLQ_AWjUoHIMAWTsMaKO'
+            secretKey = '6Lc6J74ZAAAAAI4P4F23eZpRPUXlAGMlOrUKkHIa'
             captchaData = {
                 'secret': secretKey,
                 'response': clientKey

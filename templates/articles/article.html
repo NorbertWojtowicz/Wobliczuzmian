@@ -12,11 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
+    function onSubmit(token)
+    {
+        document.getElementById("i-recaptcha").submit();
+    }
     function f(id) {
         document.getElementById(id).style.display = 'block';
     }
+
 </script>
 </head>
 <body>
@@ -48,15 +53,14 @@
 </div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div class="comment">
-    <form method="post">
+    <form id="i-recaptcha" method="post">
         {% csrf_token %}
     <div class="comment-add">
         <h2>Dodaj komentarz!</h2>
         {{commentForm.username}}
         {{ commentForm.content }}
         <div class="comment-add-button">
-            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-            <button type="submit">Opublikuj</button>
+            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
         </div>
     </div>
     </form>
