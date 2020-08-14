@@ -32,6 +32,9 @@
 .icon-forward:before { content: '\e81e'; } /* '' */
 .icon-eye-off:before { content: '\e81f'; } /* '' */
 .icon-accessibility:before { content: '\e820'; } /* '' */
+.icon-doc-text-inv-1:before { content: '\e821'; } /* '' */
+.icon-doc-text:before { content: '\e822'; } /* '' */
+.icon-doc:before { content: '\e823'; } /* '' */
 .icon-police:before { content: '\e82b'; } /* '' */
 .icon-spin5:before { content: '\e838'; } /* '' */
 .icon-spin6:before { content: '\e839'; } /* '' */

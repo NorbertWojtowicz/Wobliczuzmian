@@ -8,11 +8,11 @@
     text-align: center;
     padding-bottom: 30px;
 
-    h1{
+    h1 {
       font-size: 70px;
     }
 
-    h2{
+    h2 {
       font-size: 60px;
       margin: 20px 0 5px 0;
     }
@@ -35,6 +35,31 @@
       width: 60%;
       margin: 20px auto 0 auto;
     }
+
+    ul {
+      li {
+        @include flex(row, flex-start, center);
+        height: 40px;
+      }
+
+      li:before {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+      }
+    }
+
+    .journalists li:before {
+      background-image: url("../../media/list-style-images/pen-white.png");
+    }
+
+    .programmers li:before {
+      background-image: url("../../media/list-style-images/code-white.png");
+    }
+
+    .support li:before {
+      background-image: url("../../media/list-style-images/star-white.png");
+    }
   }
 }
 
@@ -43,9 +68,11 @@
 }
 
 .box {
+  @include flex(column, flex-start, center);
+  @include inside-box();
+  width: auto;
   margin: 0;
-  padding-top: 30px;
-  width: calc(100% - 60px);
+  padding: 30px 20px;
   color: $base-color;
   font-size: 20px;
 
@@ -67,14 +94,49 @@
   }
 
   h2 {
-    margin: 20px 0 0 0;
+    margin: 20px 0 5px 0;
   }
 
   hr {
+    width: 100%;
     margin-top: 20px;
+    margin-bottom: 0;
     border-style: solid;
     border-color: $base-color;
     border-width: 2px 0 0 0;
+  }
+
+  ul {
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      @include flex(row, flex-start, center);
+      height: 22px;
+    }
+
+    li:before {
+      content: '';
+      display: inline-block;
+      height: 22px;
+      width: 22px;
+      background-size: contain;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .journalists li:before {
+    background-image: url("../../media/list-style-images/pen-gray.png");
+  }
+
+  .programmers li:before {
+    background-image: url("../../media/list-style-images/code-gray.png");
+  }
+
+  .support li:before {
+    background-image: url("../../media/list-style-images/star-gray.png");
   }
 
   a {
