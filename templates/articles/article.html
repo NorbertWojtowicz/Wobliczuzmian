@@ -12,37 +12,28 @@
 
     <!-- Open Graph Protocol settings -->
     <meta property="og:title" content="{{ object.title }}">
-    <meta property="og:image" content="{{ object.main_image.url }}">
+    <meta property="og:image:url" content="https://wobliczu.pl{{ object.main_image.url }}">
+    <meta property="og:image:width" content="1200">
     <meta property="og:description" content="{{ object.short_desc }}">
     <meta property="og:url" content="https://wobliczu.pl/articles/{{ object.slug }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-      var recaptcha1;
-      var recaptcha2;
-      var myCallBack = function() {
-        //Render recaptcha1 on element with ID "recaptcha1"
-        recaptcha1 = grecaptcha.render('recaptcha1', {
-          'sitekey' : '6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN',
-          'theme' : 'light',
-            'size' : 'invisible'
-        });
+    <meta property="fb:app_id" content="968448596915860">
 
-        //Render recaptcha2 on element with ID "recaptcha2"
-        recaptcha2 = grecaptcha.render('recaptcha2', {
-          'sitekey' : '6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN',
-          'theme' : 'light',
-            'size' : 'invisible'
-        });
-      };
-</script>
+    <meta name="twitter:card" content="summary">
+
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
     function onSubmit(token)
     {
         document.getElementById("i-recaptcha").submit();
+    }
+    function onSubmit1(token)
+    {
+        document.getElementById("i-recaptcha1").submit();
     }
     function changeRepliesDisplay(id) {
         noneOrBlockValue = document.getElementById(id).style.display;
@@ -127,7 +118,7 @@
                     <form method="post">
                     {% csrf_token %}
                         <input type="hidden" name="delete" value="1">
-                        <input type="hidden" name="comment_id" value="{{ reply.id }}">
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
                         <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
                     </form>
                 {% endif %}
@@ -151,7 +142,7 @@
             </div>
             <div class="reply-line"></div>
         {% endfor %}
-        <form id="i-recaptcha" method="post" class="reply-add">
+        <form id="i-recaptcha1" method="post" class="reply-add">
             <h2>Dodaj odpowiedź!</h2>
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
@@ -167,8 +158,7 @@
             </label>
             <div class="reply-add-line"></div>
             <div class="reply-add-footer">
-                <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-                <button type="submit" class="btnCom">Opublikuj</button>
+                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
             </div>
         </form>
         <div class="comment-line"></div>
@@ -191,8 +181,7 @@
         {{ commentForm.content }}
         </label>
         <div class="comment-add-footer">
-            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
-            <button type="submit" class="btnCom">Opublikuj</button>
+            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
         </div>
     </div>
     </form>
