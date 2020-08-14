@@ -10,18 +10,32 @@
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+      var recaptcha1;
+      var recaptcha2;
+      var myCallBack = function() {
+        //Render recaptcha1 on element with ID "recaptcha1"
+        recaptcha1 = grecaptcha.render('recaptcha1', {
+          'sitekey' : '6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN',
+          'theme' : 'light',
+            'size' : 'invisible'
+        });
+
+        //Render recaptcha2 on element with ID "recaptcha2"
+        recaptcha2 = grecaptcha.render('recaptcha2', {
+          'sitekey' : '6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN',
+          'theme' : 'light',
+            'size' : 'invisible'
+        });
+      };
+</script>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
     function onSubmit(token)
     {
         document.getElementById("i-recaptcha").submit();
-    }
-    function onSubmit1(token)
-    {
-        document.getElementById("i-recaptcha1").submit();
     }
     function changeRepliesDisplay(id) {
         noneOrBlockValue = document.getElementById(id).style.display;
@@ -106,7 +120,7 @@
                     <form method="post">
                     {% csrf_token %}
                         <input type="hidden" name="delete" value="1">
-                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                        <input type="hidden" name="comment_id" value="{{ reply.id }}">
                         <button type="submit" class="trash-button"><i class="icon-trash"></i></button>
                     </form>
                 {% endif %}
@@ -130,7 +144,7 @@
             </div>
             <div class="reply-line"></div>
         {% endfor %}
-        <form id="i-recaptcha1" method="post" class="reply-add">
+        <form id="i-recaptcha" method="post" class="reply-add">
             <h2>Dodaj odpowiedź!</h2>
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
@@ -146,7 +160,8 @@
             </label>
             <div class="reply-add-line"></div>
             <div class="reply-add-footer">
-                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
+                <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+                <button type="submit" class="btnCom">Opublikuj</button>
             </div>
         </form>
         <div class="comment-line"></div>
@@ -169,7 +184,8 @@
         {{ commentForm.content }}
         </label>
         <div class="comment-add-footer">
-            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
+            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+            <button type="submit" class="btnCom">Opublikuj</button>
         </div>
     </div>
     </form>
