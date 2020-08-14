@@ -130,7 +130,7 @@
             </div>
             <div class="reply-line"></div>
         {% endfor %}
-        <form id="i-recaptcha" method="post" class="reply-add">
+        <form id="i-recaptcha1" method="post" class="reply-add">
             <h2>Dodaj odpowiedź!</h2>
             {% csrf_token %}
             <input type="hidden" name="comment_id" value="{{ comment.id }}">
@@ -146,7 +146,7 @@
             </label>
             <div class="reply-add-line"></div>
             <div class="reply-add-footer">
-                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
+                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
             </div>
         </form>
         <div class="comment-line"></div>
@@ -155,7 +155,7 @@
         {% endif %}
     {% endfor %}
 
-    <form id="i-recaptcha1" method="post">
+    <form id="i-recaptcha" method="post">
         {% csrf_token %}
     <div class="comment-add">
         <h2>Dodaj komentarz!</h2>
@@ -169,7 +169,7 @@
         {{ commentForm.content }}
         </label>
         <div class="comment-add-footer">
-            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
+            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
         </div>
     </div>
     </form>
