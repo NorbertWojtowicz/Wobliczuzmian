@@ -9,6 +9,12 @@
     {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
+
+    <!-- Open Graph Protocol settings -->
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="og:image" content="{{ object.main_image.url }}">
+    <meta property="og:description" content="{{ object.short_desc }}">
+
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
@@ -135,7 +141,7 @@
                         {% elif reply.is_journalist %}
                         <div class="header-tag"><i class="icon-doc-text"></i>Dziennikarz</div>
                     {% endif %}
-                    <div class="pause">&nbsp;&#124;&nbsp;</div><smart>{{ comment.pub_date }}</smart>
+                    <div class="pause">&nbsp;&#124;&nbsp;</div><smart>{{ reply.pub_date }}</smart>
                     </div>
                     <div class="reply-box-content">
                         {{ reply.content }}
