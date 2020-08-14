@@ -10,6 +10,17 @@
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
+    <!-- Open Graph Protocol settings -->
+    <meta property="og:title" content="{{ object.title }}">
+    <meta property="og:image:url" content="https://wobliczu.pl{{ object.main_image.url }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:description" content="{{ object.short_desc }}">
+    <meta property="og:url" content="https://wobliczu.pl/articles/{{ object.slug }}">
+
+    <meta property="fb:app_id" content="968448596915860">
+
+    <meta name="twitter:card" content="summary">
+
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
     <meta charset="UTF-8">
@@ -147,7 +158,8 @@
             </label>
             <div class="reply-add-line"></div>
             <div class="reply-add-footer">
-                <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit1">Opublikuj</button>
+                <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+                <button type="submit" class="btnCom">Opublikuj</button>
             </div>
         </form>
         <div class="comment-line"></div>
@@ -170,7 +182,8 @@
         {{ commentForm.content }}
         </label>
         <div class="comment-add-footer">
-            <button class="g-recaptcha" data-sitekey="6Lc6J74ZAAAAAC0NAYuIFaMiAz9_zW9ReWgcGkdN" data-callback="onSubmit">Opublikuj</button>
+            <div class="g-recaptcha" data-sitekey="6LfSBvYUAAAAALoa5RH-bYfFa3Bk2bJiweagJ8-2"></div>
+            <button type="submit" class="btnCom">Opublikuj</button>
         </div>
     </div>
     </form>
