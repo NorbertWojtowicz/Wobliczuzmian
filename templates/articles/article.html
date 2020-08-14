@@ -10,12 +10,6 @@
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    <!-- Open Graph Protocol settings -->
-    <meta property="og:title" content="{{ object.title }}">
-    <meta property="og:image" content="{{ object.main_image.url }}">
-    <meta property="og:description" content="{{ object.short_desc }}">
-    <meta property="og:url" content="https://wobliczu.pl/articles/{{ object.slug }}">
-
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
     <meta charset="UTF-8">
