@@ -51,9 +51,12 @@ def renderArticles(request):
 
         print('id do usuniecia: ', articleIdToDelete)
         if articleIdToDelete:
-            articleToDelete = Article.objects.get(id=articleIdToDelete)
-            articleToDelete.delete()
-            return HttpResponseRedirect('../articles')
+            if request.user.is_superuser:
+                articleToDelete = Article.objects.get(id=articleIdToDelete)
+                articleToDelete.delete()
+                return HttpResponseRedirect('../articles')
+            else:
+                return HttpResponseRedirect('../articles')
 
     return renderArticlesListView.as_view()(request)
 
