@@ -4,12 +4,27 @@
 <!DOCTYPE HTML>
 <html lang="pl">
 	<head>
-		<title> W Obliczu Zmian</title>
 		{% load compress static %}
 
         {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/mainS.scss' %}" rel="stylesheet" media="screen">
         {% endcompress %}
+
+        {% block head %}
+        <meta property="og:title" content="W Obliczu Zmian">
+        <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
+        <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+        <meta property="og:url" content="https://wobliczu.pl">
+
+        <meta name="twitter:title" content="W Obliczu Zmian">
+        <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+        <meta name="twitter:image" content="https://wobliczu.pl/media/preview.png">
+
+        <title>W Obliczu Zmian</title>
+
+        <meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
+        <meta name="url" content="https://wobliczu.pl">
+        {% endblock %}
 	</head>
 	<body>
 
@@ -36,47 +51,6 @@
                 </div>
             </a>
             {% endfor %}
-        <a href="#">
-                <div class="new-article" style="background-image: url('../media/soon.png')">
-                    <div>
-                        <div class="new-article-tag">
-                            Example tag
-                        </div>
-                        <div class="new-article-title" style="display: none"><div></div></div>
-                    </div>
-                </div>
-            </a>
-                <a href="#">
-                <div class="new-article" style="background-image: url('../media/soon.png')">
-                    <div>
-                        <div class="new-article-tag">
-                            Example tag
-                        </div>
-                        <div class="new-article-title" style="display: none"><div></div></div>
-                    </div>
-                </div>
-            </a>
-                <a href="#">
-                <div class="new-article" style="background-image: url('../media/soon.png')">
-                    <div>
-                        <div class="new-article-tag">
-                            Example tag
-                        </div>
-                        <div class="new-article-title" style="display: none"><div></div></div>
-                    </div>
-                </div>
-            </a>
-                <a href="#">
-                <div class="new-article" id="mobile-delete" style="background-image: url('../media/soon.png')">
-                    <div>
-                        <div class="new-article-tag">
-                            Example tag
-                        </div>
-                        <div class="new-article-title" style="display: none"><div></div></div>
-                    </div>
-                </div>
-            </a>
-
         </div></div>
         <!--<div class="warning">
             <img src="../media/logo_footer.png" alt="logo" class="logo">

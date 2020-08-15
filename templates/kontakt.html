@@ -1,17 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 <!DOCTYPE HTML>
-<html>
+<html lang="pl">
 <head>
-    <!-- Meta dane -->
-    <meta charset="utf-8"/>
-		
-    <title> W obliczu zmian</title>
     {% load compress static %}
 
     {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/contact.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
+
+    {% block head %}
+    <meta property="og:title" content="W Obliczu Zmian - kontakt">
+    <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
+    <meta property="og:description" content="Dane kontaktowe, nasze social media oraz lista ludzi zaangażowanych w projekt.">
+    <meta property="og:url" content="https://wobliczu.pl/kontakt">
+
+    <meta name="twitter:title" content="W Obliczu Zmian - kontakt">
+    <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta name="twitter:image" content="https://wobliczu.pl/media/preview.png">
+
+    <title>W Obliczu Zmian</title>
+
+    <meta name="description" content="Dane kontaktowe, nasze social media oraz lista ludzi zaangażowanych w projekt.">
+    <meta name="url" content="https://wobliczu.pl/articles/kontakt">
+    {% endblock %}
 </head>
 <body>
     <div class="box">

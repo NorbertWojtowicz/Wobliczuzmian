@@ -2,15 +2,29 @@
 {% block content %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
     {% load compress static %}
 
     {% compress css %}
     <link type="text/x-scss" href="{% static 'scss/search.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
+
+    {% block head %}
+    <meta property="og:title" content="W Obliczu Zmian - szukaj">
+    <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
+    <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta property="og:url" content="https://wobliczu.pl/articles/search">
+
+    <meta name="twitter:title" content="W Obliczu Zmian - szukaj">
+    <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta name="twitter:image" content="https://wobliczu.pl/media/preview.png">
+
+    <title>W Obliczu Zmian</title>
+
+    <meta name="description" content="Wyszukaj artykuły na tematy, które najbardziej cię interesują!">
+    <meta name="url" content="https://wobliczu.pl/articles/search">
+    {% endblock %}
 </head>
 <body>
 <form method="post">
