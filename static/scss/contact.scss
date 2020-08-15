@@ -2,50 +2,79 @@
 
 @media only screen and (max-width: 980px) {
   .box.box {
-    width: calc(100% - 60px);
+    width: 100%;
     color: #fff;
     font-size: 35px;
     text-align: center;
     padding-bottom: 30px;
 
-    h1 {
-      font-size: 70px;
+    .info, h1, h2 {
+      width: 100%;
+      @include flex(row, center, center);
     }
 
-    h2 {
-      font-size: 60px;
+    h1 {
+      font-size: 80px;
+    }
+
+    > h2 {
+      font-size: 70px;
       margin: 20px 0 5px 0;
+
+      &:last-of-type {
+        font-size: 55px;
+      }
     }
 
     > a {
       color: #fff;
+      width: 100%;
 
       &:hover, &:hover i {
         color: $fb-blue;
       }
     }
 
+    .info {
+      font-size: 50px;
+    }
+
     .info > i {
       color: #fff;
+    }
+
+    .icon-gmail {
+      margin-right: 20px;
+    }
+
+    .icon-police {
+      width: auto;
+      margin-right: 20px;
+
+      &::before {
+        margin: 0;
+        width: auto;
+      }
     }
 
     hr {
       border-width: 2px 0 0 0;
       border-color: #fff;
-      width: 60%;
+      width: 65%;
       margin: 20px auto 0 auto;
     }
 
     ul {
       li {
         @include flex(row, flex-start, center);
-        height: 40px;
+        height: 1em;
+        font-size: 50px;
       }
 
       li:before {
-        height: 40px;
-        width: 40px;
-        margin-right: 10px;
+        height: 1em;
+        width: 50px;
+        margin-right: 20px;
       }
     }
 
@@ -76,6 +105,10 @@
   color: $base-color;
   font-size: 20px;
 
+  > div {
+    display: block;
+  }
+
   > a, > a i {
     transition: color 300ms;
   }
@@ -86,6 +119,15 @@
 
   .info > i {
     color: $base-color;
+  }
+
+  .icon-gmail {
+    width: auto;
+
+    &::before {
+      margin: 0;
+      width: auto;
+    }
   }
 
   h1 {
