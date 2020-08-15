@@ -1,30 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <link rel="stylesheet" href="../static/css/fontello.css" type="text/css"/>
+
     {% load compress static %}
 
     {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    <!-- Open Graph Protocol settings -->
+    {% block head %}
     <meta property="og:title" content="{{ object.title }}">
     <meta property="og:image:url" content="https://wobliczu.pl{{ object.main_image.url }}">
-    <meta property="og:image:width" content="1200">
     <meta property="og:description" content="{{ object.short_desc }}">
     <meta property="og:url" content="https://wobliczu.pl/articles/{{ object.slug }}">
 
-    <meta property="fb:app_id" content="968448596915860">
+    <meta name="twitter:title" content="{{ object.title }}">
+    <meta name="twitter:description" content="{{ object.short_desc }}">
+    <meta name="twitter:image" content="https://wobliczu.pl{{ object.main_image.url }}">
 
-    <meta name="twitter:card" content="summary">
+    <title>W Obliczu Zmian</title>
+
+    <meta name="description" content="{{ object.short_desc }}">
+    <meta name="url" content="https://wobliczu.pl/articles/{{ object.slug }}">
+    {% endblock %}
 
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
-    <meta charset="UTF-8">
-    <title>Title</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script type="text/javascript">
     function onSubmit(token)
