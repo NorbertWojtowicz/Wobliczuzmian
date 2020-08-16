@@ -71,12 +71,18 @@
 
   .wrapper.wrapper {
     .container {
-      width: 980px;
+      width: 940px;
+      margin: 20px;
+      padding: 0;
+
+      img {
+        width: 97%;
+      }
     }
 
     .title, .author-date, .short-desc, .content,
     .title-line, .main-img {
-      width: 880px;
+      width: 100%;
     }
   }
 
