@@ -53,7 +53,10 @@
             </div>
             <div class="article-txt-bottom">
                 <hr>
-                <div class="article-date" style="float: left">{{ article.pub_date }}<br>{{ article.views }} odsłon</div>
+                <div class="article-date" style="float: left">{{ article.pub_date }}<br>
+                    {% if user.is_superuser %}
+                    {{ article.views }} odsłon
+                    {% endif %}</div>
             </div>
         </a>
     <hr>

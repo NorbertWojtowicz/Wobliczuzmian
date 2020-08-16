@@ -331,8 +331,12 @@ def renderEditArticle(request, slug):
 class renderArticlesListView(ListView):
     time_now = timezone.now()
     articles = Article.objects.all().exclude(when_to_public__gt=time_now).order_by('-pub_date')
-    print(articles)
     queryset = articles
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        return context
     paginate_by = 5
 
 
