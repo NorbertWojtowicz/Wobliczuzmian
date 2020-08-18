@@ -61,18 +61,26 @@
 */
 
 @media only screen and (max-width: 980px) {
+  .base-body.base-body {
+    background: #fff;
+  }
+
   .notification.notification, .error.error {
-    padding: 20px 0;
+    padding: calc(20vw / 9.8) 0;
     font-size: 2em;
     height: auto;
   }
 
   /* Width for mobile devices */
 
+  .title.title.title {
+    font-size: calc(50vw / 9.8);
+  }
+
   .wrapper.wrapper {
     .container {
-      width: 940px;
-      margin: 20px;
+      width: calc(940vw / 9.8);
+      margin: calc(20vw / 9.8);
       padding: 0;
 
       img {
@@ -105,11 +113,11 @@
     }
 
     .title {
-      margin-bottom: 20px;
+      margin-bottom: calc(20vw / 9.8);
     }
 
     .title-line {
-      margin: 20px auto;
+      margin: calc(20vw / 9.8) auto;
       border-color: $base-color;
       border-width: 1px 0 0 0;
     }
@@ -128,15 +136,16 @@
       font-size: 26px;
 
       > p, li, ol, span {
-        font-size: 26px !important;
+        font-size: calc(38vw / 9.8) !important;
         text-align: left !important;
+        line-height: calc(1em + 4px);
       }
 
       blockquote {
         padding: 1px 0;
 
         p {
-          margin: 14px 0;
+          margin: calc(14vw / 9.8) 0;
         }
       }
 
@@ -160,7 +169,7 @@
       .header-tag {
         order: 2;
         width: 100%;
-        margin-top: 5px;
+        margin-top: calc(5vw / 9.8);
       }
     }
 
@@ -169,13 +178,13 @@
     }
 
     .comment {
-      width: 980px;
+      width: 100vw;
       h2 {
         font-size: 50px;
       }
 
       &-add {
-        width: 980px;
+        width: 100vw;
         height: auto;
 
         &-label {
@@ -183,7 +192,7 @@
           height: auto;
           display: block;
           position: relative;
-          width: 940px;
+          width: calc(940vw / 9.8);
         }
 
         &-username, &-content {
@@ -203,16 +212,16 @@
       }
 
       &-all {
-        width: 960px;
+        width: calc(960vw / 9.8);
       }
 
       &-box {
-        width: 900px;
+        width: calc(900vw / 9.8);
 
         &-header {
           font-size: 40px;
           .pause {
-            margin-top: -6px;
+            margin-top: calc(6vw / -9.8);
           }
         }
 
@@ -222,36 +231,133 @@
 
         .replies-button {
           font-size: 35px;
-          margin-top: 10px;
+          margin-top: calc(10vw / 9.8);
         }
       }
     }
 
     .reply {
       &, &-all {
-        width: 900px;
+        width: calc(900vw / 9.8);
+        margin: 0 auto;
+      }
+
+      & {
+        @include flex(column, flex-start, flex-start);
       }
 
       &-add {
         &-nick, &-content, &-label {
-          width: 880px;
+          width: calc(860vw / 9.8);
           font-size: 40px;
         }
       }
 
       &-box {
-        width: 840px;
+        width: calc(840vw / 9.8);
         &-header {
           font-size: 36px;
 
           .pause {
-            margin-top: -4px;
+            margin-top: calc(4vw / -9.8);
           }
         }
 
         &-content {
           font-size: 34px;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .title.title.title {
+    font-size: calc(70vw / 9.8);
+  }
+
+  .comment.comment.comment {
+    > h2 {
+      font-size: calc(50vw / 7.6);
+    }
+
+    .comment-box-header, .reply-box-header {
+      p, .header-tag {
+        font-size: calc(40vw / 7.6);
+      }
+
+      smart, .pause {
+        font-size: calc(36vw / 7.6);
+      }
+
+      p, .header-tag, smart, .pause {
+        height: auto;
+      }
+    }
+
+    .comment-box-content, .reply-box-content {
+      font-size: calc(38vw / 7.6);
+    }
+
+    .replies-button.replies-button, .icon-reply::before {
+      font-size: calc(35vw / 7.6);
+    }
+
+    .comment-add, .reply-add {
+      h2 {
+        font-size: calc(50vw / 7.6);
+      }
+
+      &-label, .reply-add-nick, .comment-add-username, &-content, button {
+        font-size: calc(40vw / 7.6);
+      }
+
+      button {
+        padding: calc(18vw / 7.6) calc(30vw / 7.6);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .title.title.title {
+    font-size: calc(40vw / 5);
+  }
+
+  .author-date.author-date.author-date, .short-desc.short-desc.short-desc {
+    font-size: calc(24vw / 5);
+  }
+
+  .short-desc.short-desc.short-desc {
+    line-height: calc(1em + 5px);
+  }
+
+  .comment-all.comment-all {
+    width: 100vw;
+  }
+
+  .reply-all.reply-all {
+    float: right;
+  }
+
+  .profile.profile.profile {
+    @include flex(column, flex-start, center);
+    width: calc(60vw / 5);
+    margin: 0;
+    padding: 0;
+    height: auto;
+
+    .icon-user-2.icon-user-2.icon-user-2 {
+      margin-right: calc(5vw / 5);
+      width: calc(50vw / 5);
+      height: calc(50vw / 5);
+      padding: 0;
+
+      &::before {
+        width: calc(32vw / 5);
+        height: calc(32vw / 5);
+        font-size: calc(32vw / 5);
+        margin: 0;
       }
     }
   }

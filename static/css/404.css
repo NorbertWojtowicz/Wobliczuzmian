@@ -1,12 +1,12 @@
 @media only screen and (max-width: 1100px){
-    .wrapper.wrapper img{
-        width: 1000px;
+    .wrapper.wrapper > img{
+        width: calc(1000vw / 11);
     }
 }
 
 @media only screen and (max-width: 1000px){
     .wrapper.wrapper img{
-        width: 900px;
+        width: 90vw;
     }
 }
 
@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.wrapper img{
+.wrapper > img{
     width: 1000px;
     height: auto;
 }

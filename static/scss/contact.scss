@@ -4,25 +4,27 @@
   .box.box {
     width: 100%;
     color: #fff;
-    font-size: 35px;
-    text-align: center;
-    padding-bottom: 30px;
+    font-size: calc(35vw / 9.8);
+    text-align: left;
+    align-items: flex-start;
+    padding: calc(30vw / 9.8) calc(30vw / 9.8);
+
 
     .info, h1, h2 {
       width: 100%;
-      @include flex(row, center, center);
+      @include flex(row, flex-start, center);
     }
 
     h1 {
-      font-size: 80px;
+      font-size: calc(80vw / 9.8);
     }
 
     > h2 {
-      font-size: 70px;
-      margin: 20px 0 5px 0;
+      font-size: calc(70vw / 9.8);
+      margin: calc(20vw / 9.8) 0 calc(5vw / 9.8) 0;
 
       &:last-of-type {
-        font-size: 55px;
+        font-size: calc(55vw / 9.8);
       }
     }
 
@@ -36,7 +38,7 @@
     }
 
     .info {
-      font-size: 50px;
+      font-size: calc(50vw / 9.8);
     }
 
     .info > i {
@@ -44,12 +46,12 @@
     }
 
     .icon-gmail {
-      margin-right: 20px;
+      margin-right: calc(20vw / 9.8);
     }
 
     .icon-police {
       width: auto;
-      margin-right: 20px;
+      margin-right: calc(20vw / 9.8);
 
       &::before {
         margin: 0;
@@ -60,21 +62,21 @@
     hr {
       border-width: 2px 0 0 0;
       border-color: #fff;
-      width: 65%;
-      margin: 20px auto 0 auto;
+      width: calc(640vw / 9.8);
+      margin: calc(20vw / 9.8) 0 0 0;
     }
 
     ul {
       li {
         @include flex(row, flex-start, center);
         height: 1em;
-        font-size: 50px;
+        font-size: calc(50vw / 9.8);
       }
 
       li:before {
         height: 1em;
-        width: 50px;
-        margin-right: 20px;
+        width: calc(50vw / 9.8);
+        margin-right: calc(20vw / 9.8);
       }
     }
 

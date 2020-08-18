@@ -1,3 +1,24 @@
+@media only screen and (max-width: 980px) {
+    h1 {
+        margin: 0 0 calc(20vw / 9.8) 0;
+    }
+
+    .container {
+        padding: calc(20vw / 9.8);
+        border-width: calc(2vw / 9.8);
+    }
+
+    button {
+        padding: calc(5vw / 9.8) calc(50vw / 9.8);
+        font-size: calc(22vw / 9.8);
+        border-width: calc(2vw / 9.8);
+    }
+
+    form:first-of-type {
+        margin-bottom: calc(20vw / 9.8);
+    }
+}
+
 html, body{
     margin: 0;
     padding: 0;

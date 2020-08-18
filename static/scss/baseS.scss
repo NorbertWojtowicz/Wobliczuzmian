@@ -1,66 +1,83 @@
 @import "variables.scss";
 
+* {
+  word-break: break-word;
+}
+
+html {
+  box-sizing: border-box;
+}
+
 /* Mobile phone version */
 
 @media only screen and (max-width: 980px) {
   .base-body.base-body {
     background: $base-color;
-    .banner{
-      padding: 35px 0 40px 0;
+
+    .banner {
+      padding: calc(35vw / 9.8) 0 calc(40vw / 9.8) 0;
+      width: 100vw;
     }
+
     .logo {
-      height: 170px;
-      margin: 0 auto;
+      width: calc(760vw / 9.8);
+      height: auto;
     }
 
     .menu {
-      height: 100px;
-      align-items: center;
+      width: 100vw;
+      height: auto;
+      min-height: 0;
       border-bottom: $white-line;
 
-      > a:hover {
+      > a {
+        margin: 0 calc(20vw / 9.8);
+        height: auto;
         border-bottom: none;
       }
 
       &-button {
-        font-size: 36px;
+        @include flex(row, center, center);
+        padding: calc(33vw / 9.8) calc(26vw / 9.8);
+        font-size: calc(36vw / 9.8);
+        height: auto;
 
         > i {
-          margin-right: 12px;
+          margin-right: calc(12vw / 9.8);
         }
 
         .icon {
           &-doc-text-inv, &-search {
-            font-size: 37px;
+            font-size: calc(37vw / 9.8);
           }
 
           &-home {
-            font-size: 43px;
+            font-size: calc(43vw / 9.8);
           }
         }
       }
     }
 
     .footer {
-      height: 130px;
+      height: calc(130vw / 9.8);
       border-top: $white-line;
 
       > a {
         &:first-of-type {
-          margin-left: 60px;
+          margin-left: calc(60vw / 9.8);
         }
 
         &:last-of-type {
-          margin-right: 60px;
+          margin-right: calc(60vw / 9.8);
         }
       }
 
       &-logo, &-contact {
-        width: 300px;
+        width: calc(300vw / 9.8);
       }
 
       .icon-facebook-squared {
-        font-size: 60px;
+        font-size: calc(60vw / 9.8);
       }
     }
   }
