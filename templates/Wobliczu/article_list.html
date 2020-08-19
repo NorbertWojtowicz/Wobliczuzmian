@@ -38,7 +38,7 @@
                     {% endfor %}
                     {% if user.is_superuser %}
                     <form action="journalist/editArticle/{{ article.slug }}">
-                        <button type="submit" class="edit-button">
+                        <button type="submit" class="article-edit">
                             <i class="icon-pencil"></i> Edytuj
                         </button>
                     </form>

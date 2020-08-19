@@ -360,6 +360,15 @@
         margin: 0;
       }
     }
+
+    .trash-button.trash-button {
+      margin: calc(10vw / 5) calc(10vw / 5) 0 0;
+      width: calc(40vw / 5);
+      height: calc(40vw / 5);
+      border-radius: calc(5vw / 5);
+      border-width: 0 0 calc(4vw / 5) 0;
+      font-size: calc(15vw / 5);
+    }
   }
 }
 

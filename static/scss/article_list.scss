@@ -199,6 +199,12 @@
       font-size: calc(26vw / 9.8);
       height: calc(1em + calc(4vw / 9.8));
     }
+
+    &-edit#{&}-edit, &-delete#{&}-delete {
+      font-size: calc(16vw / 9.8);
+      padding: calc(3vw / 9.8) calc(3vw / 9.8) calc(3vw / 9.8) 0;
+      border-width: calc(2vw / 9.8);
+    }
   }
 
   .container.container {
@@ -382,7 +388,7 @@
     @include flex(row, space-between, center);
   }
 
-  .edit-button {
+  &-edit {
     font-size: 15px;
     font-weight: 600;
     outline: none;
