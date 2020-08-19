@@ -5,8 +5,14 @@
     form {
       min-height: 100%;
 
+
       .container {
         padding-bottom: 35px;
+
+        > h2 {
+          color: #fff;
+          font-size: 30px;
+        }
 
         .tags {
           width: 100%;
@@ -24,6 +30,8 @@
             }
 
             > li {
+              margin-right: 16px;
+
               > label {
                 font-size: 27px;
                 font-weight: 600;
@@ -36,6 +44,11 @@
                 background-color: #2c2c2c;
                 color: #fff;
               }
+
+              input {
+                width: 1px;
+                height: 1px;
+              }
             }
           }
 
@@ -46,7 +59,72 @@
             color: rgba(22, 22, 22, 0.8);
             background: #fff;
             border-bottom: 10px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
+
+            &:active {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .wrapper.wrapper {
+    form {
+      .container {
+        padding-bottom: calc(35vw / 9.2);
+        > h2 {
+          font-size: calc(30vw / 9.2);
+        }
+
+        .tags {
+          padding-bottom: calc(35vw / 9.2);
+          padding-top: calc(10vw / 9.2);
+
+          &-main-container, &-secondary-container {
+            > h2 {
+              @include flex(row, center, flex-start);
+              color: #fff;
+              font-size: calc(42vw / 9.2);
+              margin: calc(20vw / 9.2) 0;
+            }
+
+            > li {
+              margin-right: calc(16vw / 9.8);
+
+              > label {
+                font-size: calc(27vw / 9.2);
+                font-weight: 600;
+                color: rgba(22, 22, 22, 0.8);
+                padding: calc(12vw / 9.2) calc(16vw / 9.2);
+                border-width: calc(2vw / 9.2);
+                border-radius: calc(25vw / 9.2);
+              }
+
+              input {
+                margin: calc(3vw / 9.2) calc(3vw / 9.2) calc(3vw / 9.2) calc(4vw / 9.2);
+              }
+
+              input[type="checkbox"]:checked + label {
+                border: 2px solid #525252;
+                background-color: #2c2c2c;
+                color: #fff;
+              }
+            }
+          }
+
+          &-button {
+            font-size: calc(37vw / 9.2);
+            height: calc(80vw / 9.2);
+            width: calc(200vw / 9.2);
+            color: rgba(22, 22, 22, 0.8);
+            background: #fff;
+            border-bottom: calc(10vw / 9.2) solid #ddd;
+            border-radius: calc(10vw / 9.2);
+            padding: calc(1vw / 9.2) calc(6vw / 9.2);
 
             &:active {
               border: none;

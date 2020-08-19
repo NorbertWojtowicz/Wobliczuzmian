@@ -93,48 +93,47 @@
 
 @media only screen and (max-width: 980px) {
   .box.box {
-    width: 980px;
-    padding: 10px 10px 30px 30px;
+    width: 100vw;
+    padding: calc(10vw / 9.8) calc(10vw / 9.8) calc(30vw / 9.8) calc(30vw / 9.8);
 
     > div {
-      width: 940px;
+      width: calc(940vw / 9.8);
       margin: 0;
     }
 	
-	#mobile-delete
-    {
+	#mobile-delete {
       display: none;
     }
 	
     .latest, .latest > div, .new-article, .new-article > div {
-      margin: 20px 20px 0 0;
+      margin: calc(20vw / 9.8) calc(20vw / 9.8) 0 0;
     }
 
     .latest, .latest > div {
-      width: 920px;
-      height: 575px;
+      width: calc(920vw / 9.8);
+      height: calc(575vw / 9.8);
     }
 
     .new-article, .new-article > div {
-      width: 450px;
-      height: 281px;
+      width: calc(450vw / 9.8);
+      height: calc(281vw / 9.8);
     }
 
     .latest-title {
-      width: 920px;
-      font-size: 49px;
+      width: calc(920vw / 9.8);
+      font-size: calc(49vw / 9.8);
 
       > div {
-        margin: 0 25px 25px 25px;
+        margin: 0 calc(25vw / 9.8) calc(25vw / 9.8) calc(25vw / 9.8);
       }
     }
 
     .new-article-title {
-      width: 450px;
-      font-size: 35px;
+      width: calc(450vw / 9.8);
+      font-size: calc(35vw / 9.8);
 
       > div {
-        margin: 0 15px 15px 15px;
+        margin: 0 calc(15vw / 9.8) calc(15vw / 9.8) calc(15vw / 9.8);
       }
     }
   }

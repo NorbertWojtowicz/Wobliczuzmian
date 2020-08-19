@@ -138,50 +138,51 @@
 
 @media only screen and (max-width: 980px) {
   .container.container {
-    width: 980px;
+    width: 100vw;
   }
 
   .article {
-    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom, &-date#{&}-date {
-      width: 450px;
+    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom,
+    &-date#{&}-date, &-img#{&}-img {
+      width: calc(450vw / 9.8);
     }
 
     &#{&} {
-      width: 940px;
+      width: calc(940vw / 9.8);
     }
 
     &-img#{&}-img {
-      width: 450px;
-      height: 281px;
+      height: calc(281vw / 9.8);
+      margin: calc(12vw / 9.8) 0 calc(12vw / 9.8) calc(12vw / 9.8);
 
       > div {
-        width: 450px;
-        height: 281px;
+        width: calc(450vw / 9.8);
+        height: calc(281vw / 9.8);
       }
     }
 
     &-txt#{&}-txt {
-      height: 233px;
-      margin-bottom: 8px;
+      height: calc(233vw / 9.8);
+      margin: calc(14vw / 9.8) calc(14vw / 9.8) calc(8vw / 9.8) calc(14vw / 9.8);
     }
 
-    &-tag#{&}-tag{
-      font-size: 20px;
-      margin-bottom: 8px;
+    &-tag#{&}-tag {
+      font-size: calc(20vw / 9.8);
+      margin-bottom: calc(8vw / 9.8);
     }
 
-    &-title#{&}-title{
-      font-size: 35px;
-      margin-bottom: 8px;
-      max-height: 80px;
+    &-title#{&}-title {
+      font-size: calc(35vw / 9.8);
+      margin-bottom: calc(8vw / 9.8);
+      max-height: calc(80vw / 9.8);
     }
 
     &-short-desc#{&}-short-desc {
-      font-size: 27px;
-      margin-bottom: 2px;
+      font-size: calc(27vw / 9.8);
+      margin-bottom: calc(2vw / 9.8);
       -webkit-line-clamp: 4; /* Number of lines displayed before it truncate */
-      height: calc(4em + 4px);
-      line-height: calc(1em + 1px);
+      height: calc(4em - calc(4vw / 9.8));
+      line-height: calc(1em + calc(1vw / 9.8));
     }
 
     hr {
@@ -189,13 +190,14 @@
     }
 
     &-txt-bottom#{&}-txt-bottom {
-      height: 35px;
+      height: calc(35vw / 9.8);
+      margin: 0 calc(14vw / 9.8) calc(14vw / 9.8) calc(14vw / 9.8);
     }
 
     &-date#{&}-date {
-      margin-top: 4px;
-      font-size: 26px;
-      height: calc(1em + 4px);
+      margin-top: calc(4vw / 9.8);
+      font-size: calc(26vw / 9.8);
+      height: calc(1em + calc(4vw / 9.8));
     }
   }
 
@@ -204,7 +206,7 @@
 
     .searchH2 {
       color: #fff;
-      width: 869px;
+      width: calc(869vw / 9.8);
     }
 
     .article {
@@ -220,8 +222,8 @@
       display: block;
       color: #fff;
       width: 85%;
-      border-width: 0 0 2px 0;
-      margin: 23px 0;
+      border-width: 0 0 calc(2vw / 9.8) 0;
+      margin: calc(23vw / 9.8) 0;
       padding: 0;
       &:last-child{
         display: none;
@@ -236,11 +238,11 @@
   .pagination-mobile.pagination-mobile {
     display: block;
     border-color: #fff transparent;
-    padding: 11px 0;
-    margin: 20px 0;
+    padding: calc(11vw / 9.8) 0;
+    margin: calc(20vw / 9.8) 0;
     background: none;
     color: #fff;
-    font-size: 80px;
+    font-size: calc(80vw / 9.8);
 
     &, .step-links {
       @include flex(row, center, center);
@@ -252,10 +254,10 @@
       transition: color 400ms,
       background 400ms;
       padding: 0;
-      margin: 0 20px;
+      margin: 0 calc(20vw / 9.8);
       text-decoration: none;
       color: #fff;
-      font-size: 40px;
+      font-size: calc(40vw / 9.8);
 
       .icon-angle {
         &-left, &-double-left, &-right, &-double-right {
@@ -269,15 +271,20 @@
     }
 
     .current {
-      font-size: 40px;
+      font-size: calc(40vw / 9.8);
       text-align: center;
       background: #fff;
       color: $base-color;
       font-weight: 600;
-      padding: 20px;
-      margin: 0 20px;
+      padding: calc(20vw / 9.8);
+      margin: 0 calc(20vw / 9.8);
       display: inline-block;
     }
+  }
+
+  .searchH2.searchH2 {
+    font-size: calc(36vw / 9.8);
+    margin: calc(10vw / 9.8) 0;
   }
 }
 
