@@ -32,7 +32,7 @@
         <a href="{{ article.slug }}" class="article">
             <div class="article-img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="article-txt">
-                <div class="article-tag">
+                <h3 class="article-tag">
                     {% for tag in article.secondary_tags.all %}
                         {{ tag }}
                     {% endfor %}
@@ -47,8 +47,8 @@
                             <button class="article-delete"><i class="icon-trash"></i> Usuń to</button>
                         </form>
                     {% endif %}
-                </div>
-                <div class="article-title">{{ article.title }}</div>
+                </h3>
+                <h1 class="article-title">{{ article.title }}</h1>
                 <div class="article-short-desc">{{ article.short_desc }}</div>
             </div>
             <div class="article-txt-bottom">

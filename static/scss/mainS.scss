@@ -84,7 +84,7 @@
     .latest-title, .new-article-title {
       padding: 0;
 
-      > div {
+      > h1, > h2 {
         margin: 0 20px 20px 20px;
       }
     }
@@ -123,7 +123,7 @@
       width: calc(920vw / 9.8);
       font-size: calc(49vw / 9.8);
 
-      > div {
+      > h1 {
         margin: 0 calc(25vw / 9.8) calc(25vw / 9.8) calc(25vw / 9.8);
       }
     }
@@ -132,7 +132,7 @@
       width: calc(450vw / 9.8);
       font-size: calc(35vw / 9.8);
 
-      > div {
+      > h2 {
         margin: 0 calc(15vw / 9.8) calc(15vw / 9.8) calc(15vw / 9.8);
       }
     }
@@ -140,6 +140,12 @@
 }
 
 /* Changing wrapper settings */
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
 
 .wrapper {
   padding: 20px 0;
