@@ -61,8 +61,10 @@ class Article(models.Model):
 
     def delete(self, **kwargs):
         print('Usuwam artykuł id: ', self.id, ' o tytule: ', self.title)
-        self.user.numberOfArticles -= 1
-        self.user.save()
+        article = Article.objects.get(id=self.id)
+        articleOwner = article.user
+        articleOwner.numberOfArticles -= 1
+        articleOwner.save()
         super(Article, self).delete()
 
     def get_absolute_url(self):
