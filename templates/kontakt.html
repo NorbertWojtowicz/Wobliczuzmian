@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<!DOCTYPE HTML>
-<html lang="pl">
-<head>
+    {% block head %}
+
     {% load compress static %}
 
     {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/contact.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    {% block head %}
     <meta property="og:title" content="W Obliczu Zmian - kontakt">
     <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
     <meta property="og:description" content="Dane kontaktowe, nasze social media oraz lista ludzi zaangażowanych w projekt.">
@@ -24,8 +22,6 @@
     <meta name="description" content="Dane kontaktowe, nasze social media oraz lista ludzi zaangażowanych w projekt.">
     <meta name="url" content="https://wobliczu.pl/articles/kontakt">
     {% endblock %}
-</head>
-<body>
     <div class="box">
         <h1>W Obliczu Zmian</h1>
         <hr>
@@ -57,9 +53,5 @@
         <ul class="support">
             <li>Dawid Marcinik</li>
         </ul>
-        <!--<a href="#"><span class="info">Youtube</span></a>
-        <a href="#"><span class="info"></span></a>-->
     </div>
-</body>
-</html>
 {% endblock %}

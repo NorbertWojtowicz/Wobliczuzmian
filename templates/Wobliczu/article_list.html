@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+    {% block head %}
+
     {% load compress static %}
 
     {% compress css %}
-    <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
+        <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    {% block head %}
     <meta property="og:title" content="W Obliczu Zmian - artykuły">
     <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
     <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
@@ -24,21 +22,18 @@
     <meta name="description" content="Lista wszystkich artykułów od najnowszych do najstarszych.">
     <meta name="url" content="https://wobliczu.pl/articles">
     {% endblock %}
-
-</head>
-<body>
 <div class="container">
 {% for article in object_list %}
         <a href="{{ article.slug }}" class="article">
             <div class="article-img" style="background-image: url('{{ article.main_image.url }}')"><div></div></div>
             <div class="article-txt">
-                <div class="article-tag">
+                <h3 class="article-tag">
                     {% for tag in article.secondary_tags.all %}
                         {{ tag }}
                     {% endfor %}
                     {% if user.is_superuser %}
                     <form action="journalist/editArticle/{{ article.slug }}">
-                        <button type="submit" class="edit-button">
+                        <button type="submit" class="article-edit">
                             <i class="icon-pencil"></i> Edytuj
                         </button>
                     </form>
@@ -47,8 +42,8 @@
                             <button class="article-delete"><i class="icon-trash"></i> Usuń to</button>
                         </form>
                     {% endif %}
-                </div>
-                <div class="article-title">{{ article.title }}</div>
+                </h3>
+                <h1 class="article-title">{{ article.title }}</h1>
                 <div class="article-short-desc">{{ article.short_desc }}</div>
             </div>
             <div class="article-txt-bottom">
@@ -94,7 +89,5 @@
     </span>
 </div>
 {% endif %}
-</body>
-</html>
 
 {% endblock %}
