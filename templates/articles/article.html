@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+    {% block head %}
     <link rel="stylesheet" href="../static/css/fontello.css" type="text/css"/>
 
     {% load compress static %}
@@ -11,26 +9,25 @@
         <link type="text/x-scss" href="{% static 'scss/articleS.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    {% block head %}
     <meta property="og:title" content="{{ object.title }}">
-    <meta property="og:image:url" content="https://wobliczu.pl{{ object.main_image.url }}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.wobliczu.pl{{ object.main_image.url }}">
     <meta property="og:description" content="{{ object.short_desc }}">
-    <meta property="og:url" content="https://wobliczu.pl/articles/{{ object.slug }}">
+    <meta property="og:url" content="https://www.wobliczu.pl/articles/{{ object.slug }}">
 
     <meta name="twitter:title" content="{{ object.title }}">
     <meta name="twitter:description" content="{{ object.short_desc }}">
-    <meta name="twitter:image" content="https://wobliczu.pl{{ object.main_image.url }}">
+    <meta name="twitter:image" content="https://www.wobliczu.pl{{ object.main_image.url }}">
 
-    <title>W Obliczu Zmian</title>
+    <title>{{ object.title }}</title>
 
     <meta name="description" content="{{ object.short_desc }}">
-    <meta name="url" content="https://wobliczu.pl/articles/{{ object.slug }}">
-    {% endblock %}
+    <meta name="url" content="https://www.wobliczu.pl/articles/{{ object.slug }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script type="text/javascript">
+    <script type="text/javascript">
     function onSubmit(token)
     {
         document.getElementById("i-recaptcha").submit();
@@ -46,9 +43,8 @@
         else
             document.getElementById(id).style.display = 'none';
     }
-</script>
-</head>
-<body>
+    </script>
+    {% endblock %}
 {% if messages %}
     {% for message in messages %}
         {% if message.tags == 'success' %}
@@ -60,12 +56,12 @@
     {% endfor %}
 {% endif %}
 <div class="container">
-    <div class="title">
+    <h1 class="title">
         {{ object.title }}
-    </div>
-    <div class="author-date">
+    </h1>
+    <h2 class="author-date">
         {{ object.user }} | {{ object.pub_date }}
-    </div>
+    </h2>
     <hr class="title-line">
     <div class="short-desc">
         {{ object.short_desc }}
@@ -192,6 +188,4 @@
     </div>
     </form>
 </div>
-</body>
-</html>
 {% endblock %}

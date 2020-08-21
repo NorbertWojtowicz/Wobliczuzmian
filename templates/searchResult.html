@@ -1,21 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
     {% block head %}
     <title>W Obliczu Zmian</title>
 
     <meta name="robots" content="none" />
-    {% endblock %}
 
     {% load compress static %}
 
     {% compress css %}
     <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
-</head>
-<body>
+    {% endblock %}
 <div class="container">
 {% if obj %}
 <h2 class="searchH2">Artykuły zawierające każdy z pożądanych tagów:</h2>
@@ -68,6 +63,4 @@
 {% endfor %}
 {% endif %}
 </div>
-</body>
-</html>
 {% endblock %}

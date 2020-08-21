@@ -199,6 +199,12 @@
       font-size: calc(26vw / 9.8);
       height: calc(1em + calc(4vw / 9.8));
     }
+
+    &-edit#{&}-edit, &-delete#{&}-delete {
+      font-size: calc(16vw / 9.8);
+      padding: calc(3vw / 9.8) calc(3vw / 9.8) calc(3vw / 9.8) 0;
+      border-width: calc(2vw / 9.8);
+    }
   }
 
   .container.container {
@@ -286,6 +292,10 @@
     font-size: calc(36vw / 9.8);
     margin: calc(10vw / 9.8) 0;
   }
+}
+
+h1, h3 {
+  margin-top: 0;
 }
 
 .container {
@@ -382,7 +392,7 @@
     @include flex(row, space-between, center);
   }
 
-  .edit-button {
+  &-edit {
     font-size: 15px;
     font-weight: 600;
     outline: none;
@@ -442,12 +452,12 @@
   @include flex(row, center, center);
   font-size: 20px;
   background: none;
-  border-top: 1px solid #161616;
-  border-bottom: 1px solid #161616;
+  border-top: 1px solid $base-color;
+  border-bottom: 1px solid $base-color;
 
   a {
     font-weight: 600;
-    color: #161616;
+    color: $base-color;
     transition: color 400ms,
     background 400ms;
     padding: 10px;
@@ -456,12 +466,12 @@
 
     &:hover {
       color: #fff;
-      background: #161616;
+      background: $base-color;
     }
   }
 
   .current {
-    background: #161616;
+    background: $base-color;
     padding: 10px;
     margin: 0;
     display: inline-block;
