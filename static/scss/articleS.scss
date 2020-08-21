@@ -13,56 +13,17 @@
   }
 }
 
-/*
-@media only screen and (max-width: 1000px) {
-  .wrapper.wrapper {
-    .container, .comment {
-      width: 900px;
-    }
-
-    .title, .author-date, .short-desc, .content,
-    .title-line, .main-img {
-      width: 800px;
-    }
-
-    .comment-add {
-      width: 850px;
-    }
-
-    .comment-box, .comment-header {
-      width: 660px;
-    }
-
-    .comment-content {
-      width: 610px;
-    }
-
-    .comment-line, .replies {
-      width: 700px;
-    }
-
-    .replies-add, .repliesBox, .replies-line, .replies-add-footer {
-      width: 600px;
-    }
-
-    .replies-box, .replies-header {
-      width: 560px;
-    }
-
-    .replies-add-content {
-      width: 550px;
-    }
-
-    .replies-content {
-      width: 510px;
-    }
-  }
-}
-*/
-
 @media only screen and (max-width: 980px) {
   .base-body.base-body {
     background: #fff;
+
+    .menu {
+      border-bottom: none;
+    }
+
+    .footer {
+      border-top: none;
+    }
   }
 
   .notification.notification, .error.error {

@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
+    {% block head %}
+
     {% load compress static %}
 
     {% compress css %}
-    <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
+        <link type="text/x-scss" href="{% static 'scss/article_list.scss' %}" rel="stylesheet" media="screen">
     {% endcompress %}
 
-    {% block head %}
     <meta property="og:title" content="W Obliczu Zmian - artykuły">
     <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
     <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
@@ -24,9 +22,6 @@
     <meta name="description" content="Lista wszystkich artykułów od najnowszych do najstarszych.">
     <meta name="url" content="https://wobliczu.pl/articles">
     {% endblock %}
-
-</head>
-<body>
 <div class="container">
 {% for article in object_list %}
         <a href="{{ article.slug }}" class="article">
@@ -94,7 +89,5 @@
     </span>
 </div>
 {% endif %}
-</body>
-</html>
 
 {% endblock %}

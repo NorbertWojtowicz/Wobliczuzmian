@@ -1,32 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
+    {% block head %}
 
-<!DOCTYPE HTML>
-<html lang="pl">
-	<head>
-		{% load compress static %}
+    {% load compress static %}
 
-        {% compress css %}
+    {% compress css %}
         <link type="text/x-scss" href="{% static 'scss/mainS.scss' %}" rel="stylesheet" media="screen">
-        {% endcompress %}
+    {% endcompress %}
 
-        {% block head %}
-        <meta property="og:title" content="W Obliczu Zmian">
-        <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
-        <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
-        <meta property="og:url" content="https://wobliczu.pl">
+    <meta property="og:title" content="W Obliczu Zmian">
+    <meta property="og:type" content="website">
+    <meta property="og:image:url" content="https://wobliczu.pl/media/preview.png">
+    <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta property="og:url" content="https://wobliczu.pl">
 
-        <meta name="twitter:title" content="W Obliczu Zmian">
-        <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
-        <meta name="twitter:image" content="https://wobliczu.pl/media/preview.png">
+    <meta name="twitter:title" content="W Obliczu Zmian">
+    <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta name="twitter:image" content="https://wobliczu.pl/media/preview.png">
 
-        <title>W Obliczu Zmian</title>
+    <title>W Obliczu Zmian</title>
 
-        <meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
-        <meta name="url" content="https://wobliczu.pl">
-        {% endblock %}
-	</head>
-	<body>
+    <meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
+    <meta name="url" content="https://wobliczu.pl">
+    {% endblock %}
 
         <div class="box"><div>
             <a href="articles/{{ latest_article.slug }}">
@@ -65,7 +61,4 @@
             {% endif %}
         {% endfor %}
     {% endfor %}-->
-
-	</body>
-</html>
 {% endblock %}
