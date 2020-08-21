@@ -37,7 +37,7 @@
                         {{ tag }}
                     {% endfor %}
                     {% if user.is_superuser %}
-                    <form action="journalist/editArticle/{{ article.slug }}">
+                    <form action="../journalist/editArticle/{{ article.slug }}">
                         <button type="submit" class="edit-button">
                             <i class="icon-pencil"></i> Edytuj
                         </button>
