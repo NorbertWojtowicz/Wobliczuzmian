@@ -85,19 +85,46 @@
 
     .short-desc {
       margin-bottom: 20px;
+      font-size: calc(38vw / 9.8);
+      line-height: calc(1em + 4px)
     }
 
     .main-img {
       @include inside-box();
       border: $white-line;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
     }
 
     .content {
-      font-size: 26px;
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      h3 {
+        font-size: 1.17em;
+      }
+
+      h4 {
+        font-size: 1em;
+      }
+
+      h5 {
+        font-size: .83em;
+      }
+
+      h6 {
+        font-size: .67em;
+      }
+
+      &, > p, li, ol, span {
+        font-size: calc(38vw / 9.8) !important;
+      }
 
       > p, li, ol, span {
-        font-size: calc(38vw / 9.8) !important;
         text-align: left !important;
         line-height: calc(1em + 4px);
       }
@@ -140,6 +167,7 @@
 
     .comment {
       width: 100vw;
+
       h2 {
         font-size: 50px;
       }
@@ -265,8 +293,8 @@
     }
 
     .comment-add, .reply-add {
-      h2 {
-        font-size: calc(50vw / 7.6);
+      > h2 {
+        font-size: calc(40vw / 7.6);
       }
 
       &-label, .reply-add-nick, .comment-add-username, &-content, button {
@@ -287,10 +315,6 @@
 
   .author-date.author-date.author-date, .short-desc.short-desc.short-desc {
     font-size: calc(24vw / 5);
-  }
-
-  .short-desc.short-desc.short-desc {
-    line-height: calc(1em + 5px);
   }
 
   .comment-all.comment-all {
@@ -333,10 +357,51 @@
   }
 }
 
+/* Headings styles */
+
 h1, h2 {
   margin: 0;
   padding: 0;
-  font-weight: 500;
+}
+
+.comment > h2, .comment-add > h2, .reply-add > h2 {
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+
+.comment-add > h2, .reply-add > h2 {
+  margin-bottom: 15px;
+}
+
+.comment > h2 {
+  font-size: 36px;
+  border-bottom: 2px solid $base-color;
+}
+
+.container {
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  h6 {
+    font-size: 13px;
+  }
 }
 
 .comment-box-header, .reply-box-header {
