@@ -20,6 +20,7 @@ from Wobliczu.views import renderHome, renderSearch, renderKontakt, renderPostCr
     renderArticles, renderUserArticles, renderSingleArticle, renderSearchResult, renderEditArticle, renderJournalistComments, render_confirm_delete
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import TemplateView
 from Wobliczu.models import Article
 
 
@@ -39,7 +40,9 @@ urlpatterns = [
     path('journalist/editArticle/<slug:slug>', renderEditArticle, name='render-edit'),
     path('journalist/userPanel/<int:journalist_id>', renderJournalistComments, name='journalist-comments'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('articles/confirm-delete/<int:article_id>', render_confirm_delete, name='confirm-delete')
+    path('articles/confirm-delete/<int:article_id>', render_confirm_delete, name='confirm-delete'),
+    path('robots.txt', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
+    path('sitemap.xml', TemplateView.as_view(template_name='sitemap.xml', content_type='application/xml')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'Wobliczu.views.error_404_view'
