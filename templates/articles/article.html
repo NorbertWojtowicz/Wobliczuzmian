@@ -10,7 +10,7 @@
     {% endcompress %}
 
     <meta property="og:title" content="{{ object.title }}">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.wobliczu.pl{{ object.main_image.url }}">
     <meta property="og:description" content="{{ object.short_desc }}">
     <meta property="og:url" content="https://www.wobliczu.pl/articles/{{ object.slug }}">
@@ -73,7 +73,8 @@
 </div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <div class="comment">
-<h2 class="comments">Komentarze</h2>
+<h2>Komentarze</h2>
+<div class="comment-line"></div>
     {% for comment in comments %}
         {% if comment.reply == None %}
         <div class="comment-all">

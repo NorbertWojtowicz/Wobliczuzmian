@@ -1,0 +1,23 @@
+Sitemap: https://www.wobliczu.pl/sitemap.xml
+
+# Rule 1
+User-agent: *
+Allow: /sitemap.xml
+Disallow: /*.css$
+Disallow: /*.scss$
+Disallow: /*.sass$
+Disallow: /*.js$
+Disallow: /*.py$
+Disallow: /*.sqlite3$
+Disallow: /*.floo$
+Disallow: /*.flooignore$
+Disallow: /*.gitignore$
+Disallow: /*.pyc$
+Disallow: /*.pyd$
+Disallow: /templates/404.html
+Disallow: /templates/searchResult.html
+Disallow: /templates/confirm-delete.html
+
+# Rule 2 - AdSense settings
+User-agent: Mediapartners-Google
+Allow: /

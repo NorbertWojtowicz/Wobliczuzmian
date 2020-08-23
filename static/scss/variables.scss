@@ -13,18 +13,6 @@ $white-line: 2px solid #fff;
   align-items: $align;
 }
 
-@mixin latest-shadowbox(){
-  -webkit-box-shadow: 0 -30px 10px 5px $hover-shadow;
-  -moz-box-shadow: 0 -30px 10px 5px $hover-shadow;
-  box-shadow: 0 -30px 10px 5px $hover-shadow;
-}
-
-@mixin new-article-shadowbox(){
-  -webkit-box-shadow: 0 -20px 10px 5px $hover-shadow;
-  -moz-box-shadow: 0 -20px 10px 5px $hover-shadow;
-  box-shadow: 0 -20px 10px 5px $hover-shadow;
-}
-
 @mixin container-shadowbox() {
   -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
   0 6.7px 5.3px rgba(0, 0, 0, 0.048),

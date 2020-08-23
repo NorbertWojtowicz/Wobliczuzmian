@@ -57,18 +57,18 @@
     <header>
         <div class="banner">
         <a href="../">
-            <img src="https://wobliczu.pl/media/logo_footer.png" alt="logo" class="logo">
+            <img src="https://www.wobliczu.pl/media/logo_footer.png" alt="logo" class="logo">
         </a>
         </div>
         <nav class="menu">
-            <a href="../../"><button value="strona_glowna" class="menu-button">
-            <i class="icon-home"></i>Strona główna</button></a>
+            <a href="../../"><h2 class="menu-button">
+            <i class="icon-home"></i>Strona główna</h2></a>
 
-            <a href="../../articles"><button value="artykuly" class="menu-button">
-            <i class="icon-doc-text-inv"></i>Artykuły</button></a>
+            <a href="../../articles"><h2 class="menu-button">
+            <i class="icon-doc-text-inv"></i>Artykuły</h2></a>
 
-            <a href="../articles/search"><button value="szukaj" class="menu-button">
-            <i class="icon-search"></i>Szukaj</button></a>
+            <a href="../articles/search"><h2 class="menu-button">
+            <i class="icon-search"></i>Szukaj</h2></a>
 
             {% if user.is_superuser %}
                 <a href="/journalist/userPanel"><button name="journalist" class="menu-button">
@@ -81,11 +81,10 @@
         {% endblock %}
     </main>
     <footer class="footer">
-        <a href="../"><img src="../media/logo_footer.png" alt="logo" class="footer-logo"></a>
+        <a href="../"><img src="https://www.wobliczu.pl/media/logo_footer.png" alt="logo" class="footer-logo"></a>
         <div class="footer-social-media">
             <a href="https://www.facebook.com/Wobliczu/" target="_blank"><i class="icon-facebook-squared"></i></a>
-            <!--<a href="#"  target="_blank"><i class="icon-youtube-play""></i></a>-->
         </div>
-        <a href="../../kontakt"><img class="footer-contact" alt="kontakt" src="../media/footer_kontakt.png"></a>
+        <a href="../../kontakt"><img class="footer-contact" alt="kontakt" src="https://www.wobliczu.pl/media/footer_kontakt.png"></a>
     </footer>
 </body>
