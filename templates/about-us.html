@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+    {% block head %}
+
+    {% load compress static %}
+
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'scss/about-us.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+
+    <meta property="og:title" content="W Obliczu Zmian">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.wobliczu.pl/media/preview.png">
+    <meta property="og:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta property="og:url" content="https://www.wobliczu.pl">
+
+    <meta name="twitter:title" content="W Obliczu Zmian">
+    <meta name="twitter:description" content="Serwis prognostyczno-analityczny gromadzący informacje z całego świata.">
+    <meta name="twitter:image" content="https://www.wobliczu.pl/media/preview-twitter.jpg">
+
+    <title>W Obliczu Zmian</title>
+
+    <meta name="description" content="Serwis informacyjny opisujący oraz analizujący to, co się dzieje na świecie">
+    <meta name="keywords" content="obliczu, zmian, wobliczu, wiadomości, news, analiza, prognoza, polityka, ekonomia,
+    gospodarka, polska, europa, ameryka, stany, zjednoczone, usa, świat, zdrowie, wojsko, społeczeństwo">
+    <meta name="url" content="https://www.wobliczu.pl">
+    {% endblock %}
+
+    <div class="info">
+        <h2>O stronie</h2>
+        <p class="info-page">Strona <a href="https://www.wobliczu.pl">wobliczu.pl</a> jest kolejnym etapem rozwoju
+        projektu, który powstał dwa lata temu i którego pierwotnym celem było udostępnianie analiz pisanych przez
+        Dominika. Znajdziecie tutaj zarówno artykuły jak i ww. analizy na bieżące tematy, o których chcielibyście się
+        dowiedzieć więcej, jednak nie wiecie na jakich portalach szukać pewnych i sprawdzonych informacji.</p>
+
+        <h2>O nas</h2>
+        <p class="info-us">My sami jesteśmy małą grupą ludzi z pasją, których nadrzędnym celem jest dostarczanie pewnych
+        i sprawdzonych informacji oraz promowanie obiektywnego dziennikarstwa. Korzystamy jedynie ze źródeł, których
+        jesteśmy pewni i nie współpracujemy z żadną partią polityczną.</p>
+
+        <p class="info-lider">Liderem projektu jest Dominik Czernik, który na analityce zjadł zęby. To właśnie on
+        wymyślił i stworzył projekt W Obliczu Zmian, po czym wciągnął w to całą resztę. Jego nazwisko będziecie widywać
+        najczęściej pod analizami.</p>
+
+        <p class="info-journalists">Na ten moment w projekcie jest dwóch analityków-dziennikarzy. Pierwszym z nich jest
+        Dominik, z kolei drugi z nich to Radosław Ditrich, który dołączył do naszego projektu kilka miesięcy temu.</p>
+
+        <p class="info-devs">Programistami zajmującymi się stroną są Norbert Wojtowicz i Bartłomiej Pietrzak. Norbert
+        odpowiedzialny jest za backend, czyli wszelkie rzeczy dziejące się po stronie serwera. Gdyby nie on, to serwer
+        już dawno by nie istniał. Bartłomiej zaś odpowiada za wygląd strony i jej dostosowanie do wersji mobilnej.</p>
+
+        <p class="info-patrons">Osobą bez której ten projekt by nie powstał jest Dawid Marcinik. To właśnie dzięki jego
+        niezłomnemu charakterowi i bezinteresownemu wsparciu w najtrudniejszych momentach ten projekt ma rację bytu.
+        Gdy my nie wiedzieliśmy co zrobić on wypijał żurba i zasypiał, a my dostawaliśmy niesamowitą motywację za każdym
+        razem.</p>
+    </div>
+
+{% endblock %}

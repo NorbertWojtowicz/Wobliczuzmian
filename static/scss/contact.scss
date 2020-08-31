@@ -2,189 +2,89 @@
 
 @media only screen and (max-width: 980px) {
   .box.box {
-    width: 100%;
-    color: #fff;
-    font-size: calc(35vw / 9.8);
-    text-align: left;
-    align-items: flex-start;
-    padding: calc(30vw / 9.8) calc(30vw / 9.8);
+    font-size: calc(42vw / 9.8);
+    width: calc(980vw / 9.8);
+    margin: 0;
+    padding: calc(15vw / 9.8);
 
-
-    .info, h1, h2 {
-      width: 100%;
-      @include flex(row, flex-start, center);
+    h1 , > div {
+      padding: calc(15vw / 9.8) 0;
     }
 
-    h1 {
-      font-size: calc(80vw / 9.8);
-    }
-
-    > h2 {
-      font-size: calc(70vw / 9.8);
-      margin: calc(20vw / 9.8) 0 calc(5vw / 9.8) 0;
-
-      &:last-of-type {
-        font-size: calc(55vw / 9.8);
-      }
-    }
-
-    > a {
-      color: #fff;
-      width: 100%;
-
-      &:hover, &:hover i {
-        color: $fb-blue;
-      }
-    }
-
-    .info {
-      font-size: calc(50vw / 9.8);
-    }
-
-    .info > i {
-      color: #fff;
-    }
-
-    .icon-gmail {
-      margin-right: calc(20vw / 9.8);
-    }
-
-    .icon-police {
-      width: auto;
-      margin-right: calc(20vw / 9.8);
-
-      &::before {
-        margin: 0;
-        width: auto;
-      }
-    }
-
-    hr {
-      border-width: 2px 0 0 0;
-      border-color: #fff;
-      width: calc(640vw / 9.8);
-      margin: calc(20vw / 9.8) 0 0 0;
-    }
-
-    ul {
-      li {
-        @include flex(row, flex-start, center);
-        height: 1em;
-        font-size: calc(50vw / 9.8);
-      }
-
-      li:before {
-        height: 1em;
-        width: calc(50vw / 9.8);
-        margin-right: calc(20vw / 9.8);
-      }
-    }
-
-    .journalists li:before {
-      background-image: url("../../media/list-style-images/pen-white.png");
-    }
-
-    .programmers li:before {
-      background-image: url("../../media/list-style-images/code-white.png");
-    }
-
-    .support li:before {
-      background-image: url("../../media/list-style-images/star-white.png");
+    > div p:last-child {
+      margin-top: calc(15vw / 9.8);
     }
   }
 }
 
-.wrapper.wrapper {
-  @include flex(column, flex-start, center);
+.wrapper {
+  @include flex(row, center, center);
+  background-image: url("../../media/city.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.footer {
+  border-top: $white-line;
 }
 
 .box {
-  @include flex(column, flex-start, center);
-  @include inside-box();
-  width: auto;
-  margin: 0;
-  padding: 30px 20px;
-  color: $base-color;
-  font-size: 20px;
-
-  > div {
-    display: block;
-  }
-
-  > a, > a i {
-    transition: color 300ms;
-  }
-
-  > a:hover, > a:hover i {
-    color: $fb-blue;
-  }
-
-  .info > i {
-    color: $base-color;
-  }
-
-  .icon-gmail {
-    width: auto;
-
-    &::before {
-      margin: 0;
-      width: auto;
-    }
-  }
+  $border-color: #202020;
+  @include flex(row, flex-start, flex-start);
+  flex-wrap: wrap;
+  width: 900px;
+  height: auto;
+  font-size: 28px;
+  margin: 20px 0;
 
   h1 {
-    margin: 0;
-    padding: 0;
-  }
-
-  h2 {
-    margin: 20px 0 5px 0;
-  }
-
-  hr {
+    @include inside-box();
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 0;
-    border-style: solid;
-    border-color: $base-color;
-    border-width: 2px 0 0 0;
+    padding: 20px 0;
+    @include flex(row, center, center);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1em;
   }
 
-  ul {
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
+  &-gmail, &-fb {
+    width: 100%;
+    padding: 15px;
+    line-height: calc(1.2em);
 
-    li {
-      @include flex(row, flex-start, center);
-      height: 22px;
+    p:first-child {
+      color: rgba(255, 255, 255, 0.9);
     }
 
-    li:before {
-      content: '';
-      display: inline-block;
-      height: 22px;
-      width: 22px;
-      background-size: contain;
-      margin-right: 10px;
-      background-repeat: no-repeat;
+    p:last-child {
+      margin-top: 15px;
+    }
+
+    p:last-child, a {
+      @include flex(row, center, center);
+      height: 1.2em;
+      color: rgba(255, 255, 255, 0.9);
     }
   }
 
-  .journalists li:before {
-    background-image: url("https://www.wobliczu.pl/media/list-style-images/pen-gray.png");
+  &-gmail{
+    p:last-child {
+      text-shadow: 0 0 3px $gmail-brown;
+    }
   }
 
-  .programmers li:before {
-    background-image: url("https://www.wobliczu.pl/media/list-style-images/code-gray.png");
-  }
-
-  .support li:before {
-    background-image: url("https://www.wobliczu.pl/media/list-style-images/star-gray.png");
-  }
-
-  a {
+  &-fb a {
+    outline: none;
     text-decoration: none;
-    color: $base-color;
+    text-shadow: 0 0 3px $fb-blue;
+    transition: text-shadow 500ms;
+  }
+
+  p {
+    text-align: center;
   }
 }

@@ -9,7 +9,7 @@
       .container {
         padding-bottom: 35px;
 
-        > h2 {
+        h2 {
           color: #fff;
           font-size: 30px;
         }
@@ -26,7 +26,7 @@
             > h2 {
               color: #fff;
               font-size: 42px;
-              margin: 35px 0;
+              margin: 25px 0;
             }
 
             > li {
@@ -76,8 +76,9 @@
     form {
       .container {
         padding-bottom: calc(35vw / 9.2);
-        > h2 {
-          font-size: calc(30vw / 9.2);
+
+        h2 {
+          margin: calc(25vw / 9.8) 0;
         }
 
         .tags {
@@ -139,6 +140,10 @@
 .container {
   font-size: 13px;
   text-align: center;
+
+  h1, h2 {
+    margin: 15px auto;
+  }
 }
 
 .tags {

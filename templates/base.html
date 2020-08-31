@@ -56,36 +56,55 @@
 </head>
 <body class="base-body">
     <header>
-        <div class="banner">
-        <a href="../">
-            <img src="https://www.wobliczu.pl/media/logo_footer.png" alt="logo" class="logo">
-        </a>
-        </div>
-        <nav class="menu">
-            <a href="../../"><h2 class="menu-button">
-            <i class="icon-home"></i>Strona główna</h2></a>
+        <nav class="menu-top menu">
+            <a href="../">
+                <img src="../media/logo-wobliczu.jpg" alt="logo" class="menu-logo">
+            </a>
+        </nav>
+        <nav class="menu-bottom menu">
+            <div class="menu-bottom-buttons">
+                <a href="../"><h2 class="menu-button">Strona główna</h2></a>
+                <a href="../../articles"><h2 class="menu-button">Artykuły</h2></a>
+            </div>
 
-            <a href="../../articles"><h2 class="menu-button">
-            <i class="icon-doc-text-inv"></i>Artykuły</h2></a>
+            <div class="menu-bottom-icons">
+                <a href="../articles/search"><h2 class="menu-button">
+                    <i class="icon-search"></i>
+                </h2></a>
 
-            <a href="../articles/search"><h2 class="menu-button">
-            <i class="icon-search"></i>Szukaj</h2></a>
-
-            {% if user.is_superuser %}
-                <a href="/journalist/userPanel"><button name="journalist" class="menu-button">
-                <i class="icon-star"></i> Panel Dziennikarza</button></a>
-            {% endif %}
+                {% if user.is_superuser %}
+                    <a href="/journalist/userPanel"><h2 name="journalist" class="menu-button">
+                        <i class="icon-user-3"></i>
+                    </h2></a>
+                {% endif %}
+            </div>
         </nav>
     </header>
     <main class="wrapper">
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="footer">
-        <a href="../"><img src="https://www.wobliczu.pl/media/logo_footer.png" alt="logo" class="footer-logo"></a>
+    <footer class="footer-mobile">
+        <a href="../"><img src="../media/logo-wobliczu.jpg" alt="logo" class="footer-logo"></a>
         <div class="footer-social-media">
             <a href="https://www.facebook.com/Wobliczu/" target="_blank"><i class="icon-facebook-squared"></i></a>
         </div>
         <a href="../../kontakt"><img class="footer-contact" alt="kontakt" src="https://www.wobliczu.pl/media/footer_kontakt.png"></a>
+    </footer>
+    <footer class="footer-desktop footer">
+        <nav>
+            <a href="../" class="footer-desktop-logo"><img src="https://www.wobliczu.pl/media/logo_footer.png" alt="logo"></a>
+            <a href="../../kontakt" class="footer-desktop-contact"><h2>Kontakt</h2></a>
+            <a href="#" class="footer-desktop-about-us"><h2>O nas</h2></a>
+            <a href="#" class="footer-desktop-search"><h2><i class="icon-search"></i></h2></a>
+        </nav>
+        <nav>
+            <a href="https://www.facebook.com/Wobliczu/" class="footer-desktop-fb">
+                <h2><i class="icon-facebook-squared"></i></h2></a>
+            <a href="https://twitter.com/wobliczu" class="footer-desktop-twitter">
+                <h2><i class="icon-twitter"></i></h2></a>
+            <a href="https://www.instagram.com/wobliczu/" class="footer-desktop-ig">
+                <h2><i class="icon-instagram"></i></h2></a>
+        </nav>
     </footer>
 </body>

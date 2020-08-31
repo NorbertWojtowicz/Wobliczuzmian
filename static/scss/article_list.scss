@@ -1,25 +1,24 @@
 @import "variables.scss";
 
-@media only screen and (max-width: 1271px) {
+@media only screen and (max-width: 1250px) {
   .container {
     &#{&} {
-      width: 1040px;
+      width: 1080px;
       padding: 8px 0 8px 0;
     }
   }
 
   .article {
     &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom, &-date#{&}-date {
-      width: 496px;
+      width: 536px;
+    }
+
+    &#{&} {
+      width: 1040px;
     }
 
     &-txt#{&}-txt, &-title#{&}-title, &-short-desc#{&}-short-desc {
       margin-bottom: 8px;
-    }
-
-    &#{&} {
-      width: 1000px;
-      padding: 8px 0;
     }
 
     &-img#{&}-img {
@@ -38,6 +37,18 @@
       height: 273px;
     }
 
+    &-title#{&}-title {
+      font-size: 27px;
+    }
+
+    .article-short-desc.article-short-desc.article-short-desc {
+      font-size: 23px;
+      $line-height: calc(1em + 4px);
+      line-height: $line-height;
+      height: calc(#{$line-height} * 8);
+      -webkit-line-clamp: 8;
+    }
+
     &-txt-bottom#{&}-txt-bottom {
       height: 41px;
       margin: 0 16px 16px 16px;
@@ -45,14 +56,6 @@
       > hr {
         margin-bottom: 7px;
       }
-    }
-
-    &-title#{&}-title {
-      margin-bottom: 25px;
-    }
-
-    &-tag#{&}-tag {
-      margin-bottom: 16px;
     }
 
     &-short-desc#{&}-short-desc {
@@ -68,65 +71,71 @@
   }
 }
 
-@media only screen and (max-width: 1057px) {
+@media only screen and (max-width: 1080px) {
   .container.container {
-    width: 869px;
+    width: 980px;
     padding: 7px 0;
   }
 
   .article {
-    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom, &-date#{&}-date{
-      width: 401px;
-    }
-
-    &-txt#{&}-txt, &-title#{&}-title, &-short-desc#{&}-short-desc {
-      margin-bottom: 7px;
-    }
-
     &#{&} {
-      width: 830px;
-      padding: 7px 0 7px 0;
+      width: 940px;
+    }
+
+    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom,
+    &-date#{&}-date, &-img#{&}-img {
+      width: 450px;
     }
 
     &-img#{&}-img {
-      width: 389px;
-      height: 283px;
+      height: 281px;
       margin: 12px 0 12px 12px;
 
       > div {
-        width: 389px;
-        height: 283px;
+        width: 450px;
+        height: 281px;
       }
     }
 
     &-txt#{&}-txt {
-      margin: 14px;
-      height: 232px;
+      height: 233px;
+      margin: 14px 14px 8px 14px;
+    }
+
+    &-tag#{&}-tag {
+      font-size: 20px;
+    }
+
+    &-title#{&}-title {
+      font-size: 35px;
+      margin-bottom: 8px;
+    }
+
+    .article-short-desc.article-short-desc.article-short-desc {
+      $line-height: calc(1em + 4px);
+      line-height: $line-height;
+      height: calc(#{$line-height} * 6);
+      -webkit-line-clamp: 6;
     }
 
     &-txt-bottom#{&}-txt-bottom {
       height: 35px;
       margin: 0 14px 14px 14px;
 
-      > hr {
-        margin-bottom: 1px;
+      hr {
+        margin: 4px 0 3px 0;
       }
     }
 
-    &-title#{&}-title {
-      margin-bottom: 17px;
-    }
-
-    &-tag#{&}-tag {
-      margin-bottom: 13px;
-    }
-
-    &-short-desc#{&}-short-desc {
-      -webkit-line-clamp: 5; /* Number of lines displayed before it truncate */
-    }
-
     &-date#{&}-date {
-      margin-top: 3px;
+      margin-top: 4px;
+      height: calc(1em + 4px);
+    }
+
+    &-edit#{&}-edit, &-delete#{&}-delete {
+      font-size: 16px;
+      padding: 3px 3px 3px 0;
+      border-width: 2px;
     }
   }
 
@@ -137,98 +146,96 @@
 }
 
 @media only screen and (max-width: 980px) {
-  .container.container {
-    width: 100vw;
-  }
-
-  .article {
-    &-txt#{&}-txt, &-tag#{&}-tag, &-title#{&}-title, &-short-desc#{&}-short-desc, &-txt-bottom#{&}-txt-bottom,
-    &-date#{&}-date, &-img#{&}-img {
-      width: calc(450vw / 9.8);
+  .wrapper.wrapper {
+    .container, .article {
+      width: 100vw;
+      padding: 0;
+      @include inside-box();
     }
 
-    &#{&} {
-      width: calc(940vw / 9.8);
-    }
-
-    &-img#{&}-img {
-      height: calc(281vw / 9.8);
-      margin: calc(12vw / 9.8) 0 calc(12vw / 9.8) calc(12vw / 9.8);
-
-      > div {
-        width: calc(450vw / 9.8);
-        height: calc(281vw / 9.8);
-      }
-    }
-
-    &-txt#{&}-txt {
-      height: calc(233vw / 9.8);
-      margin: calc(14vw / 9.8) calc(14vw / 9.8) calc(8vw / 9.8) calc(14vw / 9.8);
-    }
-
-    &-tag#{&}-tag {
-      font-size: calc(20vw / 9.8);
-      margin-bottom: calc(8vw / 9.8);
-    }
-
-    &-title#{&}-title {
-      font-size: calc(35vw / 9.8);
-      margin-bottom: calc(8vw / 9.8);
-      max-height: calc(80vw / 9.8);
-    }
-
-    &-short-desc#{&}-short-desc {
-      font-size: calc(27vw / 9.8);
-      margin-bottom: calc(2vw / 9.8);
-      -webkit-line-clamp: 4; /* Number of lines displayed before it truncate */
-      height: calc(4em - calc(4vw / 9.8));
-      line-height: calc(1em + calc(1vw / 9.8));
-    }
-
-    hr {
-      margin-top: 0;
-    }
-
-    &-txt-bottom#{&}-txt-bottom {
-      height: calc(35vw / 9.8);
-      margin: 0 calc(14vw / 9.8) calc(14vw / 9.8) calc(14vw / 9.8);
-    }
-
-    &-date#{&}-date {
-      margin-top: calc(4vw / 9.8);
-      font-size: calc(26vw / 9.8);
-      height: calc(1em + calc(4vw / 9.8));
-    }
-
-    &-edit#{&}-edit, &-delete#{&}-delete {
-      font-size: calc(16vw / 9.8);
-      padding: calc(3vw / 9.8) calc(3vw / 9.8) calc(3vw / 9.8) 0;
-      border-width: calc(2vw / 9.8);
-    }
-  }
-
-  .container.container {
-    box-shadow: none;
-
-    .searchH2 {
-      color: #fff;
-      width: calc(869vw / 9.8);
+    .container > hr {
+      width: calc(100vw - calc(30vw / 9.8));
     }
 
     .article {
-      padding: 0;
+      padding: calc(15vw / 9.8) calc(15vw / 9.8) 0 calc(15vw / 9.8);
+      @include flex(column, flex-start, flex-start);
 
-      &-img > div {
-        @include inside-box();
-        border: $white-line;
+      &-img {
+        order: 1;
       }
+
+      &-txt {
+        order: 3;
+
+        &-bottom {
+          order: 2;
+        }
+      }
+
+      &, &-date, &-img, &-img > div, &-title {
+        margin: 0;
+      }
+
+      &-tag, &-txt-bottom hr {
+        display: none;
+      }
+
+      &-img, &-img > div {
+        padding: 0;
+        border-width: 0;
+        $width: calc(950vw / 9.8);
+        width: $width;
+        height: calc(#{$width} / 8 * 5);
+      }
+
+      &-img {
+        @include inside-box();
+        border: calc(1vw / 9.8) solid #fff;
+      }
+
+      &-txt, &-title, &-txt-bottom, &-date {
+        width: calc(950vw / 9.8);
+        height: auto;
+      }
+
+      &-txt, &-txt-bottom, &-short-desc {
+        margin: calc(10vw / 9.8) 0 0 0;
+      }
+
+      &-title {
+        display: block;
+        font-size: calc(38vw / 9.8);
+        @include line-clamp(1);
+      }
+
+      .article-short-desc.article-short-desc.article-short-desc {
+        width: 100%;
+        font-size: calc(34vw / 9.8);
+        $line-height: calc(1em + calc(8vw / 9.8));
+        line-height: $line-height;
+        height: auto;
+        -webkit-line-clamp: 3;
+      }
+
+      &-date {
+        text-align: left;
+        font-size: calc(34vw / 9.8);
+      }
+    }
+  }
+
+  .container.container {
+    .searchH2 {
+      color: #fff;
+      width: calc(869vw / 9.8);
     }
 
     > hr {
       display: block;
       color: #fff;
       width: 85%;
-      border-width: 0 0 calc(2vw / 9.8) 0;
+      border-width: 0 0 calc(1vw / 9.8) 0;
       margin: calc(23vw / 9.8) 0;
       padding: 0;
       &:last-child{
@@ -244,9 +251,9 @@
   .pagination-mobile.pagination-mobile {
     display: block;
     border-color: #fff transparent;
-    padding: calc(11vw / 9.8) 0;
-    margin: calc(20vw / 9.8) 0;
-    background: none;
+    padding: calc(30vw / 9.8) 0;
+    margin: 0;
+    background: $base-color;
     color: #fff;
     font-size: calc(80vw / 9.8);
 
@@ -294,10 +301,6 @@
   }
 }
 
-h1, h3 {
-  margin-top: 0;
-}
-
 .container {
   width: 1250px;
   margin: 0 auto;
@@ -340,7 +343,7 @@ h1, h3 {
     width: 600px;
   }
 
-  &-txt, &-title, &-short-desc {
+  &-tag &-title {
     margin-bottom: 10px;
   }
 
@@ -348,6 +351,8 @@ h1, h3 {
     width: 550px;
     height: 400px;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 20px 0 20px 20px;
 
     > div {
@@ -381,15 +386,15 @@ h1, h3 {
   }
 
   &-txt {
-    height: 330px;
-    margin: 20px;
+    height: 350px;
+    margin: 20px 20px 0 20px;
   }
 
   &-tag {
-    font-size: 15px;
+    height: 27px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 20px;
-    @include flex(row, space-between, center);
+    @include flex(row, space-between, flex-start);
   }
 
   &-edit {
@@ -413,21 +418,25 @@ h1, h3 {
   }
 
   &-title {
-    font-size: 30px;
+    font-size: 32px;
+    $line-height: calc(1em + 2px);
     font-weight: 600;
-    margin-bottom: 30px;
+    line-height: $line-height;
+    height: $line-height;
+    @include line-clamp(1);
+    margin-bottom: 10px;
   }
 
   &-short-desc {
+    font-size: 26px;
+    $line-height: calc(1em + 4px);
+    line-height: $line-height;
+    height: calc(#{$line-height} * 9);
     word-spacing: 2px;
-    font-size: 22px;
     text-align: left;
     word-break: break-word;
     white-space: normal;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 9; /* Number of lines displayed before it truncate */
+    @include line-clamp(9);
   }
 
   &-txt-bottom {

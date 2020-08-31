@@ -1,91 +1,137 @@
 @import "variables.scss";
 
-* {
-  word-break: break-word;
-}
-
-html {
-  box-sizing: border-box;
-}
-
 /* Mobile phone version */
+
+@media only screen and (max-width: 1250px) {
+  .menu-bottom.menu-bottom {
+    padding: 15px calc((100% - 1050px) / 2);
+  }
+
+  .footer.footer {
+    padding: 15px calc((100vw - 1050px) / 2);
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .menu-bottom.menu-bottom {
+    padding: 15px calc((100% - 950px) / 2);
+  }
+
+  .footer.footer {
+    padding: 15px calc((100vw - 950px) / 2);
+  }
+}
 
 @media only screen and (max-width: 980px) {
   .base-body.base-body {
-    background: $base-color;
+      background: $base-color;
 
-    .banner {
-      padding: calc(35vw / 9.8) 0 calc(40vw / 9.8) 0;
-      width: 100vw;
-    }
-
-    .logo {
-      width: calc(760vw / 9.8);
-      height: auto;
+    header {
+      border-bottom: 1px solid #fff;
     }
 
     .menu {
-      width: 100vw;
-      height: auto;
-      min-height: 0;
-      border-bottom: $white-line;
+      &-top {
+        padding: calc(20vw / 9.8) 0;
 
-      > a {
-        margin: 0 calc(20vw / 9.8);
-        height: auto;
-        border-bottom: none;
+        > a {
+          height: calc(100vw / 9.8);
+        }
       }
 
       &-button {
-        @include flex(row, center, center);
-        padding: calc(20vw / 9.8) calc(5vw / 9.8);
-        font-size: calc(36vw / 9.8);
-        height: auto;
+        font-size: calc(34vw / 9.8);
+        padding: calc(5vw / 9.8) 0;
+      }
 
-        > i {
-          margin-right: calc(12vw / 9.8);
+      &-bottom {
+        font-size: calc(34vw / 9.8);
+        padding: calc(15vw / 9.8) calc((100% - calc(920vw / 9.8)) / 2);
+        height: calc(1.1em + calc(45vw / 9.8));
+
+        a {
+          margin: 0 calc(15vw / 9.8);
+
+          &:first-child {
+            margin-left: 0;
+          }
         }
 
-        .icon {
-          &-doc-text-inv, &-search {
-            font-size: calc(37vw / 9.8);
+        &-icons {
+          i::after {
+            animation: none;
           }
 
-          &-home {
-            font-size: calc(43vw / 9.8);
+          i::before {
+            margin: 0;
+          }
+
+          .icon-search {
+            margin-right: calc(10vw / 9.8);
           }
         }
       }
     }
 
     .footer {
-      height: calc(130vw / 9.8);
-      border-top: $white-line;
+      &-desktop, &-desktop * {
+        display: none;
+      }
 
-      > a {
-        &:first-of-type {
-          margin-left: calc(60vw / 9.8);
+      &-mobile {
+        box-sizing: border-box;
+        height: auto;
+        padding: calc(20vw / 9.8);
+        border-top: 1px solid #fff;
+        @include flex(row, space-around, center);
+
+        & * {
+          display: block;
         }
 
-        &:last-of-type {
-          margin-right: calc(60vw / 9.8);
+        a {
+          outline: none;
+        }
+
+        > a, img {
+          width: calc(300vw / 9.8);
+          height: auto;
+          margin: 0;
         }
       }
 
-      &-logo, &-contact {
-        width: calc(300vw / 9.8);
-      }
+      &-social-media {
+        font-size: calc(50vw / 9.8);
+        width: calc(1em + 6.4px);
 
-      .icon-facebook-squared {
-        font-size: calc(60vw / 9.8);
+        > a {
+          color: #fff;
+          transition: color 300ms;
+
+          &:active {
+            color: $fb-blue;
+          }
+        }
       }
     }
   }
 }
 
+* {
+  word-break: break-word;
+}
+
+html, nav {
+  @include inside-box();
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
 /* Common values */
 
-html, body, header, .banner, nav, main, footer {
+html, body, header, main, footer {
   width: 100vw;
 }
 
@@ -109,14 +155,12 @@ body {
   flex-shrink: 0;
 }
 
-body::-webkit-scrollbar-thumb, .banner, nav, footer {
+body::-webkit-scrollbar-thumb, header, footer {
   background: $base-color;
 }
 
-a, .logo, .footer-logo, .menu-button {
-  &:hover {
-    cursor: pointer;
-  }
+* a:hover {
+  cursor: pointer;
 }
 
 /* Html, body and hyperlinks style */
@@ -131,13 +175,13 @@ body {
 
   &::-webkit-scrollbar {
     width: 5px;
-    background: #fff;
+    background: transparent;
 
     &-thumb {
       outline: none;
     }
 
-    &-track {
+    &-track, &-track-piece {
       background: transparent;
     }
   }
@@ -149,77 +193,123 @@ a {
 
 /* Header style */
 
-.banner {
-    padding: 20px 0;
+header {
+  @include flex(column, flex-start, center);
+}
 
-    .logo {
+.menu {
+  width: 100%;
+  $menu: &;
+  flex-wrap: wrap;
+  @include inside-box();
+  $font-size: 28px;
+  font-size: $font-size;
+
+  &-top {
+    @include flex(row, center, center);
+    border-bottom: 1px solid #fff;
+    padding: 15px 0;
+    height: auto;
+
+    #{$menu}-logo {
+      height: 100%;
+      width: auto;
+      padding: 0;
+    }
+
+    > a {
       display: block;
-      width: 600px;
-      height: auto;
-      margin: 0 auto 0 auto;
+      height: 80px;
     }
   }
 
-.menu {
-  @include flex(row, center, flex-start);
-  flex-wrap: wrap;
-  border-top: $white-line;
-  height: 74px;
-  $menu: &;
+  &-bottom {
+    @include flex(row, space-between, flex-start);
+    padding: 15px calc((100% - 1220px) / 2);
+    height: calc(1.1em + 40px);
 
-  > a {
-    padding: 0;
-    height: 72px;
-    margin: 0 30px;
-    transition: border 300ms;
+    a {
+      height: auto;
 
-    &:hover {
-      border-bottom: 2px solid $menu-hover-color;
+      #{$menu}-button {
+        @include flex(row, center, center);
+        padding: 5px 0;
+        font-size: $font-size;
+        line-height: 1.1em;
+        height: 1.1em;
+        display: block;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-weight: 500;
+        color: #fff;
+      }
     }
 
-    &:active {
-      border-bottom: 2px solid $menu-active-color;
+    > div {
+      @include flex(row, flex-start, flex-start);
     }
 
-    #{$menu}-button {
-      margin: 0;
-      padding: 0 6px 0 0;
-      display: block;
-      border: none;
-      outline: none;
-      background: none;
-      @include flex(row, center, center);
-      font-weight: 500;
-      font-size: 30px;
-      height: 72px;
-      color: #fff;
-      transition: color 300ms;
+    &-buttons {
+      a {
+        margin: 0 15px;
+        padding: 0;
 
-      > i {
-        margin-right: 6px;
-      }
-
-      &:hover {
-        color: $menu-hover-color;
-      }
-
-      &:active {
-        color: $menu-active-color;
-      }
-
-      .icon {
-        &-home {
-          font-size: 35px;
+        &:after {
+          content: '';
+          display: block;
+          border-bottom: $white-line;
+          transform: scaleX(0);
+          transition: transform 250ms ease-in-out;
         }
 
-        &-doc-text-inv{
-          font-size: 27px;
+        &:hover:after {
+          transform: scaleX(1);
         }
 
-        &-search {
-          font-size: 31px;
+        &:first-child {
+          margin-left: 0;
         }
       }
+    }
+
+    &-icons {
+      i {
+        &::before {
+          margin: 0 8px 0 0;
+        }
+      }
+
+      .icon-search {
+        margin-right: 10px;
+        width: 1em;
+
+        &::after {
+          content: '';
+          font-style: normal;
+          display: inline-block;
+        }
+
+        &:hover::after {
+          animation: search-button-show 240ms forwards linear;
+        }
+      }
+
+      .icon-user-3 {
+        &::after {
+          content: '';
+          font-style: normal;
+          display: inline-block;
+        }
+
+        &:hover::after {
+          animation: admin-button-show 200ms forwards linear;
+        }
+      }
+    }
+
+    a {
+      height: 1.1em;
     }
   }
 }
@@ -227,43 +317,137 @@ a {
 /* Footer style */
 
 .footer {
-  @include flex(row, space-around, center);
-  height: 103px;
-  padding: 0;
   clear: both;
-  $footer: &;
+  color: #fff;
+  background: $base-color;
 
-  > a {
-    @include flex(row, flex-start, center);
-    height: 56px;
-
-    &:first-of-type {
-      margin-left: 40px;
-    }
-
-    &:last-of-type {
-      margin-right: 40px;
-    }
-
-    #{$footer}-contact, #{$footer}-logo {
-      width: 250px;
-      height: auto;
+  &-mobile {
+    &, & * {
+      display: none;
     }
   }
 
-  #{&}-social-media {
-    @include flex(row, flex-start, center);
+  &-desktop {
+    @include inside-box();
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    padding: 15px calc((100vw - 1220px) / 2);
+    font-size: 20px;
+    line-height: 1em;
+    font-family: $main-font;
 
-    > a {
+    a {
       color: #fff;
-      transition: 300ms;
+    }
 
-      > .icon-facebook-squared {
-        font-size: 40px;
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    nav {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+
+      a i {
+        transition: background 400ms;
+      }
+    }
+
+    nav:first-child {
+      a > h2 {
+        padding: 0 15px;
+        border-right: $white-line;
+        display: block;
+      }
+
+      a > h2 {
+        transition: color 400ms;
+
+        &:hover {
+          color: #aaa;
+          border-color: #fff;
+        }
+      }
+
+      .icon-search {
+        width: auto;
+        font-size: 18px;
+
+        &::before {
+          margin: 0;
+          padding-bottom: 5px;
+        }
+      }
+
+      a:last-child > h2 {
+        border-right: none;
+      }
+    }
+
+    &-logo, &-logo > img {
+      width: auto;
+      height: 1.4em;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    &-contact, &-contact > h2, &-about-us, &-about-us > h2 {
+      width: auto;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    nav:nth-child(2) a {
+      color: #fff;
+      margin: 0 0 0 10px;
+
+      &, h2, i {
+        height: 36px;
+        width: 36px;
+        @include flex(row, center, center);
+      }
+
+      i {
+        border-radius: 50%;
+
+        &::before {
+          margin: 0;
+        }
+      }
+
+      i {
+        font-size: 24px;
+      }
+
+      .icon-instagram {
+        z-index: 1;
+        @include ig-gradient(background, to top);
+
+        &::before {
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          z-index: 2;
+          background: $base-color;
+          transition: background 400ms;
+          margin: 0;
+          @include flex(row, center, center);
+        }
       }
 
       &:hover {
-        color: $fb-blue;
+        .icon-facebook-squared {
+          background: $fb-blue;
+        }
+
+        .icon-twitter {
+          background: $twitter-blue;
+        }
+
+        .icon-instagram::before {
+          background: transparent;
+        }
       }
     }
   }

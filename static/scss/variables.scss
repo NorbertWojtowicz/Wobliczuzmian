@@ -1,16 +1,66 @@
-$base-color: #161616;
 $main-font: 'Arial', serif;
+$base-color: #161616;
 $menu-hover-color: #fff;
 $menu-active-color: #ddd;
 $fb-blue: #4267b2;
+$twitter-blue: #1DA1F2;
+$gmail-red: #D44638;
+$gmail-brown: #B23121;
+$ig-yellow: #ffdc7d;
+$ig-orange: #f46f30;
+$ig-pink: #c32aa3;
+$ig-purple: #7232bd;
+$ig-blue: #4c5fd7;
 $hover-shadow: rgba(0, 0, 0, 0.3);
 $white-line: 2px solid #fff;
+
+@mixin ig-gradient($property, $direction) {
+  #{$property}: linear-gradient($direction, $ig-yellow, $ig-orange, $ig-pink, $ig-purple, $ig-blue);
+}
 
 @mixin flex($direction, $justify, $align){
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+@mixin line-clamp($number-of-lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $number-of-lines;
+}
+
+@keyframes search-button-show {
+  0% { content: ''; width: 0; }
+  8% { width: 0.5em; }
+  16% { content: 'S'; width: 1em; }
+  24% { width: 1.25em; }
+  32% { content: 'Sz'; width: 1.5em; }
+  40% { width: 1.75em; }
+  48% { content: 'Szu'; width: 2em; }
+  56% { width: 2.25em; }
+  64% { content: 'Szuk'; width: 2.5em; }
+  72% { width: 2.75em; }
+  80% { content: 'Szuka'; width: 3em; }
+  90% { width: 3.25em; }
+  100% { content: 'Szukaj'; width: 3.5em; }
+}
+
+@keyframes admin-button-show {
+  0% { content: ''; width: 0; }
+  10% { content: ''; width: 0.5em; }
+  20% { content: 'K'; width: 1em; }
+  30% { width: 1.25em; }
+  40% { content: 'Ko'; width: 1.5em; }
+  50% { width: 1.85em; }
+  60% { content: 'Kon'; width: 2em; }
+  70% { width: 2.25em; }
+  80% { content: 'Kont'; width: 2.5em; }
+  90% { width: 2.75em; }
+  100% { content: 'Konto'; width: 3em; }
 }
 
 @mixin container-shadowbox() {
